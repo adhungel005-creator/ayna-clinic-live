@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayna – The Skin, Hair and Laser Clinic</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for Brand Theme */
+        :root {
+            --primary-green: #6DBE45;
+            --dark-green: #4A9A2A;
+            --gold-accent: #C89B3C;
+            --bg-color: #FFFFFF;
+            --bg-alt: #F8F8F8;
+            --text-color: #555555;
+            --text-dark: #333333;
+        }
+
+        /* Basic Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gold-accent);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--gold-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-green);
+        }
+
+        .logo img {
+            height: 50px; 
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: var(--gold-accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--dark-green);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            /* Added white overlay and connected the reception area image */
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('viber_image_2025-01-04_11-43-17-438.jpg') center/cover;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--bg-alt);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image video {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-color);
+            padding: 40px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--gold-accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            color: var(--gold-accent);
+        }
+
+        .service-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Doctor Profile */
+        .doctor {
+            background-color: var(--bg-alt);
+        }
+
+        .doctor-card {
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Connected Dr. Baaniya's photo here */
+        .doctor-img {
+            flex: 1;
+            min-height: 400px;
+            background: url('274863845_110892188200818_7880054988556601557_n.jpg') center/cover; 
+        }
+
+        .doctor-info {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .doctor-info h3 {
+            color: var(--dark-green);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .doctor-info h4 {
+            color: var(--gold-accent);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--bg-color);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-alt);
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .testimonial-card i {
+            color: var(--primary-green);
+            opacity: 0.2;
+            font-size: 3rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: var(--dark-green);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--bg-alt);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            padding: 30px;
+            background: var(--dark-green);
+            color: #fff;
+            border-radius: 15px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--gold-accent);
+            margin-right: 20px;
+            width: 30px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #fff;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--gold-accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            font-size: 0.9rem;
+            color: #aaa;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-grid, .contact-wrapper, .doctor-card {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            .doctor-img {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                width: 100%;
+                background-color: var(--bg-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                gap: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <!-- Connected Ayna Logo -->
+                <img src="viber_image_2025-02-01_14-25-46-907.png" alt="Ayna Clinic Logo">
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#doctor">Doctor</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Ayna – The Skin, Hair & Laser Clinic</h1>
+            <p>Enhancing Natural Beauty with Expert Care</p>
+            <a href="#contact" class="btn">Book Appointment</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-subtitle">Discover the science of natural beauty</p>
+            
+            <div class="about-grid">
+                <div class="about-image">
+                    <!-- Connected the clinic treatment video -->
+                    <video autoplay loop muted playsinline>
+                        <source src="0-02-03-192aeb0b33622d915304e77846728b276725af2fa3ebec2344763c9faeb661d1_ac157ebd9f9e0722.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="about-text">
+                    <p>Ayna – The Skin, Hair and Laser Clinic is a modern dermatology and aesthetic care center dedicated to enhancing natural beauty through safe, effective, and personalized treatments. Located in Rangeli Road, Biratnagar, our clinic combines advanced medical technology with a patient-centered approach to deliver high-quality skin, hair, and laser solutions.</p>
+                    <p>At Ayna, we believe that healthy skin and hair are essential not only for appearance but also for confidence and overall well-being. Our goal is to provide treatments that are scientifically proven, minimally invasive, and tailored to the unique needs of each individual.</p>
+                    <p>Led by Dr. Bibisha Baaniya, a qualified and experienced dermatologist, the clinic offers expert diagnosis and treatment for a wide range of skin and hair conditions. Dr. Baaniya is committed to staying updated with the latest advancements in dermatology and aesthetic medicine, ensuring that patients receive modern, safe, and effective care.</p>
+                    <p>Our services include advanced skin treatments, hair restoration therapies, laser procedures, acne and scar management, and anti-aging solutions. We use high-quality equipment and follow strict hygiene and safety protocols to ensure the best outcomes for our patients.</p>
+                    <p>What sets Ayna apart is our personalized approach. We take the time to understand each patient’s concerns, educate them about their condition, and design customized treatment plans that deliver natural-looking results.</p>
+                    <p>Whether you are seeking medical dermatology care or aesthetic enhancement, Ayna Clinic is committed to helping you look and feel your best with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive care for your skin and hair</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-spa service-icon"></i>
+                    <h3>Skin Treatment</h3>
+                    <p>Advanced diagnostic and therapeutic care for various skin conditions, ensuring healthy and glowing skin.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cut service-icon"></i>
+                    <h3>Hair Treatment</h3>
+                    <p>Effective hair restoration therapies to combat hair loss and improve scalp health.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-magic service-icon"></i>
+                    <h3>Laser Treatment</h3>
+                    <p>State-of-the-art laser technology for hair removal, pigmentation, and skin rejuvenation.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-band-aid service-icon"></i>
+                    <h3>Acne & Scar Treatment</h3>
+                    <p>Targeted solutions to clear acne and minimize scarring for a smooth complexion.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-leaf service-icon"></i>
+                    <h3>Anti-aging Solutions</h3>
+                    <p>Minimally invasive treatments to reduce wrinkles and restore youthful volume.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor Profile Section -->
+    <section id="doctor" class="doctor">
+        <div class="container">
+            <h2 class="section-title">Meet Our Expert</h2>
+            <p class="section-subtitle">Expert care you can trust</p>
+
+            <div class="doctor-card">
+                <div class="doctor-img"></div>
+                <div class="doctor-info">
+                    <h3>Dr. Bibisha Baaniya</h3>
+                    <h4>Dermatologist</h4>
+                    <p>Dr. Baaniya is a qualified and experienced dermatologist dedicated to providing expert diagnosis and treatment for a wide array of skin and hair conditions. Committed to the latest advancements in aesthetic medicine, she ensures that every patient receives personalized, safe, and effective care tailored to their unique needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Patient Experiences</h2>
+            <p class="section-subtitle">What our clients say about us</p>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>"The care I received at Ayna Clinic was exceptional. Dr. Baaniya took the time to explain my treatment plan thoroughly. My skin has never looked better!"</p>
+                    <h4 class="client-name">- Priya S.</h4>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>"I highly recommend the laser treatments here. The clinic is incredibly clean, professional, and the results have boosted my confidence immensely."</p>
+                    <h4 class="client-name">- Ankit M.</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">We are here to help you</p>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Rangeli Road, Biratnagar, Nepal</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+977 9800000000 <br><small>(Replace with actual number)</small></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@aynaclinic.com <br><small>(Replace with actual email)</small></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Sun - Fri: 10:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="appointmentForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" style="width:100%; padding:15px; border:1px solid #ddd; border-radius:8px; font-family:'Poppins', sans-serif; color:#555;">
+                            <option value="">Select a Service</option>
+                            <option value="skin">Skin Treatment</option>
+                            <option value="hair">Hair Treatment</option>
+                            <option value="laser">Laser Treatment</option>
+                            <option value="consultation">General Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder="Any specific concerns?"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Request Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>&copy; 2026 Ayna – The Skin, Hair and Laser Clinic. All rights reserved.</p>
+            <div class="footer-bottom">
+                Designed for natural beauty.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        const links = document.querySelectorAll('.nav-links li a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.querySelector('i').classList.remove('fa-times');
+                mobileMenu.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Sticky Header effect on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                header.style.padding = '5px 0';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+                header.style.padding = '0';
+            }
+        });
+
+        // Form Validation / Submission Alert
+        const form = document.getElementById('appointmentForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            const name = document.getElementById('name').value;
+            alert(`Thank you, ${name}! Your appointment request has been submitted. Our team will contact you shortly.`);
+            form.reset();
+        });
+    </script>
+</body>
+</html>
