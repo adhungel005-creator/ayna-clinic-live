@@ -695,12 +695,41 @@
 
         // Form Validation / Submission Alert
         const form = document.getElementById('appointmentForm');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault(); 
-            const name = document.getElementById('name').value;
-            alert(`Thank you, ${name}! Your appointment request has been submitted. Our team will contact you shortly.`);
-            form.reset();
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        // Gather the data from the inputs
+        const appointmentData = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            service: document.getElementById('service').value,
+            message: document.getElementById('message').value
+        };
+
+        // Send the data to the Django Backend
+        fetch('http://127.0.0.1:8000/api/book-appointment/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(appointmentData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.status === 'success') {
+                alert(data.message);
+                form.reset(); // Clear the form on success
+            } else {
+                alert("There was an error booking your appointment. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Server error. Please check if Django is running.");
         });
+    });
+       
     </script>
 </body>
 </html>
