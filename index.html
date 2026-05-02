@@ -708,27 +708,39 @@
         };
 
         // Send the data to the Django Backend
-        fetch('http://127.0.0.1:8000/api/book-appointment/', {
+      // Replace your old local URL with this new Render URL
+const API_URL = "https://ayna-backend-mip8.onrender.com/appointments/appointment/"; 
+
+async function bookAppointment(event) {
+    event.preventDefault();
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        date: document.getElementById('date').value,
+        message: document.getElementById('message').value
+    };
+
+    try {
+        const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                // This is important for Django security
+                'X-CSRFToken': getCookie('csrftoken') 
             },
-            body: JSON.stringify(appointmentData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.status === 'success') {
-                alert(data.message);
-                form.reset(); // Clear the form on success
-            } else {
-                alert("There was an error booking your appointment. Please try again.");
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("Server error. Please check if Django is running.");
+            body: JSON.stringify(formData)
         });
-    });
+
+        if (response.ok) {
+            alert("Appointment submitted successfully to Ayna Clinic!");
+        } else {
+            alert("Something went wrong. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
        
     </script>
 </body>
