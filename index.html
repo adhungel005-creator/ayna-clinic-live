@@ -695,22 +695,6 @@
 
         // Form Validation / Submission Alert
         const form = document.getElementById('appointmentForm');
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); 
-        
-        // Gather the data from the inputs
-        const appointmentData = {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            service: document.getElementById('service').value,
-            message: document.getElementById('message').value
-        };
-
-        // Send the data to the Django Backend
-      // Replace your old local URL with this new Render URL
- // Form Validation / Submission Alert
-        const form = document.getElementById('appointmentForm');
         const API_URL = "https://ayna-backend-mip8.onrender.com/appointments/appointment/";
 
         form.addEventListener('submit', async function(e) {
@@ -724,6 +708,8 @@
                 message: document.getElementById('message').value
             };
 
+            console.log("Sending data to:", API_URL);
+
             try {
                 const response = await fetch(API_URL, {
                     method: 'POST',
@@ -735,17 +721,17 @@
 
                 if (response.ok) {
                     alert("Appointment submitted successfully to Ayna Clinic!");
-                    form.reset(); // Clears the form after success
+                    form.reset(); 
                 } else {
                     const errorData = await response.json();
                     console.error("Server Error:", errorData);
-                    alert("Something went wrong on the server. Please try again.");
+                    alert("Something went wrong on the server. Please check the console.");
                 }
             } catch (error) {
                 console.error("Network Error:", error);
-                alert("Could not connect to the server. Please check your internet.");
+                alert("Could not connect to the server. Is the backend live?");
             }
-        }); // This closing bracket was missing!
+        }); 
     </script>
 </body>
 </html>
