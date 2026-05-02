@@ -709,39 +709,43 @@
 
         // Send the data to the Django Backend
       // Replace your old local URL with this new Render URL
-const API_URL = "https://ayna-backend-mip8.onrender.com/appointments/appointment/"; 
+ // Form Validation / Submission Alert
+        const form = document.getElementById('appointmentForm');
+        const API_URL = "https://ayna-backend-mip8.onrender.com/appointments/appointment/";
 
-async function bookAppointment(event) {
-    event.preventDefault();
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        date: document.getElementById('date').value,
-        message: document.getElementById('message').value
-    };
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-    try {
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                // This is important for Django security
-                'X-CSRFToken': getCookie('csrftoken') 
-            },
-            body: JSON.stringify(formData)
-        });
+            // Gather the data from the inputs
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
 
-        if (response.ok) {
-            alert("Appointment submitted successfully to Ayna Clinic!");
-        } else {
-            alert("Something went wrong. Please try again.");
-        }
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
-       
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert("Appointment submitted successfully to Ayna Clinic!");
+                    form.reset(); // Clears the form after success
+                } else {
+                    const errorData = await response.json();
+                    console.error("Server Error:", errorData);
+                    alert("Something went wrong on the server. Please try again.");
+                }
+            } catch (error) {
+                console.error("Network Error:", error);
+                alert("Could not connect to the server. Please check your internet.");
+            }
+        }); // This closing bracket was missing!
     </script>
 </body>
 </html>
