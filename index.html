@@ -26,10 +26,10 @@
         nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
         .logo img { height: 60px; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;}
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; }
         .nav-links a:hover { color: var(--primary-green); }
 
-        /* General Section Styling */
+        /* General Sections */
         section { padding: 90px 0; }
         .section-title { text-align: center; color: var(--dark-green); font-size: 2.5rem; margin-bottom: 10px; }
         .section-subtitle { text-align: center; color: var(--gold-accent); font-weight: 600; letter-spacing: 1px; margin-bottom: 50px; text-transform: uppercase; }
@@ -69,6 +69,7 @@
         .contact-info a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: 0.3s; }
         .contact-info a:hover { color: var(--primary-green); }
         .contact-info iframe { width: 100%; height: 250px; border: none; margin-top: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
         .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
 
         /* Testimonials */
@@ -77,40 +78,45 @@
         .testimonial-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
         .testimonial { background: white; padding: 25px; max-width: 400px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 4px solid var(--gold-accent); text-align: left; }
         .testimonial p { font-style: italic; margin: 10px 0; color: #555; }
+        .testimonial span { font-weight: 700; color: var(--dark-green); }
 
-        /* Integrated Dual Sticky CTA */
+        /* Dual Sticky CTAs */
         .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
         .sticky-cta a { padding: 15px 25px; border-radius: 50px; color: white; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s; }
         .sticky-cta a:hover { transform: translateY(-5px); }
         .cta-call { background: var(--dark-green); }
         .cta-wa { background: #25d366; }
 
-        #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; }
+        #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .sticky-cta { bottom: 15px; right: 15px; flex-direction: column; gap: 10px; }
+            .sticky-cta a { padding: 12px 20px; font-size: 0.9rem; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Sticky CTAs -->
+    <!-- Dual Sticky CTAs -->
     <div class="sticky-cta">
         <a href="tel:+9779767797950" class="cta-call"><i class="fas fa-phone-alt"></i> Call Now</a>
         <a href="https://wa.me/9779767797950" class="cta-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
 
-    <!-- Navigation -->
     <header>
         <nav class="container">
             <div class="logo"><img src="ayna.jpg" alt="Ayna Logo"></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Ayna</a></li>
-                <li><a href="#doctor">Our Doctor</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#doctor">Doctor</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Book Now</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <h1>Transforming Skin & Hair <br>With <span style="color:var(--gold-accent);">Clinical Excellence.</span></h1>
@@ -124,7 +130,6 @@
         <div class="container">
             <div class="flex-layout">
                 <div class="flex-image">
-                    <!-- Placeholder for clinic interior/reception -->
                     <img src="ayna.jpg" style="box-shadow: -15px 15px 0 var(--primary-green);" alt="Ayna Clinic Setup">
                 </div>
                 <div class="flex-text">
@@ -198,11 +203,13 @@
         </div>
     </section>
 
-    <!-- Contact & Booking Section -->
+    <!-- High-Conversion Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">Book Your Consultation</h2>
-            <p class="section-subtitle">Secure your slot with our experts</p>
+            <div class="contact-header">
+                <h2 class="section-title">Book Your Consultation</h2>
+                <p class="section-subtitle" style="margin-bottom: 0;">GET EXPERT SKIN & HAIR TREATMENT FROM AYNA CLINIC</p>
+            </div>
 
             <div class="contact-container">
                 <!-- LEFT: CONTACT INFO -->
@@ -226,10 +233,10 @@
                         
                         <select id="service" required>
                             <option value="">Select Service</option>
-                            <option value="skin">Skin Treatment</option>
-                            <option value="hair">Hair Treatment</option>
-                            <option value="laser">Laser Therapy</option>
-                            <option value="consultation">General Consultation</option>
+                            <option value="Skin Treatment">Skin Treatment</option>
+                            <option value="Hair Treatment">Hair Treatment</option>
+                            <option value="Laser Therapy">Laser Therapy</option>
+                            <option value="General Consultation">General Consultation</option>
                         </select>
 
                         <input type="date" id="date" required>
@@ -242,19 +249,19 @@
                 </div>
             </div>
 
-            <!-- Integrated Testimonials -->
+            <!-- Testimonials -->
             <div class="testimonials">
                 <h3>What Our Clients Say</h3>
                 <div class="testimonial-grid">
                     <div class="testimonial">
                         <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
                         <p>"My skin improved in just 2 sessions. Highly recommended! Dr. Baaniya was incredibly thorough."</p>
-                        <span style="font-weight: 700; color: var(--dark-green);">- Priya K.</span>
+                        <span>- Priya K.</span>
                     </div>
                     <div class="testimonial">
                         <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
                         <p>"Professional service and great results. The laser treatment was painless and effective."</p>
-                        <span style="font-weight: 700; color: var(--dark-green);">- Ramesh S.</span>
+                        <span>- Ramesh S.</span>
                     </div>
                 </div>
             </div>
@@ -262,10 +269,10 @@
     </section>
 
     <footer style="background:#1a1a1a; color:rgba(255,255,255,0.7); padding:40px 0; text-align:center;">
-        <p>&copy; 2026 Ayna Clinic. Professional Dermatology Care You Can Trust.</p>
+        <p>&copy; 2026 Ayna Clinic. Professional Care You Can Trust.</p>
     </footer>
 
-    <!-- Backend Integration Script -->
+    <!-- Form Backend Logic -->
     <script>
         const form = document.getElementById('bookingForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -277,7 +284,7 @@
             submitBtn.disabled = true;
             submitBtn.innerText = "Processing...";
 
-            // Combine the new date field into the message payload so the backend accepts it
+            // Merging the Date field into the Message field to safely pass to the Django backend
             const preferredDate = document.getElementById('date').value;
             const userMessage = document.getElementById('message').value;
             const combinedMessage = `Preferred Date: ${preferredDate} | Note: ${userMessage}`;
@@ -299,8 +306,8 @@
                 if (response.ok) {
                     successMsg.style.display = "block";
                     form.reset();
-                    // Hide success message after 5 seconds
-                    setTimeout(() => { successMsg.style.display = "none"; }, 5000);
+                    // Hide success message after 7 seconds
+                    setTimeout(() => { successMsg.style.display = "none"; }, 7000);
                 } else { 
                     alert("Submission failed. Try WhatsApp for instant booking."); 
                 }
