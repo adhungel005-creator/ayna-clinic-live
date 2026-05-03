@@ -58,6 +58,12 @@
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(109, 190, 69, 0.15); }
         .service-card h4 { color: var(--dark-green); font-size: 1.2rem; margin-bottom: 10px; }
 
+        /* Video Showcase Area */
+        .video-showcase { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
+        .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid white; position: relative; background: #000; }
+        .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.95; transition: 0.3s; }
+        .video-wrapper:hover video { opacity: 1; transform: scale(1.02); }
+
         /* Integrated Contact Section */
         .contact-section { background: var(--bg-premium); }
         .contact-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1100px; margin: 0 auto; }
@@ -110,8 +116,8 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#doctor">Doctor</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#showcase">Gallery</a></li>
                 <li><a href="#contact">Book Now</a></li>
             </ul>
         </nav>
@@ -198,6 +204,34 @@
                 <div class="service-card">
                     <h4><i class="fas fa-burn" style="color:var(--gold-accent);"></i> Warts & Skin Tags</h4>
                     <p>Safe removal using Radio/Electrocautery and Chemical Cautery treatments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Video Showcase Section -->
+    <section id="showcase" style="background: var(--bg-alt);">
+        <div class="container">
+            <h2 class="section-title">Clinic In Action</h2>
+            <p class="section-subtitle">Precision Treatments by Dr. Baaniya</p>
+            
+            <div class="video-showcase">
+                <!-- Video 1 -->
+                <div class="video-wrapper">
+                    <!-- Make sure to change 'treatment1.mp4' to your actual file name -->
+                    <video autoplay loop muted playsinline>
+                        <source src="treatment1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-wrapper">
+                    <!-- Make sure to change 'treatment2.mp4' to your actual file name -->
+                    <video autoplay loop muted playsinline>
+                        <source src="treatment2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
