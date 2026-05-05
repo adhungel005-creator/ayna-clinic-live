@@ -53,10 +53,13 @@
         .about-list i { color: var(--primary-green); }
 
         /* Services Grid */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .service-card { background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-green); transition: 0.3s; }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(109, 190, 69, 0.15); }
-        .service-card h4 { color: var(--dark-green); font-size: 1.2rem; margin-bottom: 10px; }
+        .service-card h4 { color: var(--dark-green); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;}
+        .service-card ul { list-style: none; font-size: 0.9rem; margin-top: 10px; }
+        .service-card li { margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+        .service-card li::before { content: "•"; color: var(--gold-accent); font-weight: bold; }
 
         /* Video Showcase Area */
         .video-showcase { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
@@ -126,7 +129,7 @@
     <section id="home" class="hero">
         <div class="container">
             <h1>Transforming Skin & Hair <br>With <span style="color:var(--gold-accent);">Clinical Excellence.</span></h1>
-            <p style="font-size: 1.3rem; margin: 20px 0 35px; max-width: 650px;">Trusted by 500+ patients in Biratnagar. Book your professional consultation with <strong>Dr. Bibisha Baaniya</strong> today.</p>
+            <p style="font-size: 1.3rem; margin: 20px 0 35px; max-width: 650px;">Trusted by 5000+ patients in Biratnagar. Book your professional consultation with <strong>Dr. Bibisha Baaniya</strong> today.</p>
             <a href="#contact" class="btn-premium btn-inline">Book Priority Consultation</a>
         </div>
     </section>
@@ -182,55 +185,73 @@
             
             <div class="services-grid">
                 <div class="service-card">
-                    <h4><i class="fas fa-magic" style="color:var(--gold-accent);"></i> Laser Therapy</h4>
-                    <p>Advanced Diode Laser for hair removal and Pico Laser for tattoo and freckle removal.</p>
+                    <h4>Hydrafacial</h4>
+                    <ul>
+                        <li>Basic Hydrafacial</li>
+                        <li>Hydrapeel</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <h4><i class="fas fa-spa" style="color:var(--gold-accent);"></i> Skin Rejuvenation</h4>
-                    <p>Hydrafacial, Chemical Peels, and Botox to restore youthful glow and treat melasma.</p>
+                    <h4>Chemical Peel</h4>
+                    <ul>
+                        <li>Sesglicopeel (with Retinol Seal)</li>
+                        <li>Azelac M peel (with Retinol Seal)</li>
+                        <li>Nomelan Fenol peel</li>
+                        <li>Hollywood Laser Peel</li>
+                        <li>Party / Lip / Periorbital Peel</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <h4><i class="fas fa-cut" style="color:var(--gold-accent);"></i> Hair Restoration</h4>
-                    <p>Clinical PRP and GFC therapies designed to stop hair fall and promote regrowth.</p>
+                    <h4>Hair Removal Laser</h4>
+                    <ul>
+                        <li>Face, Neck, & Underarms</li>
+                        <li>Hands, Legs, & Chest</li>
+                        <li>Abdomen & Bikini</li>
+                        <li>Full Body Packages</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <h4><i class="fas fa-band-aid" style="color:var(--gold-accent);"></i> Acne & Scar Revision</h4>
-                    <p>Microneedling and surgical scar revision to clear deep pits and acne marks.</p>
+                    <h4>Anti-Aging Treatment</h4>
+                    <ul>
+                        <li>HIFU (Full Face / Half Face)</li>
+                        <li>Botox (per unit)</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <h4><i class="fas fa-microscope" style="color:var(--gold-accent);"></i> Clinical Procedures</h4>
-                    <p>Punch Biopsy, Excision of cysts/moles, Dermoscopy, and Photo Therapy.</p>
+                    <h4>Microneedling & CO2</h4>
+                    <ul>
+                        <li>Basic CO2 Laser</li>
+                        <li>CO2 with Exosome</li>
+                        <li>Microneedling with PRP / Exosome</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <h4><i class="fas fa-burn" style="color:var(--gold-accent);"></i> Warts & Skin Tags</h4>
-                    <p>Safe removal using Radio/Electrocautery and Chemical Cautery treatments.</p>
+                    <h4>Tattoo & Hair Treatment</h4>
+                    <ul>
+                        <li>Tattoo Removal (Small/Medium/Large)</li>
+                        <li>PRP & iPRF Treatment</li>
+                        <li>GFC Treatment</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW: Video Showcase Section -->
+    <!-- Video Showcase Section -->
     <section id="showcase" style="background: var(--bg-alt);">
         <div class="container">
             <h2 class="section-title">Clinic In Action</h2>
             <p class="section-subtitle">Precision Treatments by Dr. Baaniya</p>
             
             <div class="video-showcase">
-                <!-- Video 1 -->
                 <div class="video-wrapper">
-                    <!-- Make sure to change 'treatment1.mp4' to your actual file name -->
                     <video autoplay loop muted playsinline>
                         <source src="treatment1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
                     </video>
                 </div>
-                
-                <!-- Video 2 -->
                 <div class="video-wrapper">
-                    <!-- Make sure to change 'treatment2.mp4' to your actual file name -->
                     <video autoplay loop muted playsinline>
                         <source src="treatment2.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
@@ -249,13 +270,13 @@
                 <!-- LEFT: CONTACT INFO -->
                 <div class="contact-info">
                     <h3>Contact Details</h3>
-                    <p><i class="fas fa-map-marker-alt" style="color:var(--gold-accent);"></i> Rangeli Road, Biratnagar</p>
+                    <p><i class="fas fa-map-marker-alt" style="color:var(--gold-accent);"></i> <a href="https://maps.app.goo.gl/epaLckbhJ14rBDSd6" target="_blank">Rangeli Road, Biratnagar</a></p>
                     <p><i class="fas fa-phone-alt" style="color:var(--primary-green);"></i> <a href="tel:+9779767797950">+977 9767797950</a></p>
                     <p><i class="fab fa-whatsapp" style="color:#25d366; font-size: 1.2rem;"></i> <a href="https://wa.me/9779767797950" target="_blank">Chat on WhatsApp</a></p>
-                    <p><i class="fas fa-clock" style="color:var(--dark-green);"></i> Open: 10 AM – 6 PM (Sun–Fri)</p>
+                    <p><i class="fas fa-clock" style="color:var(--dark-green);"></i> Sun-Fri: 9:30 AM – 6 PM<br>Sat: 9:30 AM – 1 PM</p>
 
                     <!-- Google Map -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.034562095346!2d87.283186!3d26.454477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef7446ff360e21%3A0x6406e93910c2423!2sBiratnagar!5e0!3m2!1sen!2snp!4v1714710000000!5m2!1sen!2snp" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.0463378519965!2d87.2833182!3d26.4542938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef7446ff360e21%3A0x6406e93910c2423!2sAyna%20The%20Skin%2C%20Hair%20%26%20Laser%20Clinic!5e0!3m2!1sen!2snp!4v1714710000000!5m2!1sen!2snp" loading="lazy"></iframe>
                 </div>
 
                 <!-- RIGHT: BOOKING FORM -->
@@ -267,9 +288,12 @@
                         
                         <select id="service" required>
                             <option value="">Select Service</option>
-                            <option value="Skin Treatment">Skin Treatment</option>
-                            <option value="Hair Treatment">Hair Treatment</option>
-                            <option value="Laser Therapy">Laser Therapy</option>
+                            <option value="Hydrafacial">Hydrafacial</option>
+                            <option value="Chemical Peel">Chemical Peel</option>
+                            <option value="Laser Hair Removal">Hair Removal Laser</option>
+                            <option value="Anti-Aging">Anti-Aging Treatment</option>
+                            <option value="Microneedling/CO2">Microneedling & CO2</option>
+                            <option value="Tattoo/Hair Treatment">Tattoo & Hair Treatment</option>
                             <option value="General Consultation">General Consultation</option>
                         </select>
 
@@ -306,7 +330,6 @@
         <p>&copy; 2026 Ayna Clinic. Professional Care You Can Trust.</p>
     </footer>
 
-    <!-- Form Backend Logic -->
     <script>
         const form = document.getElementById('bookingForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -318,7 +341,6 @@
             submitBtn.disabled = true;
             submitBtn.innerText = "Processing...";
 
-            // Merging the Date field into the Message field to safely pass to the Django backend
             const preferredDate = document.getElementById('date').value;
             const userMessage = document.getElementById('message').value;
             const combinedMessage = `Preferred Date: ${preferredDate} | Note: ${userMessage}`;
@@ -340,7 +362,6 @@
                 if (response.ok) {
                     successMsg.style.display = "block";
                     form.reset();
-                    // Hide success message after 7 seconds
                     setTimeout(() => { successMsg.style.display = "none"; }, 7000);
                 } else { 
                     alert("Submission failed. Try WhatsApp for instant booking."); 
