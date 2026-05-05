@@ -2,228 +2,220 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ayna – The Skin, Hair & Laser Clinic | Premium Care</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-green: #6DBE45;
-            --dark-green: #4A9A2A;
-            --gold-accent: #C89B3C;
-            --text-dark: #222222;
-            --bg-premium: #F9FBF7;
+            --primary: #6DBE45;
+            --dark: #4A9A2A;
+            --gold: #C89B3C;
+            --text: #222222;
             --bg-alt: #f4f9f1;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { color: #444; line-height: 1.7; background-color: white; overflow-x: hidden; width: 100%; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; width: 100%; }
 
         /* Header */
         header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
-        .logo img { height: 50px; }
-        .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+        .logo img { height: 45px; }
+        .nav-links { display: flex; gap: 15px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
 
         /* Sections */
-        section { padding: 80px 0; width: 100%; }
-        .section-title { text-align: center; color: var(--dark-green); font-size: 2.2rem; margin-bottom: 10px; padding: 0 10px; }
-        .section-subtitle { text-align: center; color: var(--gold-accent); font-weight: 600; letter-spacing: 1px; margin-bottom: 40px; text-transform: uppercase; font-size: 0.9rem; }
+        section { padding: 60px 0; width: 100%; }
+        .section-title { text-align: center; color: var(--dark); font-size: 1.8rem; margin-bottom: 5px; }
+        .section-subtitle { text-align: center; color: var(--gold); font-weight: 600; margin-bottom: 30px; text-transform: uppercase; font-size: 0.8rem; }
 
         /* Hero */
-        .hero { min-height: 70vh; display: flex; align-items: center; background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.65)), url('viber_image_2025-01-04_11-43-17-438.jpg') center/cover; margin-top: 60px; padding: 40px 0; }
-        .hero h1 { font-size: 2.8rem; color: var(--dark-green); font-weight: 700; line-height: 1.2; }
-        .hero p { font-size: 1.1rem; margin: 20px 0; max-width: 600px; }
-
-        /* Buttons */
-        .btn-premium { background: var(--primary-green); color: white; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; display: inline-block; transition: 0.4s; text-transform: uppercase; text-align: center; }
-        
-        /* Flex Layouts */
-        .flex-layout { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
-        .flex-text, .flex-image { flex: 1; min-width: 300px; width: 100%; }
-        .flex-image img { width: 100%; border-radius: 20px; box-shadow: 10px 10px 0 var(--gold-accent); }
+        .hero { min-height: 60vh; display: flex; align-items: center; background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('viber_image_2025-01-04_11-43-17-438.jpg') center/cover; margin-top: 60px; }
+        .hero h1 { font-size: 2.2rem; color: var(--dark); line-height: 1.2; font-weight: 700; }
 
         /* Services Grid */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; }
-        .service-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--primary-green); }
-        .service-card h4 { color: var(--dark-green); margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .service-card ul { list-style: none; font-size: 0.9rem; }
-        .service-card li { margin-bottom: 5px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .service-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 4px solid var(--primary); }
+        .service-card h4 { color: var(--dark); font-size: 1.1rem; margin-bottom: 8px; border-bottom: 1px solid #eee; }
+        .service-card ul { list-style: none; font-size: 0.85rem; }
 
-        /* Video Showcase */
-        .video-showcase { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .video-wrapper { width: 100%; max-width: 300px; border-radius: 15px; overflow: hidden; border: 4px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .video-wrapper video { width: 100%; display: block; }
-
-        /* Contact Section */
-        .contact-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
-        .contact-info, .contact-form { background: white; padding: 30px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; }
-
-        /* TESTIMONIAL SLIDER - MOBILE OPTIMIZED */
-        .testimonials { padding: 60px 0; background: var(--bg-alt); width: 100%; overflow: hidden; }
-        .slider-stage { width: 100%; max-width: 800px; margin: 0 auto; overflow: hidden; position: relative; padding: 10px; }
-        .testimonial-slider { display: flex; transition: transform 0.5s ease-in-out; width: 100%; }
-        .testimonial { 
+        /* TESTIMONIAL SLIDER - FIXED FOR MOBILE */
+        .testimonials { background: var(--bg-alt); overflow: hidden; padding: 60px 0; }
+        .slider-window { width: 100%; max-width: 800px; margin: 0 auto; overflow: hidden; position: relative; }
+        .slider-track { display: flex; transition: transform 0.5s ease-in-out; width: 100%; }
+        .testimonial-card { 
             min-width: 100%; 
-            padding: 30px; 
+            padding: 25px; 
             background: white; 
-            border-radius: 20px; 
+            border-radius: 15px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-            border-top: 5px solid var(--gold-accent);
+            border-top: 5px solid var(--gold);
             flex-shrink: 0;
             box-sizing: border-box;
         }
-        .testimonial p { font-style: italic; color: #555; margin-bottom: 15px; font-size: 0.95rem; line-height: 1.6; }
-        .testimonial span { font-weight: 700; color: var(--dark-green); display: block; }
+        .testimonial-card p { font-style: italic; font-size: 0.9rem; margin-bottom: 10px; }
+        .testimonial-card span { font-weight: 700; color: var(--dark); font-size: 0.85rem; }
+        .dots { display: flex; justify-content: center; gap: 8px; margin-top: 15px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; cursor: pointer; }
+        .dot.active { background: var(--primary); width: 16px; border-radius: 4px; }
 
-        .slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; background: #ccc; cursor: pointer; transition: 0.3s; }
-        .dot.active { background: var(--primary-green); transform: scale(1.2); }
+        /* Form Styling */
+        .contact-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .contact-box { background: white; padding: 25px; border-radius: 15px; width: 100%; max-width: 450px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; }
+        .btn-submit { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; }
 
-        /* Sticky CTAs */
-        .sticky-cta { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 2000; }
-        .sticky-cta a { padding: 12px 20px; border-radius: 50px; color: white; text-decoration: none; font-weight: 700; font-size: 0.8rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; }
+        /* Sticky Footer CTAs */
+        .sticky-nav { position: fixed; bottom: 0; left: 0; width: 100%; display: grid; grid-template-columns: 1fr 1fr; z-index: 2000; }
+        .sticky-nav a { padding: 15px; text-align: center; color: white; text-decoration: none; font-weight: 700; font-size: 0.9rem; }
 
-        /* Media Queries */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
             .nav-links { display: none; }
-            .section-title { font-size: 1.8rem; }
-            .flex-text, .flex-image { min-width: 100%; }
-            .testimonial { padding: 20px; }
+            .hero h1 { font-size: 1.8rem; }
+            section { padding: 40px 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="sticky-cta">
-        <a href="tel:+9779767797950" style="background: var(--dark-green);"><i class="fas fa-phone-alt"></i> Call</a>
+    <div class="sticky-nav">
+        <a href="tel:+9779767797950" style="background: var(--dark);"><i class="fas fa-phone"></i> Call</a>
         <a href="https://wa.me/9779767797950" style="background: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
 
     <header><nav class="container">
-        <div class="logo"><img src="ayna.jpg" alt="Ayna Logo"></div>
+        <div class="logo"><img src="ayna.jpg" alt="Ayna"></div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Book Now</a></li>
+            <li><a href="#contact">Book</a></li>
         </ul>
     </nav></header>
 
-    <section id="home" class="hero"><div class="container">
-        <h1>Transforming Skin <br>& Hair Health.</h1>
-        <p>Trusted by 5000+ patients in Biratnagar. Expert dermatological care by <strong>Dr. Bibisha Baaniya</strong>.</p>
-        <a href="#contact" class="btn-premium">Book Consultation</a>
+    <section class="hero"><div class="container">
+        <h1>Advanced Skin <br>& Hair Care.</h1>
+        <p>Trusted by 5000+ patients. Led by <strong>Dr. Bibisha Baaniya</strong>.</p>
+        <a href="#contact" class="btn-submit" style="display:inline-block; width:auto; padding: 10px 25px; text-decoration:none;">Book Now</a>
     </div></section>
 
-    <!-- Services -->
     <section id="services"><div class="container">
-        <h2 class="section-title">Our Services</h2>
+        <h2 class="section-title">Clinical Services</h2>
         <div class="services-grid">
-            <div class="service-card"><h4>Hydrafacial</h4><ul><li>Basic Hydrafacial</li><li>Hydrapeel</li></ul></div>
-            <div class="service-card"><h4>Chemical Peel</h4><ul><li>Sesglicopeel / Azelac M</li><li>Hollywood Laser Peel</li></ul></div>
-            <div class="service-card"><h4>Hair Removal</h4><ul><li>Underarms / Face / Neck</li><li>Full Body Packages</li></ul></div>
-            <div class="service-card"><h4>Anti-Aging</h4><ul><li>HIFU Full/Half Face</li><li>Botox</li></ul></div>
-            <div class="service-card"><h4>Advanced Laser</h4><ul><li>CO2 Laser & Exosomes</li><li>Microneedling PRP</li></ul></div>
-            <div class="service-card"><h4>Treatments</h4><ul><li>Tattoo Removal</li><li>GFC & iPRF</li></ul></div>
+            <div class="service-card"><h4>Hydrafacial</h4><ul><li>Basic & Hydrapeel</li></ul></div>
+            <div class="service-card"><h4>Chemical Peels</h4><ul><li>Hollywood & Retinol</li></ul></div>
+            <div class="service-card"><h4>Hair Removal</h4><ul><li>Full Body & Specific</li></ul></div>
+            <div class="service-card"><h4>Lasers</h4><ul><li>CO2 & Tattoo Removal</li></ul></div>
         </div>
     </div></section>
 
-    <!-- SLIDER SECTION -->
+    <!-- TESTIMONIAL SLIDER -->
     <section class="testimonials">
         <h2 class="section-title">Patient Reviews</h2>
-        <div class="slider-stage">
-            <div class="testimonial-slider" id="testimonialSlider">
-                <div class="testimonial">
-                    <p>"Professional skin analysis and genuine advice. My acne has significantly reduced after only 3 sessions. Highly recommend Dr. Bibisha."</p>
+        <div class="slider-window">
+            <div class="slider-track" id="sliderTrack">
+                <div class="testimonial-card">
+                    <p>"Professional skin analysis and genuine advice. My acne has significantly reduced after only 3 sessions."</p>
                     <span>- Abisha Dhungel</span>
                 </div>
-                <div class="testimonial">
-                    <p>"Best clinic in Biratnagar. The staff is welcoming and the laser treatment for hair removal was painless and effective."</p>
+                <div class="testimonial-card">
+                    <p>"Best clinic in Biratnagar. The laser treatment for hair removal was painless and effective."</p>
                     <span>- Priya K.</span>
                 </div>
-                <div class="testimonial">
-                    <p>"Doctor Bibisha takes her time to explain everything. Very professional and expert in her field."</p>
+                <div class="testimonial-card">
+                    <p>"Doctor Bibisha takes her time to explain everything. Very professional and expert."</p>
                     <span>- Sarita P.</span>
                 </div>
-                <div class="testimonial">
-                    <p>"I had my tattoo removed here. The results are much better than I expected. Professional service."</p>
-                    <span>- Anish T.</span>
-                </div>
             </div>
-            <div class="slider-dots" id="sliderDots"></div>
+            <div class="dots" id="dots"></div>
         </div>
     </section>
 
-    <section id="contact" class="contact-section"><div class="container">
-        <h2 class="section-title">Book Now</h2>
+    <section id="contact"><div class="container">
+        <h2 class="section-title">Book Slot</h2>
         <div class="contact-container">
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/epaLckbhJ14rBDSd6">Rangeli Road, Biratnagar</a></p>
-                <p><i class="fas fa-clock"></i> Sun-Fri: 9:30 AM – 6 PM | Sat: 9:30 AM – 1 PM</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.0463378519965!2d87.2833182!3d26.4542938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef7446ff360e21%3A0x6406e93910c2423!2sAyna%20The%20Skin%2C%20Hair%20%26%20Laser%20Clinic!5e0!3m2!1sen!2snp!4v1714710000000!5m2!1sen!2snp" style="border:0; width:100%; height:200px; margin-top:15px; border-radius:10px;"></iframe>
-            </div>
-            <div class="contact-form">
+            <div class="contact-box">
                 <form id="bookingForm">
                     <input type="text" id="name" placeholder="Full Name" required>
                     <input type="tel" id="phone" placeholder="Phone Number" required>
                     <select id="service" required>
-                        <option value="">Select Service</option>
+                        <option value="General">General Consultation</option>
                         <option value="Skin">Skin Treatment</option>
-                        <option value="Hair">Hair Treatment</option>
                         <option value="Laser">Laser Therapy</option>
                     </select>
                     <input type="date" id="date" required>
-                    <button type="submit" id="submitBtn" class="btn-premium" style="width:100%">Confirm Booking</button>
+                    <button type="submit" id="submitBtn" class="btn-submit">Confirm Booking</button>
                 </form>
+                <p id="msg" style="margin-top:10px; font-weight:700; text-align:center; display:none;"></p>
             </div>
         </div>
     </div></section>
 
     <script>
-        const slider = document.getElementById('testimonialSlider');
-        const dotsContainer = document.getElementById('sliderDots');
-        const testimonials = document.querySelectorAll('.testimonial');
-        let currentIdx = 0;
+        // FORM SUBMISSION FIX
+        const API_URL = "https://ayna-backend-1-kjy2.onrender.com/api/appointments/";
+        const form = document.getElementById('bookingForm');
+        const btn = document.getElementById('submitBtn');
+        const msg = document.getElementById('msg');
 
-        testimonials.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if(i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            dotsContainer.appendChild(dot);
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            btn.innerText = "Submitting...";
+            btn.disabled = true;
+
+            const data = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: "Date: " + document.getElementById('date').value
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    msg.innerText = "✅ Success! We will call you soon.";
+                    msg.style.color = "green";
+                    msg.style.display = "block";
+                    form.reset();
+                } else {
+                    throw new Error();
+                }
+            } catch (err) {
+                msg.innerText = "❌ Error. Please book via WhatsApp.";
+                msg.style.color = "red";
+                msg.style.display = "block";
+            } finally {
+                btn.innerText = "Confirm Booking";
+                btn.disabled = false;
+            }
         });
 
-        const dots = document.querySelectorAll('.dot');
-        function goToSlide(index) {
-            currentIdx = index;
-            slider.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach(d => d.classList.remove('active'));
-            dots[index].classList.add('active');
+        // SLIDER LOGIC
+        const track = document.getElementById('sliderTrack');
+        const dotsContainer = document.getElementById('dots');
+        const cards = document.querySelectorAll('.testimonial-card');
+        let idx = 0;
+
+        cards.forEach((_, i) => {
+            const d = document.createElement('div');
+            d.className = 'dot' + (i===0?' active':'');
+            d.onclick = () => show(i);
+            dotsContainer.appendChild(d);
+        });
+
+        function show(n) {
+            idx = n;
+            track.style.transform = `translateX(-${n * 100}%)`;
+            document.querySelectorAll('.dot').forEach((d, i) => d.className = 'dot' + (i===n?' active':''));
         }
 
-        setInterval(() => {
-            currentIdx = (currentIdx + 1) % testimonials.length;
-            goToSlide(currentIdx);
-        }, 5000);
-
-        // Simple Booking Logic
-        document.getElementById('bookingForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            btn.innerText = "Processing...";
-            // Logic to fetch API_URL goes here
-            setTimeout(() => {
-                alert("Appointment requested!");
-                btn.innerText = "Confirm Booking";
-            }, 1000);
-        });
+        setInterval(() => show((idx + 1) % cards.length), 5000);
     </script>
 </body>
 </html>
