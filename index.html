@@ -18,7 +18,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { color: #444; line-height: 1.7; background-color: white; }
+        body { color: #444; line-height: 1.7; background-color: white; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
         /* Header */
@@ -81,13 +81,17 @@
         
         .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
 
-        /* Testimonials */
-        .testimonials { margin-top: 80px; text-align: center; }
+        /* Sliding Testimonials Feature */
+        .testimonials { margin-top: 80px; text-align: center; overflow: hidden; }
         .testimonials h3 { color: var(--dark-green); font-size: 2rem; margin-bottom: 30px; }
-        .testimonial-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .testimonial { background: white; padding: 25px; max-width: 400px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 4px solid var(--gold-accent); text-align: left; }
-        .testimonial p { font-style: italic; margin: 10px 0; color: #555; }
-        .testimonial span { font-weight: 700; color: var(--dark-green); }
+        .slider-container { width: 100%; position: relative; max-width: 1000px; margin: 0 auto; }
+        .testimonial-slider { display: flex; transition: transform 0.5s ease-in-out; }
+        .testimonial { min-width: 100%; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-left: 6px solid var(--gold-accent); margin: 0 15px; text-align: left; flex-shrink: 0; box-sizing: border-box;}
+        .testimonial p { font-style: italic; margin: 15px 0; color: #444; font-size: 1.1rem; }
+        .testimonial span { font-weight: 700; color: var(--dark-green); display: block; margin-top: 10px; }
+        .slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 25px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; background: #ddd; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: var(--primary-green); }
 
         /* Dual Sticky CTAs */
         .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
@@ -102,6 +106,7 @@
             .hero h1 { font-size: 2.8rem; }
             .sticky-cta { bottom: 15px; right: 15px; flex-direction: column; gap: 10px; }
             .sticky-cta a { padding: 12px 20px; font-size: 0.9rem; }
+            .testimonial { padding: 25px; }
         }
     </style>
 </head>
@@ -177,7 +182,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section (Updated from image_f4cbfb.jpg) -->
     <section id="services" style="background: white;">
         <div class="container">
             <h2 class="section-title">Our Medical & Aesthetic Services</h2>
@@ -207,28 +212,28 @@
                         <li>Face, Neck, & Underarms</li>
                         <li>Hands, Legs, & Chest</li>
                         <li>Abdomen & Bikini</li>
-                        <li>Full Body Packages</li>
+                        <li>Whole Body Packages</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <h4>Anti-Aging Treatment</h4>
                     <ul>
-                        <li>HIFU (Full Face / Half Face)</li>
+                        <li>HIFU Full Face / Half Face</li>
                         <li>Botox (per unit)</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <h4>Microneedling & CO2</h4>
                     <ul>
-                        <li>Basic CO2 Laser</li>
-                        <li>CO2 with Exosome</li>
-                        <li>Microneedling with PRP / Exosome</li>
+                        <li>Basic CO2 Laser / CO2 with Exosome</li>
+                        <li>Microneedling with PRP</li>
+                        <li>Microneedling with Exosome</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <h4>Tattoo & Hair Treatment</h4>
                     <ul>
-                        <li>Tattoo Removal (Small/Medium/Large)</li>
+                        <li>Tattoo Removal (S/M/L)</li>
                         <li>PRP & iPRF Treatment</li>
                         <li>GFC Treatment</li>
                     </ul>
@@ -267,7 +272,6 @@
             </div>
 
             <div class="contact-container">
-                <!-- LEFT: CONTACT INFO -->
                 <div class="contact-info">
                     <h3>Contact Details</h3>
                     <p><i class="fas fa-map-marker-alt" style="color:var(--gold-accent);"></i> <a href="https://maps.app.goo.gl/epaLckbhJ14rBDSd6" target="_blank">Rangeli Road, Biratnagar</a></p>
@@ -275,17 +279,14 @@
                     <p><i class="fab fa-whatsapp" style="color:#25d366; font-size: 1.2rem;"></i> <a href="https://wa.me/9779767797950" target="_blank">Chat on WhatsApp</a></p>
                     <p><i class="fas fa-clock" style="color:var(--dark-green);"></i> Sun-Fri: 9:30 AM – 6 PM<br>Sat: 9:30 AM – 1 PM</p>
 
-                    <!-- Google Map -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.0463378519965!2d87.2833182!3d26.4542938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef7446ff360e21%3A0x6406e93910c2423!2sAyna%20The%20Skin%2C%20Hair%20%26%20Laser%20Clinic!5e0!3m2!1sen!2snp!4v1714710000000!5m2!1sen!2snp" loading="lazy"></iframe>
                 </div>
 
-                <!-- RIGHT: BOOKING FORM -->
                 <div class="contact-form">
                     <h3>Book Appointment</h3>
                     <form id="bookingForm">
                         <input type="text" id="name" placeholder="Full Name" required>
                         <input type="tel" id="phone" placeholder="Phone Number" required>
-                        
                         <select id="service" required>
                             <option value="">Select Service</option>
                             <option value="Hydrafacial">Hydrafacial</option>
@@ -294,33 +295,72 @@
                             <option value="Anti-Aging">Anti-Aging Treatment</option>
                             <option value="Microneedling/CO2">Microneedling & CO2</option>
                             <option value="Tattoo/Hair Treatment">Tattoo & Hair Treatment</option>
-                            <option value="General Consultation">General Consultation</option>
                         </select>
-
                         <input type="date" id="date" required>
                         <textarea id="message" rows="3" placeholder="Any specific concerns?"></textarea>
-
                         <button type="submit" id="submitBtn" class="btn-premium">Confirm Booking</button>
                     </form>
-
-                    <p id="successMsg">✅ Appointment Requested Successfully! Our team will contact you soon.</p>
+                    <p id="successMsg">✅ Appointment Requested Successfully!</p>
                 </div>
             </div>
 
-            <!-- Testimonials -->
+            <!-- SLIDING TESTIMONIALS SECTION -->
             <div class="testimonials">
                 <h3>What Our Clients Say</h3>
-                <div class="testimonial-grid">
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"My skin improved in just 2 sessions. Highly recommended! Dr. Baaniya was incredibly thorough."</p>
-                        <span>- Priya K.</span>
+                <div class="slider-container">
+                    <div class="testimonial-slider" id="testimonialSlider">
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"Professional skin analysis and genuine advice. My acne has significantly reduced after only 3 sessions. Highly recommend Dr. Bibisha."</p>
+                            <span>- Abisha Dhungel</span>
+                        </div>
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"Best clinic in Biratnagar. The staff is welcoming and the laser treatment for hair removal was painless and effective."</p>
+                            <span>- Priya K.</span>
+                        </div>
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"Hydrafacial at Ayna is amazing. My skin feels fresh and glowing immediately."</p>
+                            <span>- Ramesh S.</span>
+                        </div>
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"Doctor Bibisha takes her time to explain everything. Very professional and expert in her field."</p>
+                            <span>- Sarita P.</span>
+                        </div>
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"I had my tattoo removed here. The results are much better than I expected. Professional service."</p>
+                            <span>- Anish T.</span>
+                        </div>
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"Finally a place in Biratnagar that offers world-class skin treatments. Extremely satisfied."</p>
+                            <span>- Deepa G.</span>
+                        </div>
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"The GFC treatment for hair fall worked wonders for me. Thank you Ayna Clinic!"</p>
+                            <span>- Manoj B.</span>
+                        </div>
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"Clean, clinical, and very professional. Highly recommended for laser treatments."</p>
+                            <span>- Sunita K.</span>
+                        </div>
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"Ayna clinic has the best technology in town. Dr. Bibisha is very detailed with her diagnosis."</p>
+                            <span>- Binod L.</span>
+                        </div>
+                        <div class="testimonial">
+                            <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>
+                            <p>"I am extremely happy with my results. My pigmentation is almost gone. Thank you team Ayna!"</p>
+                            <span>- Meena R.</span>
+                        </div>
                     </div>
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"Professional service and great results. The laser treatment was painless and effective."</p>
-                        <span>- Ramesh S.</span>
-                    </div>
+                    <div class="slider-dots" id="sliderDots"></div>
                 </div>
             </div>
         </div>
@@ -331,6 +371,37 @@
     </footer>
 
     <script>
+        // Testimonial Slider Logic
+        const slider = document.getElementById('testimonialSlider');
+        const dotsContainer = document.getElementById('sliderDots');
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentIdx = 0;
+
+        // Create dots
+        testimonials.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if(i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function goToSlide(index) {
+            currentIdx = index;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        // Auto slide
+        setInterval(() => {
+            currentIdx = (currentIdx + 1) % testimonials.length;
+            goToSlide(currentIdx);
+        }, 5000);
+
+        // Booking Logic
         const form = document.getElementById('bookingForm');
         const submitBtn = document.getElementById('submitBtn');
         const successMsg = document.getElementById('successMsg');
@@ -340,38 +411,28 @@
             e.preventDefault();
             submitBtn.disabled = true;
             submitBtn.innerText = "Processing...";
-
             const preferredDate = document.getElementById('date').value;
             const userMessage = document.getElementById('message').value;
             const combinedMessage = `Preferred Date: ${preferredDate} | Note: ${userMessage}`;
-
             const formData = {
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
                 service: document.getElementById('service').value,
                 message: combinedMessage
             };
-
             try {
                 const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 });
-                
                 if (response.ok) {
                     successMsg.style.display = "block";
                     form.reset();
                     setTimeout(() => { successMsg.style.display = "none"; }, 7000);
-                } else { 
-                    alert("Submission failed. Try WhatsApp for instant booking."); 
-                }
-            } catch (err) { 
-                alert("Network issue. Please book via WhatsApp."); 
-            } finally { 
-                submitBtn.disabled = false; 
-                submitBtn.innerText = "Confirm Booking"; 
-            }
+                } else { alert("Submission failed. Try WhatsApp."); }
+            } catch (err) { alert("Network issue. Please book via WhatsApp."); }
+            finally { submitBtn.disabled = false; submitBtn.innerText = "Confirm Booking"; }
         });
     </script>
 </body>
