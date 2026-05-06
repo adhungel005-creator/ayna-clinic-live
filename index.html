@@ -249,11 +249,11 @@
             <h2 class="section-title">Real Results</h2>
             <p class="section-subtitle">Clinical Transformations at Ayna</p>
             <div class="results-grid">
-                <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Therapy Results"></div>
-                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Ayna Glow Transformation"></div>
-                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Subtle Change Huge Impact"></div>
-                <div class="result-card"><img src="Erase the Lines 1.png" alt="Erase the Lines 1"></div>
-                <div class="result-card"><img src="Erase the Lines 2.png" alt="Erase the Lines 2"></div>
+                <div class="result-card"><img src="GFC Therapy Results.jpg" alt="GFC Therapy Results"></div>
+                <div class="result-card"><img src="Ayna Glow Transformation.jpg" alt="Ayna Glow Transformation"></div>
+                <div class="result-card"><img src="Subtle Change Huge Impact.jpg" alt="Subtle Change Huge Impact"></div>
+                <div class="result-card"><img src="Erase the Lines 1.jpg" alt="Erase the Lines 1"></div>
+                <div class="result-card"><img src="Erase the Lines 2.jpg" alt="Erase the Lines 2"></div>
             </div>
         </div>
     </section>
@@ -279,8 +279,44 @@
         </div>
     </section>
 
+    <!-- NEW: Informational Section -->
+    <section id="informational" style="background: var(--bg-alt);">
+        <div class="container">
+            <h2 class="section-title">Informational Section</h2>
+            <p class="section-subtitle">Expert Skin & Hair Care Advice</p>
+            
+            <div class="services-grid">
+                <div class="service-card" style="padding: 15px; text-align: center;">
+                    <!-- Using 'controls' allows the client to click to play/pause and easily unmute the audio -->
+                    <video controls playsinline style="width: 100%; border-radius: 10px; cursor: pointer; background: #000;">
+                        <source src="1000015094.mp4" type="video/mp4">
+                    </video>
+                    <h4 style="margin-top: 15px; font-size: 1rem; border: none;">Shampoo, Conditioner र Hair Mask कसरी लगाउने?</h4>
+                </div>
+                <div class="service-card" style="padding: 15px; text-align: center;">
+                    <video controls playsinline style="width: 100%; border-radius: 10px; cursor: pointer; background: #000;">
+                        <source src="1000015263.mp4" type="video/mp4">
+                    </video>
+                    <h4 style="margin-top: 15px; font-size: 1rem; border: none;">कपाल झर्ने कारणहरु</h4>
+                </div>
+                <div class="service-card" style="padding: 15px; text-align: center;">
+                    <video controls playsinline style="width: 100%; border-radius: 10px; cursor: pointer; background: #000;">
+                        <source src="1000017916.mp4" type="video/mp4">
+                    </video>
+                    <h4 style="margin-top: 15px; font-size: 1rem; border: none;">के Skin Analyser Scam हो?</h4>
+                </div>
+                <div class="service-card" style="padding: 15px; text-align: center;">
+                    <video controls playsinline style="width: 100%; border-radius: 10px; cursor: pointer; background: #000;">
+                        <source src="1000018391.mp4" type="video/mp4">
+                    </video>
+                    <h4 style="margin-top: 15px; font-size: 1rem; border: none;">अमिलो, पिरो, गुलियो, नुनिलो, तीतो छालाको लागि कुन खानुहुन्छ?</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- High-Conversion Contact Section -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section" style="background: white;">
         <div class="container">
             <div class="contact-header">
                 <h2 class="section-title">Book Your Consultation</h2>
@@ -360,9 +396,9 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Visual feedback
+            // Visual feedback + waiting notice for free backend servers
             submitBtn.disabled = true;
-            submitBtn.innerText = "Processing...";
+            submitBtn.innerText = "Processing... (Please wait up to 30s)";
             successMsg.style.display = "none";
 
             const preferredDate = document.getElementById('date').value;
