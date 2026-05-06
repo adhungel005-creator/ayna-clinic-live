@@ -243,17 +243,17 @@
         </div>
     </section>
 
-    <!-- BEFORE & AFTER GALLERY SECTION (PNG format) -->
+    <!-- BEFORE & AFTER GALLERY SECTION -->
     <section id="gallery" style="background: var(--bg-alt);">
         <div class="container">
             <h2 class="section-title">Real Results</h2>
             <p class="section-subtitle">Clinical Transformations at Ayna</p>
             <div class="results-grid">
-                <div class="result-card"><img src="GFC%20Therapy%20Results.png" alt="GFC Therapy Results"></div>
-                <div class="result-card"><img src="Ayna%20Glow%20Transformation.png" alt="Ayna Glow Transformation"></div>
-                <div class="result-card"><img src="Subtle%20Change%20Huge%20Impact.png" alt="Subtle Change Huge Impact"></div>
-                <div class="result-card"><img src="Erase%20the%20Lines%201.png" alt="Erase the Lines 1"></div>
-                <div class="result-card"><img src="Erase%20the%20Lines%202.png" alt="Erase the Lines 2"></div>
+                <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Therapy Results"></div>
+                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Ayna Glow Transformation"></div>
+                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Subtle Change Huge Impact"></div>
+                <div class="result-card"><img src="Erase the Lines 1.png" alt="Erase the Lines 1"></div>
+                <div class="result-card"><img src="Erase the Lines 2.png" alt="Erase the Lines 2"></div>
             </div>
         </div>
     </section>
@@ -328,14 +328,14 @@
         </div>
     </section>
 
-    <!-- NEW: Find Us Section (Looping, Muted Location Video) -->
-    <section id="location" style="background: white;">
+    <!-- NEW Find Us Section -->
+    <section id="find-us" style="background: white;">
         <div class="container">
             <h2 class="section-title">Find Us</h2>
             <p class="section-subtitle">Way to Ayna Clinic, Biratnagar</p>
             <div style="max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
                 <video autoplay loop muted playsinline style="width: 100%; display: block; background: #000;">
-                    <source src="way_to_ayna.mp4" type="video/mp4">
+                    <source src="snaptik_7419645042899324167_v3.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -392,7 +392,7 @@
                     <div class="testimonial">
                         <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
                         <p>"My skin improved in just 2 sessions. Highly recommended! Dr. Baaniya was incredibly thorough."</p>
-                        <span>- Abisha D.</span>
+                        <span>- Priya K.</span>
                     </div>
                     <div class="testimonial">
                         <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
@@ -432,6 +432,7 @@
                 const response = await fetch(API_URL, {
                     method: 'POST',
                     mode: 'cors',
+                    credentials: 'omit', // Required for some mobile browsers
                     headers: { 
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
@@ -447,6 +448,7 @@
                     alert("Submission failed. Try WhatsApp for instant booking."); 
                 }
             } catch (err) { 
+                console.error("Network Error:", err);
                 alert("Network issue. Please book via WhatsApp."); 
             } finally { 
                 submitBtn.disabled = false; 
