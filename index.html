@@ -61,6 +61,12 @@
         .service-card li { margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
         .service-card li::before { content: "•"; color: var(--gold-accent); font-weight: bold; }
 
+        /* Gallery Grid */
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .result-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .result-card img { width: 100%; height: auto; display: block; transition: 0.3s; }
+        .result-card:hover img { transform: scale(1.05); }
+
         /* Video Showcase Area */
         .video-showcase { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
         .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid white; position: relative; background: #000; }
@@ -237,8 +243,23 @@
         </div>
     </section>
 
+    <!-- BEFORE & AFTER GALLERY SECTION -->
+    <section id="gallery" style="background: var(--bg-alt);">
+        <div class="container">
+            <h2 class="section-title">Real Results</h2>
+            <p class="section-subtitle">Clinical Transformations at Ayna</p>
+            <div class="results-grid">
+                <div class="result-card"><img src="viber_image_2025-05-06_10-24-34-453.jpg" alt="GFC Therapy Results"></div>
+                <div class="result-card"><img src="viber_image_2025-05-06_10-24-34-469.jpg" alt="Ayna Glow Transformation"></div>
+                <div class="result-card"><img src="viber_image_2025-05-06_10-24-34-486.jpg" alt="Subtle Change Huge Impact"></div>
+                <div class="result-card"><img src="viber_image_2025-05-06_10-24-34-500.jpg" alt="Erase the Lines 1"></div>
+                <div class="result-card"><img src="viber_image_2025-05-06_10-24-34-517.jpg" alt="Erase the Lines 2"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Video Showcase Section -->
-    <section id="showcase" style="background: var(--bg-alt);">
+    <section id="showcase" style="background: white;">
         <div class="container">
             <h2 class="section-title">Clinic In Action</h2>
             <p class="section-subtitle">Precision Treatments by Dr. Baaniya</p>
@@ -275,7 +296,6 @@
                     <p><i class="fab fa-whatsapp" style="color:#25d366; font-size: 1.2rem;"></i> <a href="https://wa.me/9779767797950" target="_blank">Chat on WhatsApp</a></p>
                     <p><i class="fas fa-clock" style="color:var(--dark-green);"></i> Sun-Fri: 9:30 AM – 6 PM<br>Sat: 9:30 AM – 1 PM</p>
 
-                    <!-- Google Map - EXACT CLINIC LOCATION EMBED -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.0463378519965!2d87.2833182!3d26.4542938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef7446ff360e21%3A0x6406e93910c2423!2sAyna%20The%20Skin%2C%20Hair%20%26%20Laser%20Clinic!5e0!3m2!1sen!2snp!4v1714710000000!5m2!1sen!2snp" loading="lazy"></iframe>
                 </div>
 
@@ -339,7 +359,6 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Visual feedback
             submitBtn.disabled = true;
             submitBtn.innerText = "Processing...";
             successMsg.style.display = "none";
@@ -358,7 +377,7 @@
             try {
                 const response = await fetch(API_URL, {
                     method: 'POST',
-                    mode: 'cors', // Ensure CORS is handled
+                    mode: 'cors',
                     headers: { 
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
@@ -369,7 +388,6 @@
                 if (response.ok) {
                     successMsg.style.display = "block";
                     form.reset();
-                    // Hide success message after 7 seconds
                     setTimeout(() => { successMsg.style.display = "none"; }, 7000);
                 } else { 
                     const errorData = await response.json().catch(() => ({}));
