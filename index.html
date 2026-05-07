@@ -314,6 +314,11 @@
                         <source src="trt33.mp4" type="video/mp4">
                     </video>
                 </div>
+                <div class="video-wrapper">
+                    <video autoplay loop muted playsinline>
+                        <source src="try44.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
     </section>
@@ -352,7 +357,7 @@
             <p class="section-subtitle">Way to Ayna Clinic, Biratnagar</p>
             <div style="max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
                 <video autoplay loop muted playsinline style="width: 100%; display: block; background: #000;">
-                    <source src="way_to_ayna.mp4" type="video/mp4">
+                    <source src="snaptik_7419645042899324167_v3.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -464,6 +469,7 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
             const chatBox = document.getElementById('chatbot-messages');
             if (input.value.trim() === "") return;
 
+            // User message
             const userDiv = document.createElement('div');
             userDiv.className = 'msg user-msg';
             userDiv.innerText = input.value;
@@ -471,32 +477,32 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
 
             const userText = input.value.toLowerCase();
             input.value = "";
-            chatBox.scrollTop = chatBox.scrollHeight;
 
+            // Bot Response Logic
             setTimeout(() => {
                 const botDiv = document.createElement('div');
                 botDiv.className = 'msg bot-msg';
                 
                 if (userText.includes("hydra")) {
-                    botDiv.innerText = "Our Hydrafacial treatments cleanse and rejuvenate your skin. Use the form below to book a session!";
+                    botDiv.innerText = "Our Hydrafacial treatments cleanse and rejuvenate your skin, offering Basic Hydrafacial and Hydrapeel. Use the form below to book a session!";
                 } else if (userText.includes("laser") || userText.includes("hair removal")) {
-                    botDiv.innerText = "We offer virtually painless, FDA-approved Laser Hair Removal for the face and body.";
+                    botDiv.innerText = "We offer virtually painless, FDA-approved Laser Hair Removal for the face, neck, underarms, hands, legs, chest, abdomen, bikini, and full body packages.";
                 } else if (userText.includes("service") || userText.includes("treatment")) {
-                    botDiv.innerText = "We offer Hydrafacial, Chemical Peels, Laser Hair Removal, Anti-Aging (HIFU/Botox), Microneedling, CO2 Laser, and Hair/Tattoo Treatments (PRP, GFC).";
+                    botDiv.innerText = "Our premier services include Hydrafacial, Chemical Peels, Laser Hair Removal, Anti-Aging (HIFU/Botox), Microneedling, CO2 Laser, Tattoo Removal, and Hair Treatments (PRP, iPRF, GFC).";
                 } else if (userText.includes("location") || userText.includes("where") || userText.includes("address")) {
-                    botDiv.innerText = "We are located at Rangeli Road, Biratnagar. Check our 'Find Us' video above!";
+                    botDiv.innerText = "We are conveniently located at Rangeli Road, Biratnagar. Check our 'Find Us' video above or use the Google Map in the contact section!";
                 } else if (userText.includes("doctor") || userText.includes("bibisha") || userText.includes("who")) {
-                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD, BPKIHS) is our highly qualified, board-certified dermatologist specializing in Skin, Venereal, and Aesthetic diseases. She provides personalized treatments focused on healthy, confident skin.";
-                } else if (userText.includes("feature") || userText.includes("why")) {
-                    botDiv.innerText = "Ayna Clinic features FDA-Approved technology, expert medical staff, personalized patient-first care, and proven clinical results for all skin and hair types.";
+                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD from BPKIHS, NMC No. 17402) is our board-certified dermatologist. She brings extensive clinical expertise and advanced laser technology experience, focusing on personalized, science-backed care for healthy, confident skin.";
+                } else if (userText.includes("feature") || userText.includes("why") || userText.includes("about")) {
+                    botDiv.innerText = "Ayna Clinic is Biratnagar's premier dermatology center. We feature FDA-Approved technology, proven clinical results, and a holistic, patient-first approach led by expert medical staff.";
                 } else if (userText.includes("cost") || userText.includes("price") || userText.includes("charge")) {
-                    botDiv.innerText = "Pricing depends on your specific skin or hair needs. Please book a consultation so Dr. Baaniya can assess you properly.";
+                    botDiv.innerText = "Pricing depends on your specific skin or hair needs. Please book a consultation so Dr. Baaniya can assess you properly and provide a customized plan.";
                 } else if (userText.includes("book") || userText.includes("appointment")) {
-                    botDiv.innerText = "You can book directly using the form on this page, or click the WhatsApp button to chat with our receptionist!";
+                    botDiv.innerText = "You can easily book directly using the appointment form on this page, or click the WhatsApp button to schedule with our receptionist!";
                 } else if (userText.includes("hi") || userText.includes("hello")) {
-                    botDiv.innerText = "Hi there! How can we assist you with your skin and hair care journey today?";
+                    botDiv.innerText = "Hello! How can we assist you with your skin and hair care journey today?";
                 } else {
-                    botDiv.innerHTML = "I am an AI assistant here to help! I couldn't find an exact answer to that, but you can <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp our reception</a> or call +977 9767797950 for immediate assistance.";
+                    botDiv.innerHTML = "For specific medical advice or detailed inquiries, please <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp our reception team</a> or call +977 9767797950. We are happy to help!";
                 }
                 
                 chatBox.appendChild(botDiv);
