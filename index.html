@@ -102,6 +102,8 @@
         .cta-call { background: var(--dark-green); }
         .cta-wa { background: #25d366; }
 
+        #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
+
         /* CHATBOT STYLES */
         #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
         #chatbot-launcher:hover { transform: scale(1.1); }
@@ -114,8 +116,6 @@
         #chatbot-input-area { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
         #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; }
         #chatbot-input-area button { background: none; border: none; color: var(--primary-green); cursor: pointer; font-size: 1.2rem; }
-
-        #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
         
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
@@ -135,7 +135,7 @@
             <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer;"></i>
         </div>
         <div id="chatbot-messages" id="chatMessages">
-            <div class="msg bot-msg">Hello! Welcome to Ayna Clinic. How can I help you today? You can ask about our <b>Hydrafacial</b>, <b>Laser treatments</b>, or <b>Location</b>.</div>
+            <div class="msg bot-msg">Hello! Welcome to Ayna Clinic. How can I help you today? You can ask about our <b>treatments</b>, <b>pricing</b>, or <b>location</b>!</div>
         </div>
         <div id="chatbot-input-area">
             <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key === 'Enter') sendMessage()">
@@ -198,8 +198,8 @@
                     <h2 class="section-title" style="text-align: left;">Meet Our Expert</h2>
                     <h3 style="color: var(--gold-accent); margin-bottom: 20px;">Dr. Bibisha Baaniya</h3>
                     <p><strong>MBBS, MD (BPKIHS) | NMC No. 17402</strong></p>
-                    <p style="margin-top: 15px;">Dr. Bibisha Baaniya is a highly qualified, board-certified dermatologist specializing in Skin, Venereal, and Aesthetic diseases. With a deep commitment to dermatological science, she brings a wealth of experience in clinical diagnosis and advanced laser procedures.</p>
-                    <p style="margin-top: 15px;">She believes in a holistic approach to skin health, ensuring every patient receives a customized, results-driven treatment plan tailored precisely to their unique biological needs.</p>
+                    <p style="margin-top: 15px;">Dr. Bibisha Baaniya is a board-certified dermatologist specializing in skin, venereal, and aesthetic care. Combining clinical expertise with advanced laser technology, she provides personalized treatments focused on healthy, confident skin.</p>
+                    <p style="margin-top: 15px;">With a patient-centered and holistic approach, Dr. Baaniya creates customized treatment plans designed to deliver safe, effective, and long-lasting results.</p>
                     <br>
                     <a href="#contact" class="btn-premium btn-inline" style="background: var(--dark-green);">Consult Dr. Baaniya</a>
                 </div>
@@ -351,7 +351,7 @@
         </div>
     </section>
 
-    <section id="location" style="background: white;">
+    <section id="find-us" style="background: white;">
         <div class="container">
             <h2 class="section-title">Find Us</h2>
             <p class="section-subtitle">Way to Ayna Clinic, Biratnagar</p>
@@ -420,6 +420,34 @@
                         <p>"Professional service and great results. The laser treatment was painless and effective."</p>
                         <span>- Ramesh S.</span>
                     </div>
+                    <div class="testimonial">
+                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
+                        <p>"I had a good experience at this derma clinic. The doctor was knowledgeable and took time to properly understand my skin concerns before suggesting treatment. The staff were friendly and the clinic was clean and well-maintained. I appreciated that the recommendations felt honest and not overly commercial."</p>
+                        <span>- Abisha D.</span>
+                    </div>
+                    <div class="testimonial">
+                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
+                        <p>"I had a skin test at Ayna – The Skin, Hair, and Laser Clinic, and I must say, I am very satisfied with the results. The products they recommended worked really well for me. The staff was professional, and the consultation was thorough. Overall, a great experience! Highly recommend."</p>
+                        <span>- Laxmi K.</span>
+                    </div>
+                     <div class="testimonial">
+                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
+                        <p>"I had an incredible experience at Ayna Skin, Hair, and Laser Clinic, run by the amazing Dr. Bibisha Baniya. From the moment I entered, the clinic's warm and welcoming environment made me feel at ease. Dr. Bibisha is not only highly skilled but also genuinely caring and attentive.
+
+She took the time to understand my concerns and recommended treatments that were perfectly suited to my needs. The results have been outstanding—I can already see significant improvements in my skin. The clinic is well-equipped with advanced technology, and the staff is professional and supportive.
+
+I highly recommend Ayna Clinic for anyone looking for expert care for their skin, hair, or laser treatments. Dr. Bibisha’s expertise and dedication truly set this clinic apart!"</p>
+                        <span>- Sunil D.</span>
+                    </div>
+                    <div class="testimonial">
+                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
+                        <p>"Ayna Clinic is a trusted healthcare destination known for its strong commitment to patient care and professionalism. Patients frequently highlight the welcoming atmosphere and the courteous behavior of the staff, creating a comfortable experience from the moment they arrive. As one satisfied patient, Raju S., shared, “Everyone is so nice and professional. I would highly recommend this practice to anyone.”
+
+The clinic stands out for its friendly environment and high standards of service. The team ensures that every patient feels heard, respected, and well-informed throughout their visit, whether it is a routine consultation or a specialized treatment.
+
+Ayna Clinic offers a wide range of treatments, making it a convenient solution for various healthcare and dermatological needs. Their focus on quality care and patient satisfaction continues to build a strong and reliable reputation."</p>
+                        <span>- Raju s.</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -441,7 +469,6 @@
             const chatBox = document.getElementById('chatbot-messages');
             if (input.value.trim() === "") return;
 
-            // User message
             const userDiv = document.createElement('div');
             userDiv.className = 'msg user-msg';
             userDiv.innerText = input.value;
@@ -449,22 +476,28 @@
 
             const userText = input.value.toLowerCase();
             input.value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
 
-            // Bot Response Logic
             setTimeout(() => {
                 const botDiv = document.createElement('div');
                 botDiv.className = 'msg bot-msg';
                 
                 if(userText.includes("hydra")) {
-                    botDiv.innerText = "Our Hydrafacial treatments start with a basic cleanse and go up to advanced Hydrapeel. Would you like to book a session?";
-                } else if (userText.includes("laser")) {
-                    botDiv.innerText = "We offer FDA-approved Laser Hair Removal for full body and specific zones. It is virtually painless!";
-                } else if (userText.includes("location") || userText.includes("where")) {
-                    botDiv.innerText = "We are located at Rangeli Road, Biratnagar. You can see our 'Find Us' section for a video guide!";
+                    botDiv.innerText = "Our Hydrafacial treatments cleanse and rejuvenate your skin. Use the form below to book a session!";
+                } else if (userText.includes("laser") || userText.includes("hair removal")) {
+                    botDiv.innerText = "We offer virtually painless, FDA-approved Laser Hair Removal for the face and body.";
+                } else if (userText.includes("location") || userText.includes("where") || userText.includes("address")) {
+                    botDiv.innerText = "We are located at Rangeli Road, Biratnagar. Check our 'Find Us' video above!";
                 } else if (userText.includes("doctor") || userText.includes("who")) {
-                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD) is our expert dermatologist. She has treated over 5000 happy patients.";
+                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD) is our board-certified dermatologist with a passion for holistic skin care.";
+                } else if (userText.includes("cost") || userText.includes("price") || userText.includes("charge")) {
+                    botDiv.innerText = "Pricing depends on your specific skin or hair needs. Please book a consultation so Dr. Baaniya can assess you properly.";
+                } else if (userText.includes("book") || userText.includes("appointment")) {
+                    botDiv.innerText = "You can book directly using the form on this page, or click the WhatsApp button to chat with our receptionist!";
+                } else if (userText.includes("hi") || userText.includes("hello")) {
+                    botDiv.innerText = "Hi there! How can we assist you with your skin and hair care journey today?";
                 } else {
-                    botDiv.innerHTML = "I'm still learning! For medical advice, please <a href='https://wa.me/9779767797950' target='_blank'>Chat with us on WhatsApp</a> or use the booking form below.";
+                    botDiv.innerHTML = "I'm still learning! For detailed medical advice, please <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp us</a>.";
                 }
                 
                 chatBox.appendChild(botDiv);
