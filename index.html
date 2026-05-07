@@ -102,8 +102,6 @@
         .cta-call { background: var(--dark-green); }
         .cta-wa { background: #25d366; }
 
-        #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
-
         /* CHATBOT STYLES */
         #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
         #chatbot-launcher:hover { transform: scale(1.1); }
@@ -116,6 +114,8 @@
         #chatbot-input-area { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
         #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; }
         #chatbot-input-area button { background: none; border: none; color: var(--primary-green); cursor: pointer; font-size: 1.2rem; }
+
+        #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
         
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
@@ -314,11 +314,6 @@
                         <source src="trt33.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
-                        <source src="try44.mp4" type="video/mp4">
-                    </video>
-                </div>
             </div>
         </div>
     </section>
@@ -340,6 +335,12 @@
                         <source src="1000015263.mp4" type="video/mp4">
                     </video>
                     <h4 style="margin-top: 15px; font-size: 1rem; border: none;">कपाल झर्ने कारणहरु</h4>
+                </div>
+                <div class="service-card" style="padding: 15px; text-align: center;">
+                    <video controls playsinline style="width: 100%; border-radius: 10px; cursor: pointer; background: #000;">
+                        <source src="1000017916.mp4" type="video/mp4">
+                    </video>
+                    <h4 style="margin-top: 15px; font-size: 1rem; border: none;">के Skin Analyser Scam हो?</h4>
                 </div>
             </div>
         </div>
@@ -435,7 +436,7 @@ I highly recommend Ayna Clinic for anyone looking for expert care for their skin
                     </div>
                     <div class="testimonial">
                         <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"Ayna Clinic is a trusted healthcare destination known for its strong commitment to patient care and professionalism. Patients frequently highlight the welcoming atmosphere and the courteous behavior of the staff, creating a comfortable experience from the moment they arrive. As one satisfied patient, Raju S., shared, “Everyone is so nice and professional. I would highly recommend this practice to anyone.”
+                        <p>"Ayna Clinic is a trusted healthcare destination known for its strong commitment to patient care and professionalism. Patients frequently highlight the welcoming atmosphere and the courteous behavior of the staff, creating a comfortable experience from the moment they arrive. As one satisfied patient,I would highly recommend this practice to anyone.”
 
 The clinic stands out for its friendly environment and high standards of service. The team ensures that every patient feels heard, respected, and well-informed throughout their visit, whether it is a routine consultation or a specialized treatment.
 
@@ -485,7 +486,7 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
                 } else if (userText.includes("location") || userText.includes("where") || userText.includes("address")) {
                     botDiv.innerText = "We are located at Rangeli Road, Biratnagar. Check our 'Find Us' video above!";
                 } else if (userText.includes("doctor") || userText.includes("bibisha") || userText.includes("who")) {
-                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD, BPKIHS) is our highly qualified, board-certified dermatologist specializing in Skin, Venereal, and Aesthetic diseases.";
+                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD, BPKIHS) is our highly qualified, board-certified dermatologist specializing in Skin, Venereal, and Aesthetic diseases. She provides personalized treatments focused on healthy, confident skin.";
                 } else if (userText.includes("feature") || userText.includes("why")) {
                     botDiv.innerText = "Ayna Clinic features FDA-Approved technology, expert medical staff, personalized patient-first care, and proven clinical results for all skin and hair types.";
                 } else if (userText.includes("cost") || userText.includes("price") || userText.includes("charge")) {
@@ -495,7 +496,7 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
                 } else if (userText.includes("hi") || userText.includes("hello")) {
                     botDiv.innerText = "Hi there! How can we assist you with your skin and hair care journey today?";
                 } else {
-                    botDiv.innerHTML = "For specific medical advice or inquiries, please <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp us</a> or call +977 9767797950.";
+                    botDiv.innerHTML = "I am an AI assistant here to help! I couldn't find an exact answer to that, but you can <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp our reception</a> or call +977 9767797950 for immediate assistance.";
                 }
                 
                 chatBox.appendChild(botDiv);
