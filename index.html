@@ -102,18 +102,47 @@
         .cta-call { background: var(--dark-green); }
         .cta-wa { background: #25d366; }
 
+        /* CHATBOT STYLES */
+        #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
+        #chatbot-launcher:hover { transform: scale(1.1); }
+        #chatbot-window { position: fixed; bottom: 170px; right: 25px; width: 320px; height: 450px; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 2001; border: 1px solid #eee; }
+        #chatbot-header { background: var(--dark-green); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+        #chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; background: #fdfdfd; }
+        .msg { padding: 10px 15px; border-radius: 15px; max-width: 80%; }
+        .bot-msg { background: #f0f0f0; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .user-msg { background: var(--primary-green); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        #chatbot-input-area { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
+        #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; }
+        #chatbot-input-area button { background: none; border: none; color: var(--primary-green); cursor: pointer; font-size: 1.2rem; }
+
         #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
         
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
             .sticky-cta { bottom: 15px; right: 15px; flex-direction: column; gap: 10px; }
             .sticky-cta a { padding: 12px 20px; font-size: 0.9rem; }
+            #chatbot-launcher { bottom: 120px; right: 15px; }
+            #chatbot-window { bottom: 190px; right: 15px; width: 290px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Dual Sticky CTAs -->
+    <div id="chatbot-launcher" onclick="toggleChat()"><i class="fas fa-comment-medical"></i></div>
+    <div id="chatbot-window">
+        <div id="chatbot-header">
+            <span>Ayna AI Assistant</span>
+            <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer;"></i>
+        </div>
+        <div id="chatbot-messages" id="chatMessages">
+            <div class="msg bot-msg">Hello! Welcome to Ayna Clinic. How can I help you today? You can ask about our <b>Hydrafacial</b>, <b>Laser treatments</b>, or <b>Location</b>.</div>
+        </div>
+        <div id="chatbot-input-area">
+            <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <div class="sticky-cta">
         <a href="tel:+9779767797950" class="cta-call"><i class="fas fa-phone-alt"></i> Call Now</a>
         <a href="https://wa.me/9779767797950" class="cta-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -140,7 +169,6 @@
         </div>
     </section>
 
-    <!-- About Ayna Section -->
     <section id="about" style="background: white;">
         <div class="container">
             <div class="flex-layout">
@@ -163,7 +191,6 @@
         </div>
     </section>
 
-    <!-- About Our Doctor Section -->
     <section id="doctor" style="background: var(--bg-alt);">
         <div class="container">
             <div class="flex-layout">
@@ -171,8 +198,8 @@
                     <h2 class="section-title" style="text-align: left;">Meet Our Expert</h2>
                     <h3 style="color: var(--gold-accent); margin-bottom: 20px;">Dr. Bibisha Baaniya</h3>
                     <p><strong>MBBS, MD (BPKIHS) | NMC No. 17402</strong></p>
-                    <p style="margin-top: 15px;">Dr. Bibisha Baaniya is a board-certified dermatologist specializing in skin, venereal, and aesthetic care. Combining clinical expertise with advanced laser technology, she provides personalized treatments focused on healthy, confident skin.</p>
-                    <p style="margin-top: 15px;">With a patient-centered and holistic approach, Dr. Baaniya creates customized treatment plans designed to deliver safe, effective, and long-lasting results.</p>
+                    <p style="margin-top: 15px;">Dr. Bibisha Baaniya is a highly qualified, board-certified dermatologist specializing in Skin, Venereal, and Aesthetic diseases. With a deep commitment to dermatological science, she brings a wealth of experience in clinical diagnosis and advanced laser procedures.</p>
+                    <p style="margin-top: 15px;">She believes in a holistic approach to skin health, ensuring every patient receives a customized, results-driven treatment plan tailored precisely to their unique biological needs.</p>
                     <br>
                     <a href="#contact" class="btn-premium btn-inline" style="background: var(--dark-green);">Consult Dr. Baaniya</a>
                 </div>
@@ -183,7 +210,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" style="background: white;">
         <div class="container">
             <h2 class="section-title">Our Medical & Aesthetic Services</h2>
@@ -243,7 +269,6 @@
         </div>
     </section>
 
-    <!-- BEFORE & AFTER GALLERY SECTION -->
     <section id="gallery" style="background: var(--bg-alt);">
         <div class="container">
             <h2 class="section-title">Real Results</h2>
@@ -258,7 +283,6 @@
         </div>
     </section>
 
-    <!-- Video Showcase Section -->
     <section id="showcase" style="background: white;">
         <div class="container">
             <h2 class="section-title">Clinic In Action</h2>
@@ -290,11 +314,15 @@
                         <source src="trt33.mp4" type="video/mp4">
                     </video>
                 </div>
+                <div class="video-wrapper">
+                    <video autoplay loop muted playsinline>
+                        <source src="try44.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Informational Section -->
     <section id="informational" style="background: var(--bg-alt);">
         <div class="container">
             <h2 class="section-title">Informational Section</h2>
@@ -323,20 +351,18 @@
         </div>
     </section>
 
-    <!-- NEW Find Us Section -->
-    <section id="find-us" style="background: white;">
+    <section id="location" style="background: white;">
         <div class="container">
             <h2 class="section-title">Find Us</h2>
             <p class="section-subtitle">Way to Ayna Clinic, Biratnagar</p>
             <div style="max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
                 <video autoplay loop muted playsinline style="width: 100%; display: block; background: #000;">
-                    <source src="way_to_ayna.mp4" type="video/mp4">
+                    <source src="snaptik_7419645042899324167_v3.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Booking Section -->
     <section id="contact" class="contact-section" style="background: var(--bg-alt);">
         <div class="container">
             <div class="contact-header">
@@ -394,44 +420,59 @@
                         <p>"Professional service and great results. The laser treatment was painless and effective."</p>
                         <span>- Ramesh S.</span>
                     </div>
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"I had a good experience at this derma clinic. The doctor was knowledgeable and took time to properly understand my skin concerns before suggesting treatment. The staff were friendly and the clinic was clean and well-maintained. I appreciated that the recommendations felt honest and not overly commercial."</p>
-                        <span>- Abisha D.</span>
-                    </div>
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"I had a skin test at Ayna – The Skin, Hair, and Laser Clinic, and I must say, I am very satisfied with the results. The products they recommended worked really well for me. The staff was professional, and the consultation was thorough. Overall, a great experience! Highly recommend."</p>
-                        <span>- Laxmi K.</span>
-                    </div>
-                     <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"I had an incredible experience at Ayna Skin, Hair, and Laser Clinic, run by the amazing Dr. Bibisha Baniya. From the moment I entered, the clinic's warm and welcoming environment made me feel at ease. Dr. Bibisha is not only highly skilled but also genuinely caring and attentive.
-
-She took the time to understand my concerns and recommended treatments that were perfectly suited to my needs. The results have been outstanding—I can already see significant improvements in my skin. The clinic is well-equipped with advanced technology, and the staff is professional and supportive.
-
-I highly recommend Ayna Clinic for anyone looking for expert care for their skin, hair, or laser treatments. Dr. Bibisha’s expertise and dedication truly set this clinic apart!"</p>
-                        <span>- Sunil D.</span>
-                    </div>
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"Ayna Clinic is a trusted healthcare destination known for its strong commitment to patient care and professionalism. Patients frequently highlight the welcoming atmosphere and the courteous behavior of the staff, creating a comfortable experience from the moment they arrive. As one satisfied patient, Raju S., shared, “Everyone is so nice and professional. I would highly recommend this practice to anyone.”
-
-The clinic stands out for its friendly environment and high standards of service. The team ensures that every patient feels heard, respected, and well-informed throughout their visit, whether it is a routine consultation or a specialized treatment.
-
-Ayna Clinic offers a wide range of treatments, making it a convenient solution for various healthcare and dermatological needs. Their focus on quality care and patient satisfaction continues to build a strong and reliable reputation."</p>
-                        <span>- Raju s.</span>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer style="background:#1a1a1a; color:rgba(255,255,255,0.7); padding:40px 0; text-align:center;">
-        <p>&copy; 2026 Ayna Clinic. Professional Care You Can Trust.</p>
+        <p>© 2026 Ayna Clinic. Professional Care You Can Trust.</p>
     </footer>
 
     <script>
+        // CHATBOT LOGIC
+        function toggleChat() {
+            const chat = document.getElementById('chatbot-window');
+            chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const chatBox = document.getElementById('chatbot-messages');
+            if (input.value.trim() === "") return;
+
+            // User message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'msg user-msg';
+            userDiv.innerText = input.value;
+            chatBox.appendChild(userDiv);
+
+            const userText = input.value.toLowerCase();
+            input.value = "";
+
+            // Bot Response Logic
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'msg bot-msg';
+                
+                if(userText.includes("hydra")) {
+                    botDiv.innerText = "Our Hydrafacial treatments start with a basic cleanse and go up to advanced Hydrapeel. Would you like to book a session?";
+                } else if (userText.includes("laser")) {
+                    botDiv.innerText = "We offer FDA-approved Laser Hair Removal for full body and specific zones. It is virtually painless!";
+                } else if (userText.includes("location") || userText.includes("where")) {
+                    botDiv.innerText = "We are located at Rangeli Road, Biratnagar. You can see our 'Find Us' section for a video guide!";
+                } else if (userText.includes("doctor") || userText.includes("who")) {
+                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD) is our expert dermatologist. She has treated over 5000 happy patients.";
+                } else {
+                    botDiv.innerHTML = "I'm still learning! For medical advice, please <a href='https://wa.me/9779767797950' target='_blank'>Chat with us on WhatsApp</a> or use the booking form below.";
+                }
+                
+                chatBox.appendChild(botDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 600);
+        }
+
+        // FORM SUBMISSION LOGIC
         const form = document.getElementById('bookingForm');
         const submitBtn = document.getElementById('submitBtn');
         const successMsg = document.getElementById('successMsg');
