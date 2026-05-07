@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayna – The Skin, Hair & Laser Clinic | Premium Care</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-AYNACLINIC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-AYNACLINIC');
+    </script>
+
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -25,7 +36,7 @@
         header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
         .logo img { height: 60px; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; }
         .nav-links a:hover { color: var(--primary-green); }
 
@@ -149,6 +160,10 @@
     </div>
 
     <header>
+        <div style="background: var(--gold-accent); color: white; text-align: center; padding: 8px; font-size: 0.85rem; font-weight: 600; width: 100%;">
+            🎉 Dashain Special: 20% off all Laser Hair Removal Packages! <a href="#contact" style="color: white; text-decoration: underline;">Book Now</a>
+        </div>
+        
         <nav class="container">
             <div class="logo"><img src="ayna.jpg" alt="Ayna Logo"></div>
             <ul class="nav-links">
@@ -157,6 +172,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#showcase">Gallery</a></li>
                 <li><a href="#contact">Book Now</a></li>
+                <li id="google_translate_element" style="margin-left: 15px;"></li>
             </ul>
         </nav>
     </header>
@@ -166,6 +182,14 @@
             <h1>Transforming Skin & Hair <br>With <span style="color:var(--gold-accent);">Clinical Excellence.</span></h1>
             <p style="font-size: 1.3rem; margin: 20px 0 35px; max-width: 650px;">Trusted by 5000+ patients in Biratnagar. Book your professional consultation with <strong>Dr. Bibisha Baaniya</strong> today.</p>
             <a href="#contact" class="btn-premium btn-inline">Book Priority Consultation</a>
+        </div>
+    </section>
+
+    <section id="trust" style="background: white; padding: 30px 0; border-bottom: 1px solid #eee;">
+        <div class="container" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.8;">
+            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-certificate fa-2x"></i> FDA Approved Tech</div>
+            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-user-md fa-2x"></i> NMC Certified Doctors</div>
+            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-award fa-2x"></i> Premium Clinical Care</div>
         </div>
     </section>
 
@@ -351,7 +375,40 @@
         </div>
     </section>
 
-    <section id="find-us" style="background: white;">
+    <section id="faq" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know before visiting</p>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Does laser hair removal hurt?</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <p style="padding: 15px 0; margin: 0; color: #555;">Our FDA-approved laser technology features advanced cooling mechanisms, making the procedure virtually painless and highly comfortable compared to traditional methods.</p>
+                    </div>
+                </div>
+                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        <span>How long is the downtime for a Chemical Peel?</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <p style="padding: 15px 0; margin: 0; color: #555;">Downtime depends on the depth of the peel. Mild peels have little to no downtime, while deeper peels (like Nomelan Fenol) may require 3-5 days of peeling and recovery.</p>
+                    </div>
+                </div>
+                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Is the consultation fee adjustable?</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <p style="padding: 15px 0; margin: 0; color: #555;">The consultation fee is a standard charge for Dr. Baaniya's expert clinical assessment. However, it is often adjusted or waived if you proceed with a treatment package on the same day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="find-us" style="background: var(--bg-alt);">
         <div class="container">
             <h2 class="section-title">Find Us</h2>
             <p class="section-subtitle">Way to Ayna Clinic, Biratnagar</p>
@@ -363,7 +420,7 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section" style="background: var(--bg-alt);">
+    <section id="contact" class="contact-section" style="background: white;">
         <div class="container">
             <div class="contact-header">
                 <h2 class="section-title">Book Your Consultation</h2>
@@ -402,8 +459,13 @@
 
                         <button type="submit" id="submitBtn" class="btn-premium">Confirm Booking</button>
                     </form>
-
                     <p id="successMsg">✅ Appointment Requested Successfully! Our team will contact you soon.</p>
+
+                    <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Want to lock in your exact time instantly?</p>
+                        <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});return false;" class="btn-premium" style="background: var(--gold-accent); display: block;"><i class="fas fa-calendar-check"></i> Book via Live Calendar</a>
+                    </div>
+
                 </div>
             </div>
 
@@ -457,7 +519,29 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
         <p>© 2026 Ayna Clinic. Professional Care You Can Trust.</p>
     </footer>
 
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script>
+        // NEW: FAQ Toggling Logic
+        function toggleFaq(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.className = "fas fa-chevron-down";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.className = "fas fa-chevron-up";
+            }
+        }
+
+        // NEW: Google Translate Init Logic
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ne,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+
         // CHATBOT LOGIC
         function toggleChat() {
             const chat = document.getElementById('chatbot-window');
@@ -469,7 +553,6 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
             const chatBox = document.getElementById('chatbot-messages');
             if (input.value.trim() === "") return;
 
-            // User message
             const userDiv = document.createElement('div');
             userDiv.className = 'msg user-msg';
             userDiv.innerText = input.value;
@@ -477,32 +560,32 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
 
             const userText = input.value.toLowerCase();
             input.value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
 
-            // Bot Response Logic
             setTimeout(() => {
                 const botDiv = document.createElement('div');
                 botDiv.className = 'msg bot-msg';
                 
                 if (userText.includes("hydra")) {
-                    botDiv.innerText = "Our Hydrafacial treatments cleanse and rejuvenate your skin, offering Basic Hydrafacial and Hydrapeel. Use the form below to book a session!";
+                    botDiv.innerText = "Our Hydrafacial treatments cleanse and rejuvenate your skin. Use the form below to book a session!";
                 } else if (userText.includes("laser") || userText.includes("hair removal")) {
-                    botDiv.innerText = "We offer virtually painless, FDA-approved Laser Hair Removal for the face, neck, underarms, hands, legs, chest, abdomen, bikini, and full body packages.";
+                    botDiv.innerText = "We offer virtually painless, FDA-approved Laser Hair Removal for the face and body.";
                 } else if (userText.includes("service") || userText.includes("treatment")) {
-                    botDiv.innerText = "Our premier services include Hydrafacial, Chemical Peels, Laser Hair Removal, Anti-Aging (HIFU/Botox), Microneedling, CO2 Laser, Tattoo Removal, and Hair Treatments (PRP, iPRF, GFC).";
+                    botDiv.innerText = "We offer Hydrafacial, Chemical Peels, Laser Hair Removal, Anti-Aging (HIFU/Botox), Microneedling, CO2 Laser, and Hair/Tattoo Treatments (PRP, GFC).";
                 } else if (userText.includes("location") || userText.includes("where") || userText.includes("address")) {
-                    botDiv.innerText = "We are conveniently located at Rangeli Road, Biratnagar. Check our 'Find Us' video above or use the Google Map in the contact section!";
+                    botDiv.innerText = "We are located at Rangeli Road, Biratnagar. Check our 'Find Us' video above!";
                 } else if (userText.includes("doctor") || userText.includes("bibisha") || userText.includes("who")) {
-                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD from BPKIHS, NMC No. 17402) is our board-certified dermatologist. She brings extensive clinical expertise and advanced laser technology experience, focusing on personalized, science-backed care for healthy, confident skin.";
-                } else if (userText.includes("feature") || userText.includes("why") || userText.includes("about")) {
-                    botDiv.innerText = "Ayna Clinic is Biratnagar's premier dermatology center. We feature FDA-Approved technology, proven clinical results, and a holistic, patient-first approach led by expert medical staff.";
+                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD, BPKIHS) is our highly qualified, board-certified dermatologist specializing in Skin, Venereal, and Aesthetic diseases. She provides personalized treatments focused on healthy, confident skin.";
+                } else if (userText.includes("feature") || userText.includes("why")) {
+                    botDiv.innerText = "Ayna Clinic features FDA-Approved technology, expert medical staff, personalized patient-first care, and proven clinical results for all skin and hair types.";
                 } else if (userText.includes("cost") || userText.includes("price") || userText.includes("charge")) {
-                    botDiv.innerText = "Pricing depends on your specific skin or hair needs. Please book a consultation so Dr. Baaniya can assess you properly and provide a customized plan.";
+                    botDiv.innerText = "Pricing depends on your specific skin or hair needs. Please book a consultation so Dr. Baaniya can assess you properly.";
                 } else if (userText.includes("book") || userText.includes("appointment")) {
-                    botDiv.innerText = "You can easily book directly using the appointment form on this page, or click the WhatsApp button to schedule with our receptionist!";
+                    botDiv.innerText = "You can book directly using the form on this page, or click the WhatsApp button to chat with our receptionist!";
                 } else if (userText.includes("hi") || userText.includes("hello")) {
-                    botDiv.innerText = "Hello! How can we assist you with your skin and hair care journey today?";
+                    botDiv.innerText = "Hi there! How can we assist you with your skin and hair care journey today?";
                 } else {
-                    botDiv.innerHTML = "For specific medical advice or detailed inquiries, please <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp our reception team</a> or call +977 9767797950. We are happy to help!";
+                    botDiv.innerHTML = "I am an AI assistant here to help! I couldn't find an exact answer to that, but you can <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp our reception</a> or call +977 9767797950 for immediate assistance.";
                 }
                 
                 chatBox.appendChild(botDiv);
