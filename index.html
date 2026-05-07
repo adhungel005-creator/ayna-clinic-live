@@ -482,14 +482,18 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
                 const botDiv = document.createElement('div');
                 botDiv.className = 'msg bot-msg';
                 
-                if(userText.includes("hydra")) {
+                if (userText.includes("hydra")) {
                     botDiv.innerText = "Our Hydrafacial treatments cleanse and rejuvenate your skin. Use the form below to book a session!";
                 } else if (userText.includes("laser") || userText.includes("hair removal")) {
                     botDiv.innerText = "We offer virtually painless, FDA-approved Laser Hair Removal for the face and body.";
+                } else if (userText.includes("service") || userText.includes("treatment")) {
+                    botDiv.innerText = "We offer Hydrafacial, Chemical Peels, Laser Hair Removal, Anti-Aging (HIFU/Botox), Microneedling, CO2 Laser, and Hair/Tattoo Treatments (PRP, GFC).";
                 } else if (userText.includes("location") || userText.includes("where") || userText.includes("address")) {
                     botDiv.innerText = "We are located at Rangeli Road, Biratnagar. Check our 'Find Us' video above!";
-                } else if (userText.includes("doctor") || userText.includes("who")) {
-                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD) is our board-certified dermatologist with a passion for holistic skin care.";
+                } else if (userText.includes("doctor") || userText.includes("bibisha") || userText.includes("who")) {
+                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD, BPKIHS) is our highly qualified, board-certified dermatologist specializing in Skin, Venereal, and Aesthetic diseases.";
+                } else if (userText.includes("feature") || userText.includes("why")) {
+                    botDiv.innerText = "Ayna Clinic features FDA-Approved technology, expert medical staff, personalized patient-first care, and proven clinical results for all skin and hair types.";
                 } else if (userText.includes("cost") || userText.includes("price") || userText.includes("charge")) {
                     botDiv.innerText = "Pricing depends on your specific skin or hair needs. Please book a consultation so Dr. Baaniya can assess you properly.";
                 } else if (userText.includes("book") || userText.includes("appointment")) {
@@ -497,7 +501,7 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
                 } else if (userText.includes("hi") || userText.includes("hello")) {
                     botDiv.innerText = "Hi there! How can we assist you with your skin and hair care journey today?";
                 } else {
-                    botDiv.innerHTML = "I'm still learning! For detailed medical advice, please <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp us</a>.";
+                    botDiv.innerHTML = "For specific medical advice or inquiries, please <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp us</a> or call +977 9767797950.";
                 }
                 
                 chatBox.appendChild(botDiv);
