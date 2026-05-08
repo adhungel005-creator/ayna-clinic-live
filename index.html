@@ -282,11 +282,16 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <h4>Tattoo & Hair Treatment</h4>
+                    <h4>Hair Treatment</h4>
                     <ul>
-                        <li>Tattoo Removal (Small/Medium/Large)</li>
                         <li>PRP & iPRF Treatment</li>
                         <li>GFC Treatment</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Tattoo Removal</h4>
+                    <ul>
+                        <li>Tattoo Removal (Small/Medium/Large)</li>
                     </ul>
                 </div>
             </div>
@@ -298,6 +303,7 @@
             <h2 class="section-title">Real Results</h2>
             <p class="section-subtitle">Clinical Transformations at Ayna</p>
             <div class="results-grid">
+                <div class="result-card"><img src="1000020552.png" alt="Hair Treatment Results"></div>
                 <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Therapy Results"></div>
                 <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Ayna Glow Transformation"></div>
                 <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Subtle Change Huge Impact"></div>
@@ -399,6 +405,38 @@
                         <p style="padding: 15px 0; margin: 0; color: #555;">The consultation fee is a standard charge for Dr. Baaniya's expert clinical assessment. However, it is often adjusted or waived if you proceed with a treatment package on the same day.</p>
                     </div>
                 </div>
+                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Is laser hair removal permanent?</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <p style="padding: 15px 0; margin: 0; color: #555;">Laser hair removal significantly reduces hair growth, but it is typically considered long-term hair reduction rather than 100% permanent. Occasional maintenance sessions may be required.</p>
+                    </div>
+                </div>
+                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Does chemical peel make skin thin?</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <p style="padding: 15px 0; margin: 0; color: #555;">No, when done correctly by professionals, chemical peels actually stimulate collagen production, making the dermis thicker and stronger over time, even though it temporarily removes the dead outer layer.</p>
+                    </div>
+                </div>
+                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Stuffs to avoid in melasma</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <p style="padding: 15px 0; margin: 0; color: #555;">Avoid direct sun exposure without high SPF sunscreen, extreme heat, harsh exfoliants, and scented skincare products that can irritate the skin and trigger pigmentation.</p>
+                    </div>
+                </div>
+                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Food to avoid in acne</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <p style="padding: 15px 0; margin: 0; color: #555;">It is generally recommended to avoid high glycemic index foods (like sugary sweets and white bread), excessive dairy (especially skim milk), and heavily processed fast foods to help manage acne flare-ups.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -445,8 +483,15 @@
                             <option value="Laser Hair Removal">Hair Removal Laser</option>
                             <option value="Anti-Aging">Anti-Aging Treatment</option>
                             <option value="Microneedling/CO2">Microneedling & CO2</option>
-                            <option value="Tattoo/Hair Treatment">Tattoo & Hair Treatment</option>
+                            <option value="Hair Treatment">Hair Treatment</option>
+                            <option value="Tattoo Removal">Tattoo Removal</option>
                             <option value="General Consultation">General Consultation</option>
+                        </select>
+
+                        <select id="consultationType" required>
+                            <option value="">Select Consultation Type</option>
+                            <option value="Physical">Physical Consultation (In-Clinic)</option>
+                            <option value="Online">Online Consultation (Video/Call)</option>
                         </select>
 
                         <input type="date" id="date" required>
@@ -454,7 +499,12 @@
 
                         <button type="submit" id="submitBtn" class="btn-premium">Confirm Booking</button>
                     </form>
-                    <p id="successMsg">✅ Appointment Requested Successfully! Our team will contact you soon.</p
+                    <p id="successMsg">✅ Appointment Requested Successfully! Our team will contact you soon.</p>
+
+                    <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Want to lock in your exact time instantly?</p>
+                        <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});return false;" class="btn-premium" style="background: var(--gold-accent); display: block;"><i class="fas fa-calendar-check"></i> Book via Live Calendar</a>
+                    </div>
 
                 </div>
             </div>
@@ -509,12 +559,9 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
         <p>© 2026 Ayna Clinic. Professional Care You Can Trust.</p>
     </footer>
 
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
-        // NEW: FAQ Toggling Logic
         function toggleFaq(element) {
             const content = element.nextElementSibling;
             const icon = element.querySelector('i');
@@ -527,12 +574,10 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
             }
         }
 
-        // NEW: Google Translate Init Logic
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ne,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
         }
 
-        // CHATBOT LOGIC
         function toggleChat() {
             const chat = document.getElementById('chatbot-window');
             chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
@@ -561,7 +606,7 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
                 } else if (userText.includes("laser") || userText.includes("hair removal")) {
                     botDiv.innerText = "We offer virtually painless, FDA-approved Laser Hair Removal for the face and body.";
                 } else if (userText.includes("service") || userText.includes("treatment")) {
-                    botDiv.innerText = "We offer Hydrafacial, Chemical Peels, Laser Hair Removal, Anti-Aging (HIFU/Botox), Microneedling, CO2 Laser, and Hair/Tattoo Treatments (PRP, GFC).";
+                    botDiv.innerText = "We offer Hydrafacial, Chemical Peels, Laser Hair Removal, Anti-Aging (HIFU/Botox), Microneedling, CO2 Laser, Hair Treatments, and Tattoo Removal.";
                 } else if (userText.includes("location") || userText.includes("where") || userText.includes("address")) {
                     botDiv.innerText = "We are located at Rangeli Road, Biratnagar. Check our 'Find Us' video above!";
                 } else if (userText.includes("doctor") || userText.includes("bibisha") || userText.includes("who")) {
@@ -583,7 +628,6 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
             }, 600);
         }
 
-        // FORM SUBMISSION LOGIC
         const form = document.getElementById('bookingForm');
         const submitBtn = document.getElementById('submitBtn');
         const successMsg = document.getElementById('successMsg');
@@ -600,14 +644,14 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
                 service: document.getElementById('service').value,
-                message: `Preferred Date: ${document.getElementById('date').value} | Note: ${document.getElementById('message').value}`
+                message: `Type: ${document.getElementById('consultationType').value} | Date: ${document.getElementById('date').value} | Note: ${document.getElementById('message').value}`
             };
 
             try {
                 const response = await fetch(API_URL, {
                     method: 'POST',
                     mode: 'cors',
-                    credentials: 'omit', // Required for some mobile browsers
+                    credentials: 'omit',
                     headers: { 
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
