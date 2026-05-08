@@ -52,7 +52,7 @@
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-inline { width: auto; }
 
-        /* Updated Stats Section Colors */
+        /* Stats Section */
         .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: var(--bg-alt); color: var(--dark-green); border-bottom: 1px solid #e1eed2; }
         .stat-item h2 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 5px; font-weight: 700; }
         .stat-item p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: 600; }
@@ -87,24 +87,17 @@
         .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.95; transition: 0.3s; }
         .video-wrapper:hover video { opacity: 1; transform: scale(1.02); }
 
-        /* Integrated Contact Section */
-        .contact-section { background: var(--bg-premium); }
-        .contact-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1100px; margin: 0 auto; }
-        .contact-info, .contact-form { background: white; padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
-        .contact-info { border-top: 5px solid var(--gold-accent); }
-        .contact-form { border-top: 5px solid var(--primary-green); }
-        .contact-info h3, .contact-form h3 { color: var(--dark-green); margin-bottom: 25px; font-size: 1.5rem; }
-        .contact-info p { margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 15px; }
-        .contact-info a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: 0.3s; }
-        .contact-info a:hover { color: var(--primary-green); }
-        .contact-info iframe { width: 100%; height: 250px; border: none; margin-top: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        
-        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
-
         /* FAQ Styling */
         .faq-item { border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
         .faq-header { background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
         .faq-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+
+        /* Sticky CTA Styling */
+        .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
+        .sticky-cta a { padding: 15px 25px; border-radius: 50px; color: white; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s; }
+        .sticky-cta a:hover { transform: translateY(-5px); }
+        .cta-call { background: var(--dark-green); }
+        .cta-wa { background: #25d366; }
 
         /* CHATBOT STYLES */
         #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
@@ -245,7 +238,7 @@
             <h2 class="section-title">Our Medical & Aesthetic Services</h2>
             <p class="section-subtitle">Comprehensive solutions for your skin and hair</p>
             
-            <div class="services-grid" id="main-services-grid">
+            <div class="services-grid">
                 <div class="service-card">
                     <h4>Hydrafacial</h4>
                     <ul>
@@ -256,10 +249,11 @@
                 <div class="service-card">
                     <h4>Chemical Peel</h4>
                     <ul>
-                        <li>Sesglicopeel</li>
-                        <li>Azelac M peel</li>
+                        <li>Sesglicopeel (with Retinol Seal)</li>
+                        <li>Azelac M peel (with Retinol Seal)</li>
                         <li>Nomelan Fenol peel</li>
                         <li>Hollywood Laser Peel</li>
+                        <li>Party / Lip / Periorbital Peel</li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -267,14 +261,15 @@
                     <ul>
                         <li>Face, Neck, & Underarms</li>
                         <li>Hands, Legs, & Chest</li>
+                        <li>Abdomen & Bikini</li>
                         <li>Full Body Packages</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <h4>Anti-Aging Treatment</h4>
                     <ul>
-                        <li>HIFU</li>
-                        <li>Botox</li>
+                        <li>HIFU (Full Face / Half Face)</li>
+                        <li>Botox (per unit)</li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -282,7 +277,7 @@
                     <ul>
                         <li>Basic CO2 Laser</li>
                         <li>CO2 with Exosome</li>
-                        <li>PRP / Exosome</li>
+                        <li>Microneedling with PRP / Exosome</li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -295,7 +290,7 @@
                 <div class="service-card">
                     <h4>Tattoo Removal</h4>
                     <ul>
-                        <li>Professional Removal</li>
+                        <li>Tattoo Removal (Small/Medium/Large)</li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -320,10 +315,10 @@
                         <li>Radiocautery</li>
                         <li>Cyst Excision</li>
                         <li>Split Ear Repair</li>
-                        <li>Lontophoresis </li>
+                        <li>Lontophoresis</li>
                         <li>Mole Removal</li>
                         <li>Biopsy</li>
-                        <li>Skin Cancer Excision</li>
+                        <li>Skin Cancer excision</li>
                     </ul>
                 </div>
             </div>
@@ -339,7 +334,7 @@
                 <h3 style="color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem;">Complete Care Under One Roof</h3>
                 <p style="font-size: 1.1rem; color: #555;">For your convenience, Ayna Clinic features a fully stocked in-house pharmacy. Get all prescribed clinical medicines, dermatological creams, and authentic skincare products immediately after your consultation.</p>
                 <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
-                    <p style="color: var(--dark-green); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Online Delivery Available!</p>
+                    <p style="color: var(--dark-green); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Online Delivery Now Available!</p>
                     <a href="https://wa.me/9779767797950?text=I%20would%20like%20to%20order%20medicines%20from%20your%20pharmacy." target="_blank" class="btn-premium btn-inline" style="background: var(--gold-accent); padding: 10px 25px; font-size: 0.9rem;"><i class="fab fa-whatsapp"></i> Order Medicines via WhatsApp</a>
                 </div>
             </div>
@@ -475,7 +470,8 @@
                 <div class="contact-info">
                     <h3>Contact Details</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Rangeli Road, Biratnagar</p>
-                    <p><i class="fas fa-phone-alt"></i> +977 9767797950</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+9779767797950">+977 9767797950</a></p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/9779767797950" target="_blank">Chat on WhatsApp</a></p>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.0463378519965!2d87.2833182!3d26.4542938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef7446ff360e21%3A0x6406e93910c2423!2sAyna%20The%20Skin%2C%20Hair%20%26%20Laser%20Clinic!5e0!3m2!1sen!2snp!4v1714710000000!5m2!1sen!2snp" loading="lazy"></iframe>
                 </div>
                 <div class="contact-form">
@@ -516,7 +512,7 @@
     </footer>
 
     <script>
-        // FIXED Counter Animation Logic
+        // Counter Animation Logic
         const counters = document.querySelectorAll('.counter');
         const observerOptions = { threshold: 1, rootMargin: "0px 0px -50px 0px" };
 
