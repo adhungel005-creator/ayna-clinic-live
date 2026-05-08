@@ -52,7 +52,7 @@
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-inline { width: auto; }
 
-        /* Stats Section */
+        /* Updated Stats Section Styles */
         .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: var(--bg-alt); color: var(--dark-green); border-bottom: 1px solid #e1eed2; }
         .stat-item h2 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 5px; font-weight: 700; }
         .stat-item p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: 600; }
@@ -86,6 +86,16 @@
         .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid white; position: relative; background: #000; }
         .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.95; transition: 0.3s; }
         .video-wrapper:hover video { opacity: 1; transform: scale(1.02); }
+
+        /* Informational Slider Styles */
+        .slider-wrapper { position: relative; display: flex; align-items: center; }
+        .slider-container { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding-bottom: 20px; width: 100%; scrollbar-width: none; }
+        .slider-container::-webkit-scrollbar { display: none; }
+        .slider-container .service-card { flex: 0 0 calc(33.333% - 17px); scroll-snap-align: start; min-width: 300px; }
+        .slider-btn { background: var(--primary-green); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; position: absolute; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+        .slider-btn:hover { background: var(--dark-green); transform: scale(1.1); }
+        .slider-btn.prev { left: -20px; }
+        .slider-btn.next { right: -20px; }
 
         /* Integrated Contact Section */
         .contact-section { background: var(--bg-premium); }
@@ -134,6 +144,9 @@
             .sticky-cta a { padding: 12px 20px; font-size: 0.9rem; }
             #chatbot-launcher { bottom: 120px; right: 15px; }
             #chatbot-window { bottom: 190px; right: 15px; width: 290px; }
+            .slider-container .service-card { flex: 0 0 100%; }
+            .slider-btn.prev { left: -10px; }
+            .slider-btn.next { right: -10px; }
         }
     </style>
 </head>
@@ -389,19 +402,39 @@
     <section id="informational" style="background: var(--bg-alt);">
         <div class="container">
             <h2 class="section-title">Informational Section</h2>
-            <div class="services-grid">
-                <div class="service-card" style="padding: 15px; text-align: center;">
-                    <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015094.mp4" type="video/mp4"></video>
-                    <h4 style="margin-top: 15px;">Shampoo, Conditioner र Hair Mask कसरी लगाउने?</h4>
+            <div class="slider-wrapper">
+                <button class="slider-btn prev" onclick="document.getElementById('infoSlider').scrollBy({left: -325, behavior: 'smooth'})"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-container" id="infoSlider">
+                    <div class="service-card" style="padding: 15px; text-align: center;">
+                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015094.mp4" type="video/mp4"></video>
+                        <h4 style="margin-top: 15px;">Shampoo, Conditioner र Hair Mask कसरी लगाउने?</h4>
+                    </div>
+                    <div class="service-card" style="padding: 15px; text-align: center;">
+                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015263.mp4" type="video/mp4"></video>
+                        <h4 style="margin-top: 15px;">कपाल झर्ने कारणहरु</h4>
+                    </div>
+                    <div class="service-card" style="padding: 15px; text-align: center;">
+                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000017916.mp4" type="video/mp4"></video>
+                        <h4 style="margin-top: 15px;">के Skin Analyser Scam हो?</h4>
+                    </div>
+                    <div class="service-card" style="padding: 15px; text-align: center;">
+                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="snaptik_7486153610510732562_v3.mp4" type="video/mp4"></video>
+                        <h4 style="margin-top: 15px;">Skin care during preconception, pregnancy, breastfeeding</h4>
+                    </div>
+                    <div class="service-card" style="padding: 15px; text-align: center;">
+                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="snaptik_7413260269767478546_v3 (1).mp4" type="video/mp4"></video>
+                        <h4 style="margin-top: 15px;">Hydrafacial कसले गर्ने, कसले नगर्ने?</h4>
+                    </div>
+                    <div class="service-card" style="padding: 15px; text-align: center;">
+                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="snaptik_7482768706616020231_v3.mp4" type="video/mp4"></video>
+                        <h4 style="margin-top: 15px;">Is acne treatment important?</h4>
+                    </div>
+                    <div class="service-card" style="padding: 15px; text-align: center;">
+                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="snaptik_7488358872390929672_v3.mp4" type="video/mp4"></video>
+                        <h4 style="margin-top: 15px;">Skin care routine of my two years old baby</h4>
+                    </div>
                 </div>
-                <div class="service-card" style="padding: 15px; text-align: center;">
-                    <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015263.mp4" type="video/mp4"></video>
-                    <h4 style="margin-top: 15px;">कपाल झर्ने कारणहरु</h4>
-                </div>
-                <div class="service-card" style="padding: 15px; text-align: center;">
-                    <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000017916.mp4" type="video/mp4"></video>
-                    <h4 style="margin-top: 15px;">के Skin Analyser Scam हो?</h4>
-                </div>
+                <button class="slider-btn next" onclick="document.getElementById('infoSlider').scrollBy({left: 325, behavior: 'smooth'})"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
