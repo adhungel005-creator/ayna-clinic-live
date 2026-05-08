@@ -52,7 +52,7 @@
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-inline { width: auto; }
 
-        /* Stats Section Styling - UPDATED COLORS */
+        /* Animated Stats Section */
         .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: var(--bg-alt); color: var(--dark-green); border-bottom: 1px solid #e1eed2; }
         .stat-item h2 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 5px; font-weight: 700; }
         .stat-item p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: 600; }
@@ -246,16 +246,102 @@
             <p class="section-subtitle">Comprehensive solutions for your skin and hair</p>
             
             <div class="services-grid" id="main-services-grid">
-                <div class="service-card"><h4>Hydrafacial</h4><ul><li>Basic Hydrafacial</li><li>Hydrapeel</li></ul></div>
-                <div class="service-card"><h4>Chemical Peel</h4><ul><li>Sesglicopeel</li><li>Azelac M peel</li><li>Nomelan Fenol peel</li><li>Hollywood Laser Peel</li></ul></div>
-                <div class="service-card"><h4>Hair Removal Laser</h4><ul><li>Face, Neck, & Underarms</li><li>Hands, Legs, & Chest</li><li>Full Body Packages</li></ul></div>
-                <div class="service-card"><h4>Anti-Aging Treatment</h4><ul><li>HIFU</li><li>Botox</li></ul></div>
-                <div class="service-card"><h4>Microneedling & CO2</h4><ul><li>Basic CO2 Laser</li><li>CO2 with Exosome</li><li>PRP / Exosome</li></ul></div>
-                <div class="service-card"><h4>Hair Treatment</h4><ul><li>PRP & iPRF Treatment</li><li>GFC Treatment</li></ul></div>
-                <div class="service-card"><h4>Tattoo Removal</h4><ul><li>Professional Removal</li></ul></div>
-                <div class="service-card"><h4>Fillers</h4><ul><li>Dermal Fillers</li></ul></div>
-                <div class="service-card"><h4>Thread Lift</h4><ul><li>PDO Thread</li><li>COG Thread</li></ul></div>
-                <div class="service-card"><h4>Other Services</h4><ul><li>Nail Avulsion</li><li>Skin Tag Removal</li><li>Electrocautery</li><li>Radiocautery</li><li>Cyst Excision</li><li>Split Ear Repair</li></ul></div>
+                <div class="service-card">
+                    <h4>Hydrafacial</h4>
+                    <ul>
+                        <li>Basic Hydrafacial</li>
+                        <li>Hydrapeel</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Chemical Peel</h4>
+                    <ul>
+                        <li>Sesglicopeel</li>
+                        <li>Azelac M peel</li>
+                        <li>Nomelan Fenol peel</li>
+                        <li>Hollywood Laser Peel</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Hair Removal Laser</h4>
+                    <ul>
+                        <li>Face, Neck, & Underarms</li>
+                        <li>Hands, Legs, & Chest</li>
+                        <li>Full Body Packages</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Anti-Aging Treatment</h4>
+                    <ul>
+                        <li>HIFU</li>
+                        <li>Botox</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Microneedling & CO2</h4>
+                    <ul>
+                        <li>Basic CO2 Laser</li>
+                        <li>CO2 with Exosome</li>
+                        <li>PRP / Exosome</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Hair Treatment</h4>
+                    <ul>
+                        <li>PRP & iPRF Treatment</li>
+                        <li>GFC Treatment</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Tattoo Removal</h4>
+                    <ul>
+                        <li>Professional Removal</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Fillers</h4>
+                    <ul>
+                        <li>Dermal Fillers</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Thread Lift</h4>
+                    <ul>
+                        <li>PDO Thread</li>
+                        <li>COG Thread</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Other Services</h4>
+                    <ul>
+                        <li>Nail Avulsion</li>
+                        <li>Skin Tag Removal</li>
+                        <li>Electrocautery</li>
+                        <li>Radiocautery</li>
+                        <li>Cyst Excision</li>
+                        <li>Split Ear Repair</li>
+                        <li>Lontophoresis</li>
+                        <li>Mole Removal</li>
+                        <li>Biopsy</li>
+                        <li>Skin Cancer excision</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pharmacy" style="background: var(--bg-premium);">
+        <div class="container">
+            <h2 class="section-title">In-House Pharmacy</h2>
+            <p class="section-subtitle">Authentic Medicines & Skincare</p>
+            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--primary-green);">
+                <i class="fas fa-prescription-bottle-alt fa-3x" style="color: var(--primary-green); margin-bottom: 20px;"></i>
+                <h3 style="color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem;">Complete Care Under One Roof</h3>
+                <p style="font-size: 1.1rem; color: #555;">For your convenience, Ayna Clinic features a fully stocked in-house pharmacy. Get all prescribed clinical medicines, dermatological creams, and authentic skincare products immediately after your consultation.</p>
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
+                    <p style="color: var(--dark-green); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Online Delivery Now Available!</p>
+                    <a href="https://wa.me/9779767797950?text=I%20would%20like%20to%20order%20medicines%20from%20your%20pharmacy." target="_blank" class="btn-premium btn-inline" style="background: var(--gold-accent); padding: 10px 25px; font-size: 0.9rem;"><i class="fab fa-whatsapp"></i> Order Medicines via WhatsApp</a>
+                </div>
             </div>
         </div>
     </section>
@@ -265,14 +351,14 @@
             <h2 class="section-title">Real Results</h2>
             <p class="section-subtitle">Clinical Transformations at Ayna</p>
             <div class="results-grid">
-                <div class="result-card"><img src="1000020552.jpg" alt="Hair Treatment Results"></div>
-                <div class="result-card"><img src="1000020557.png" alt="Results"></div>
-                <div class="result-card"><img src="1000020558.png" alt="Results"></div>
-                <div class="result-card"><img src="GFC Therapy Results.png" alt="Results"></div>
-                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Results"></div>
-                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Results"></div>
-                <div class="result-card"><img src="Erase the Lines 1.png" alt="Results"></div>
-                <div class="result-card"><img src="Erase the Lines 2.png" alt="Results"></div>
+                <div class="result-card"><img src="1000020552.png" alt="Hair Treatment Results"></div>
+                <div class="result-card"><img src="1000020557.png" alt="Clinical Result"></div>
+                <div class="result-card"><img src="1000020558.png" alt="Clinical Result"></div>
+                <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Therapy Results"></div>
+                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Ayna Glow Transformation"></div>
+                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Subtle Change Huge Impact"></div>
+                <div class="result-card"><img src="Erase the Lines 1.png" alt="Erase the Lines 1"></div>
+                <div class="result-card"><img src="Erase the Lines 2.png" alt="Erase the Lines 2"></div>
             </div>
         </div>
     </section>
@@ -281,11 +367,31 @@
         <div class="container">
             <h2 class="section-title">Clinic In Action</h2>
             <div class="video-showcase">
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment1.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment2.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="tr13.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt23.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt33.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper">
+                    <video autoplay loop muted playsinline>
+                        <source src="treatment1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-wrapper">
+                    <video autoplay loop muted playsinline>
+                        <source src="treatment2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-wrapper">
+                    <video autoplay loop muted playsinline>
+                        <source src="tr13.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-wrapper">
+                    <video autoplay loop muted playsinline>
+                        <source src="trt23.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-wrapper">
+                    <video autoplay loop muted playsinline>
+                        <source src="trt33.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
     </section>
@@ -294,9 +400,24 @@
         <div class="container">
             <h2 class="section-title">Informational Section</h2>
             <div class="services-grid">
-                <div class="service-card" style="padding: 15px; text-align: center;"><video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015094.mp4" type="video/mp4"></video><h4>Hair Mask Guide</h4></div>
-                <div class="service-card" style="padding: 15px; text-align: center;"><video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015263.mp4" type="video/mp4"></video><h4>Hair Loss Causes</h4></div>
-                <div class="service-card" style="padding: 15px; text-align: center;"><video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000017916.mp4" type="video/mp4"></video><h4>Skin Analyser Scam?</h4></div>
+                <div class="service-card" style="padding: 15px; text-align: center;">
+                    <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;">
+                        <source src="1000015094.mp4" type="video/mp4">
+                    </video>
+                    <h4 style="margin-top: 15px;">Hair Mask Guide</h4>
+                </div>
+                <div class="service-card" style="padding: 15px; text-align: center;">
+                    <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;">
+                        <source src="1000015263.mp4" type="video/mp4">
+                    </video>
+                    <h4 style="margin-top: 15px;">Hair Loss Causes</h4>
+                </div>
+                <div class="service-card" style="padding: 15px; text-align: center;">
+                    <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;">
+                        <source src="1000017916.mp4" type="video/mp4">
+                    </video>
+                    <h4 style="margin-top: 15px;">Skin Analyser Scam?</h4>
+                </div>
             </div>
         </div>
     </section>
@@ -337,7 +458,9 @@
         <div class="container">
             <h2 class="section-title">Find Us</h2>
             <div style="max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-                <video autoplay loop muted playsinline style="width: 100%; display: block; background: #000;"><source src="way_to_ayna.mp4" type="video/mp4"></video>
+                <video autoplay loop muted playsinline style="width: 100%; display: block; background: #000;">
+                    <source src="way_to_ayna.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
