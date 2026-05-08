@@ -52,7 +52,7 @@
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-inline { width: auto; }
 
-        /* Animated Stats Section */
+        /* Updated Stats Section Colors */
         .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: var(--bg-alt); color: var(--dark-green); border-bottom: 1px solid #e1eed2; }
         .stat-item h2 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 5px; font-weight: 700; }
         .stat-item p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: 600; }
@@ -320,10 +320,10 @@
                         <li>Radiocautery</li>
                         <li>Cyst Excision</li>
                         <li>Split Ear Repair</li>
-                        <li>Lontophoresis</li>
+                        <li>Lontophoresis </li>
                         <li>Mole Removal</li>
                         <li>Biopsy</li>
-                        <li>Skin Cancer excision</li>
+                        <li>Skin Cancer Excision</li>
                     </ul>
                 </div>
             </div>
@@ -339,7 +339,7 @@
                 <h3 style="color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem;">Complete Care Under One Roof</h3>
                 <p style="font-size: 1.1rem; color: #555;">For your convenience, Ayna Clinic features a fully stocked in-house pharmacy. Get all prescribed clinical medicines, dermatological creams, and authentic skincare products immediately after your consultation.</p>
                 <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
-                    <p style="color: var(--dark-green); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Online Delivery Now Available!</p>
+                    <p style="color: var(--dark-green); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Online Delivery Available!</p>
                     <a href="https://wa.me/9779767797950?text=I%20would%20like%20to%20order%20medicines%20from%20your%20pharmacy." target="_blank" class="btn-premium btn-inline" style="background: var(--gold-accent); padding: 10px 25px; font-size: 0.9rem;"><i class="fab fa-whatsapp"></i> Order Medicines via WhatsApp</a>
                 </div>
             </div>
@@ -351,7 +351,7 @@
             <h2 class="section-title">Real Results</h2>
             <p class="section-subtitle">Clinical Transformations at Ayna</p>
             <div class="results-grid">
-                <div class="result-card"><img src="1000020552.png" alt="Hair Treatment Results"></div>
+                <div class="result-card"><img src="1000020552.jpg" alt="Hair Treatment Results"></div>
                 <div class="result-card"><img src="1000020557.png" alt="Clinical Result"></div>
                 <div class="result-card"><img src="1000020558.png" alt="Clinical Result"></div>
                 <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Therapy Results"></div>
@@ -435,6 +435,10 @@
                     <div class="faq-content"><p style="padding: 15px 0;">Mild peels have little downtime, while deeper peels may require 3-5 days of peeling and recovery.</p></div>
                 </div>
                 <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)"><span>Is the consultation fee adjustable?</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">The consultation fee is a standard charge for Dr. Baaniya's assessment. It may be adjusted if proceeding with a treatment package.</p></div>
+                </div>
+                <div class="faq-item">
                     <div class="faq-header" onclick="toggleFaq(this)"><span>Is laser hair removal permanent?</span><i class="fas fa-chevron-down"></i></div>
                     <div class="faq-content"><p style="padding: 15px 0;">It results in long-term hair reduction. Occasional maintenance sessions may be required.</p></div>
                 </div>
@@ -512,26 +516,23 @@
     </footer>
 
     <script>
-        // Counter Animation
+        // FIXED Counter Animation Logic
         const counters = document.querySelectorAll('.counter');
-        const serviceCountDisplay = document.getElementById('service-count');
-        const totalServices = document.getElementById('main-services-grid').children.length;
-        serviceCountDisplay.innerText = totalServices;
-
         const observerOptions = { threshold: 1, rootMargin: "0px 0px -50px 0px" };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const target = entry.target;
                     const updateCounter = () => {
                         const targetValue = +target.getAttribute('data-target');
-                        const count = +target.innerText;
+                        const count = +target.innerText.replace("+", "");
                         const increment = targetValue / 100;
                         if (count < targetValue) {
                             target.innerText = Math.ceil(count + increment);
                             setTimeout(updateCounter, 20);
                         } else { 
-                            target.innerText = targetValue + (targetValue >= 10 ? "+" : ""); 
+                            target.innerText = targetValue + "+"; 
                         }
                     };
                     updateCounter();
@@ -539,6 +540,7 @@
                 }
             });
         }, observerOptions);
+
         counters.forEach(c => observer.observe(c));
 
         function toggleFaq(element) {
