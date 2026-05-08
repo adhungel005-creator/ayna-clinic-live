@@ -52,6 +52,11 @@
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-inline { width: auto; }
 
+        /* Stats Section Styling */
+        .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: #1a1a1a; color: white; }
+        .stat-item h2 { font-size: 3rem; color: var(--gold-accent); margin-bottom: 5px; }
+        .stat-item p { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+
         /* About & Doctor Flex Layouts */
         .flex-layout { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
         .flex-text { flex: 1.5; min-width: 320px; }
@@ -96,20 +101,10 @@
         
         .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
 
-        /* Testimonials */
-        .testimonials { margin-top: 80px; text-align: center; }
-        .testimonials h3 { color: var(--dark-green); font-size: 2rem; margin-bottom: 30px; }
-        .testimonial-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .testimonial { background: white; padding: 25px; max-width: 400px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 4px solid var(--gold-accent); text-align: left; }
-        .testimonial p { font-style: italic; margin: 10px 0; color: #555; }
-        .testimonial span { font-weight: 700; color: var(--dark-green); }
-
-        /* Dual Sticky CTAs */
-        .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
-        .sticky-cta a { padding: 15px 25px; border-radius: 50px; color: white; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s; }
-        .sticky-cta a:hover { transform: translateY(-5px); }
-        .cta-call { background: var(--dark-green); }
-        .cta-wa { background: #25d366; }
+        /* FAQ Styling */
+        .faq-item { border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
+        .faq-header { background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+        .faq-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
 
         /* CHATBOT STYLES */
         #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
@@ -182,6 +177,21 @@
         </div>
     </section>
 
+    <div class="stats-container">
+        <div class="stat-item">
+            <h2 class="counter" data-target="5000">0</h2>
+            <p>Patients Treated</p>
+        </div>
+        <div class="stat-item">
+            <h2 id="service-count">0</h2>
+            <p>Treatment Types</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="2">0</h2>
+            <p>Years of Excellence</p>
+        </div>
+    </div>
+
     <section id="trust" style="background: white; padding: 30px 0; border-bottom: 1px solid #eee;">
         <div class="container" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.8;">
             <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-certificate fa-2x"></i> FDA Approved Tech</div>
@@ -200,7 +210,6 @@
                     <h2 class="section-title" style="text-align: left;">Welcome to Ayna Clinic</h2>
                     <h3 style="color: var(--gold-accent); margin-bottom: 20px;">Biratnagar's Premier Dermatology Center</h3>
                     <p>Founded on the principles of medical excellence and aesthetic precision, Ayna Clinic provides comprehensive diagnostic and therapeutic solutions for all skin and hair concerns. We blend state-of-the-art technology with personalized treatment plans.</p>
-                    <p style="margin-top: 15px;">Whether you are seeking clinical dermatology care or advanced cosmetic enhancements, our facility adheres to strict medical protocols to ensure safe, ethical, and world-class results.</p>
                     <ul class="about-list">
                         <li><i class="fas fa-shield-alt"></i> FDA-Approved Tech</li>
                         <li><i class="fas fa-user-md"></i> Expert Medical Staff</li>
@@ -220,7 +229,6 @@
                     <h3 style="color: var(--gold-accent); margin-bottom: 20px;">Dr. Bibisha Baaniya</h3>
                     <p><strong>MBBS, MD (BPKIHS) | NMC No. 17402</strong></p>
                     <p style="margin-top: 15px;">Dr. Bibisha Baaniya is a board-certified dermatologist specializing in skin, venereal, and aesthetic care. Combining clinical expertise with advanced laser technology, she provides personalized treatments focused on healthy, confident skin.</p>
-                    <p style="margin-top: 15px;">With a patient-centered and holistic approach, Dr. Baaniya creates customized treatment plans designed to deliver safe, effective, and long-lasting results.</p>
                     <br>
                     <a href="#contact" class="btn-premium btn-inline" style="background: var(--dark-green);">Consult Dr. Baaniya</a>
                 </div>
@@ -236,89 +244,17 @@
             <h2 class="section-title">Our Medical & Aesthetic Services</h2>
             <p class="section-subtitle">Comprehensive solutions for your skin and hair</p>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <h4>Hydrafacial</h4>
-                    <ul>
-                        <li>Basic Hydrafacial</li>
-                        <li>Hydrapeel</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Chemical Peel</h4>
-                    <ul>
-                        <li>Sesglicopeel (with Retinol Seal)</li>
-                        <li>Azelac M peel (with Retinol Seal)</li>
-                        <li>Nomelan Fenol peel</li>
-                        <li>Hollywood Laser Peel</li>
-                        <li>Party / Lip / Periorbital Peel</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Hair Removal Laser</h4>
-                    <ul>
-                        <li>Face, Neck, & Underarms</li>
-                        <li>Hands, Legs, & Chest</li>
-                        <li>Abdomen & Bikini</li>
-                        <li>Full Body Packages</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Anti-Aging Treatment</h4>
-                    <ul>
-                        <li>HIFU (Full Face / Half Face)</li>
-                        <li>Botox (per unit)</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Microneedling & CO2</h4>
-                    <ul>
-                        <li>Basic CO2 Laser</li>
-                        <li>CO2 with Exosome</li>
-                        <li>Microneedling with PRP / Exosome</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Hair Treatment</h4>
-                    <ul>
-                        <li>PRP & iPRF Treatment</li>
-                        <li>GFC Treatment</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Tattoo Removal</h4>
-                    <ul>
-                        <li>Tattoo Removal (Small/Medium/Large)</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Fillers</h4>
-                    <ul>
-                        <li>Dermal Fillers</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Thread Lift</h4>
-                    <ul>
-                        <li>PDO Thread</li>
-                        <li>COG Thread</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Other Services</h4>
-                    <ul>
-                        <li>Nail Avulsion</li>
-                        <li>Skin Tag Removal</li>
-                        <li>Electrocautery</li>
-                        <li>Radiocautery</li>
-                        <li>Cyst Excision</li>
-                        <li>Split Ear Repair</li>
-                        <li>Lontophoresis </li>
-                        <li>Mole Removal</li>
-                        <li>Biopsy</li>
-                        <li>Skin Cancer Excision</li>
-                    </ul>
-                </div>
+            <div class="services-grid" id="main-services-grid">
+                <div class="service-card"><h4>Hydrafacial</h4><ul><li>Basic Hydrafacial</li><li>Hydrapeel</li></ul></div>
+                <div class="service-card"><h4>Chemical Peel</h4><ul><li>Sesglicopeel</li><li>Azelac M peel</li><li>Nomelan Fenol peel</li><li>Hollywood Laser Peel</li></ul></div>
+                <div class="service-card"><h4>Hair Removal Laser</h4><ul><li>Face, Neck, & Underarms</li><li>Hands, Legs, & Chest</li><li>Full Body Packages</li></ul></div>
+                <div class="service-card"><h4>Anti-Aging Treatment</h4><ul><li>HIFU</li><li>Botox</li></ul></div>
+                <div class="service-card"><h4>Microneedling & CO2</h4><ul><li>Basic CO2 Laser</li><li>CO2 with Exosome</li><li>PRP / Exosome</li></ul></div>
+                <div class="service-card"><h4>Hair Treatment</h4><ul><li>PRP & iPRF Treatment</li><li>GFC Treatment</li></ul></div>
+                <div class="service-card"><h4>Tattoo Removal</h4><ul><li>Professional Removal</li></ul></div>
+                <div class="service-card"><h4>Fillers</h4><ul><li>Dermal Fillers</li></ul></div>
+                <div class="service-card"><h4>Thread Lift</h4><ul><li>PDO Thread</li><li>COG Thread</li></ul></div>
+                <div class="service-card"><h4>Other Services</h4><ul><li>Nail Avulsion</li><li>Skin Tag Removal</li><li>Electrocautery</li><li>Radiocautery</li><li>Cyst Excision</li><li>Split Ear Repair</li></ul></div>
             </div>
         </div>
     </section>
@@ -330,10 +266,10 @@
             <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--primary-green);">
                 <i class="fas fa-prescription-bottle-alt fa-3x" style="color: var(--primary-green); margin-bottom: 20px;"></i>
                 <h3 style="color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem;">Complete Care Under One Roof</h3>
-                <p style="font-size: 1.1rem; color: #555;">For your convenience, Ayna Clinic features a fully stocked in-house pharmacy. You can easily get all your prescribed clinical medicines, dermatological creams, and authentic skincare products immediately after your consultation.</p>
+                <p style="font-size: 1.1rem; color: #555;">For your convenience, Ayna Clinic features a fully stocked in-house pharmacy. Get all prescribed clinical medicines, dermatological creams, and authentic skincare products immediately after your consultation.</p>
                 <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
-                    <p style="color: var(--dark-green); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Online Delivery Now Available!</p>
-                    <a href="https://wa.me/9779767797950?text=I%20would%20like%20to%20order%20medicines%20from%20your%20pharmacy." target="_blank" class="btn-premium btn-inline" style="background: var(--gold-accent); padding: 10px 25px; font-size: 0.9rem;"><i class="fab fa-whatsapp"></i> Order Medicines via WhatsApp</a>
+                    <p style="color: var(--dark-green); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Online Delivery Available!</p>
+                    <a href="https://wa.me/9779767797950?text=I%20would%20like%20to%20order%20medicines." target="_blank" class="btn-premium btn-inline" style="background: var(--gold-accent); padding: 10px 25px; font-size: 0.9rem;"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -344,14 +280,14 @@
             <h2 class="section-title">Real Results</h2>
             <p class="section-subtitle">Clinical Transformations at Ayna</p>
             <div class="results-grid">
-                <div class="result-card"><img src="1000020552.png" alt="Hair Treatment Results"></div>
-                <div class="result-card"><img src="1000020557.png" alt="Hair Treatment Results"></div>
-                <div class="result-card"><img src="1000020558.png" alt="Hair Treatment Results"></div>
-                <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Therapy Results"></div>
-                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Ayna Glow Transformation"></div>
-                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Subtle Change Huge Impact"></div>
-                <div class="result-card"><img src="Erase the Lines 1.png" alt="Erase the Lines 1"></div>
-                <div class="result-card"><img src="Erase the Lines 2.png" alt="Erase the Lines 2"></div>
+                <div class="result-card"><img src="1000020552.jpg" alt="Hair Treatment Results"></div>
+                <div class="result-card"><img src="1000020557.png" alt="Results"></div>
+                <div class="result-card"><img src="1000020558.png" alt="Results"></div>
+                <div class="result-card"><img src="GFC Therapy Results.png" alt="Results"></div>
+                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Results"></div>
+                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Results"></div>
+                <div class="result-card"><img src="Erase the Lines 1.png" alt="Results"></div>
+                <div class="result-card"><img src="Erase the Lines 2.png" alt="Results"></div>
             </div>
         </div>
     </section>
@@ -359,35 +295,12 @@
     <section id="showcase" style="background: white;">
         <div class="container">
             <h2 class="section-title">Clinic In Action</h2>
-            <p class="section-subtitle">Precision Treatments by Dr. Baaniya</p>
-            
             <div class="video-showcase">
-                <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
-                        <source src="treatment1.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
-                        <source src="treatment2.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
-                        <source src="tr13.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
-                        <source src="trt23.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
-                        <source src="trt33.mp4" type="video/mp4">
-                    </video>
-                </div>
-                
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment1.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment2.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="tr13.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt23.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt33.mp4" type="video/mp4"></video></div>
             </div>
         </div>
     </section>
@@ -395,27 +308,10 @@
     <section id="informational" style="background: var(--bg-alt);">
         <div class="container">
             <h2 class="section-title">Informational Section</h2>
-            <p class="section-subtitle">Expert Skin & Hair Care Advice</p>
-            
             <div class="services-grid">
-                <div class="service-card" style="padding: 15px; text-align: center;">
-                    <video controls playsinline style="width: 100%; border-radius: 10px; cursor: pointer; background: #000;">
-                        <source src="1000015094.mp4" type="video/mp4">
-                    </video>
-                    <h4 style="margin-top: 15px; font-size: 1rem; border: none;">Shampoo, Conditioner र Hair Mask कसरी लगाउने?</h4>
-                </div>
-                <div class="service-card" style="padding: 15px; text-align: center;">
-                    <video controls playsinline style="width: 100%; border-radius: 10px; cursor: pointer; background: #000;">
-                        <source src="1000015263.mp4" type="video/mp4">
-                    </video>
-                    <h4 style="margin-top: 15px; font-size: 1rem; border: none;">कपाल झर्ने कारणहरु</h4>
-                </div>
-                <div class="service-card" style="padding: 15px; text-align: center;">
-                    <video controls playsinline style="width: 100%; border-radius: 10px; cursor: pointer; background: #000;">
-                        <source src="1000017916.mp4" type="video/mp4">
-                    </video>
-                    <h4 style="margin-top: 15px; font-size: 1rem; border: none;">के Skin Analyser Scam हो?</h4>
-                </div>
+                <div class="service-card" style="padding: 15px; text-align: center;"><video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015094.mp4" type="video/mp4"></video><h4>Hair Mask Guide</h4></div>
+                <div class="service-card" style="padding: 15px; text-align: center;"><video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015263.mp4" type="video/mp4"></video><h4>Hair Loss Causes</h4></div>
+                <div class="service-card" style="padding: 15px; text-align: center;"><video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000017916.mp4" type="video/mp4"></video><h4>Skin Analyser Scam?</h4></div>
             </div>
         </div>
     </section>
@@ -423,63 +319,30 @@
     <section id="faq" style="background: white;">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Everything you need to know before visiting</p>
             <div style="max-width: 800px; margin: 0 auto;">
-                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
-                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
-                        <span>Does laser hair removal hurt?</span><i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <p style="padding: 15px 0; margin: 0; color: #555;">Our FDA-approved laser technology features advanced cooling mechanisms, making the procedure virtually painless and highly comfortable compared to traditional methods.</p>
-                    </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)"><span>Does laser hair removal hurt?</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">Our FDA-approved laser technology features advanced cooling mechanisms, making the procedure virtually painless.</p></div>
                 </div>
-                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
-                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
-                        <span>How long is the downtime for a Chemical Peel?</span><i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <p style="padding: 15px 0; margin: 0; color: #555;">Downtime depends on the depth of the peel. Mild peels have little to no downtime, while deeper peels (like Nomelan Fenol) may require 3-5 days of peeling and recovery.</p>
-                    </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)"><span>How long is the downtime for a Chemical Peel?</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">Mild peels have little downtime, while deeper peels may require 3-5 days of peeling and recovery.</p></div>
                 </div>
-                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
-                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
-                        <span>Is the consultation fee adjustable?</span><i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <p style="padding: 15px 0; margin: 0; color: #555;">The consultation fee is a standard charge for Dr. Baaniya's expert clinical assessment. However, it is often adjusted or waived if you proceed with a treatment package on the same day.</p>
-                    </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)"><span>Is laser hair removal permanent?</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">It results in long-term hair reduction. Occasional maintenance sessions may be required.</p></div>
                 </div>
-                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
-                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
-                        <span>Is laser hair removal permanent?</span><i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <p style="padding: 15px 0; margin: 0; color: #555;">Laser hair removal significantly reduces hair growth, but it is typically considered long-term hair reduction rather than 100% permanent. Occasional maintenance sessions may be required.</p>
-                    </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)"><span>Does chemical peel make skin thin?</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">No, it actually stimulates collagen production, making the dermis thicker over time.</p></div>
                 </div>
-                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
-                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
-                        <span>Does chemical peel make skin thin?</span><i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <p style="padding: 15px 0; margin: 0; color: #555;">No, when done correctly by professionals, chemical peels actually stimulate collagen production, making the dermis thicker and stronger over time, even though it temporarily removes the dead outer layer.</p>
-                    </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)"><span>Stuffs to avoid in melasma</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">Avoid direct sun exposure, extreme heat, and harsh exfoliants.</p></div>
                 </div>
-                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
-                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
-                        <span>Stuffs to avoid in melasma</span><i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <p style="padding: 15px 0; margin: 0; color: #555;">Avoid direct sun exposure without high SPF sunscreen, extreme heat, harsh exfoliants, and scented skincare products that can irritate the skin and trigger pigmentation.</p>
-                    </div>
-                </div>
-                <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
-                    <div onclick="toggleFaq(this)" style="background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
-                        <span>Food to avoid in acne</span><i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <p style="padding: 15px 0; margin: 0; color: #555;">It is generally recommended to avoid high glycemic index foods (like sugary sweets and white bread), excessive dairy (especially skim milk), and heavily processed fast foods to help manage acne flare-ups.</p>
-                    </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)"><span>Food to avoid in acne</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">Avoid high glycemic index foods, excessive dairy, and processed fast foods.</p></div>
                 </div>
             </div>
         </div>
@@ -488,38 +351,26 @@
     <section id="find-us" style="background: var(--bg-alt);">
         <div class="container">
             <h2 class="section-title">Find Us</h2>
-            <p class="section-subtitle">Way to Ayna Clinic, Biratnagar</p>
             <div style="max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-                <video autoplay loop muted playsinline style="width: 100%; display: block; background: #000;">
-                    <source src="way_to_ayna.mp4" type="video/mp4">
-                </video>
+                <video autoplay loop muted playsinline style="width: 100%; display: block; background: #000;"><source src="way_to_ayna.mp4" type="video/mp4"></video>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact-section" style="background: white;">
         <div class="container">
-            <div class="contact-header">
-                <h2 class="section-title">Book Your Consultation</h2>
-                <p class="section-subtitle" style="margin-bottom: 0;">GET EXPERT SKIN & HAIR TREATMENT FROM AYNA CLINIC</p>
-            </div>
-
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Contact Details</h3>
-                    <p><i class="fas fa-map-marker-alt" style="color:var(--gold-accent);"></i> <a href="https://maps.app.goo.gl/epaLckbhJ14rBDSd6" target="_blank">Rangeli Road, Biratnagar</a></p>
-                    <p><i class="fas fa-phone-alt" style="color:var(--primary-green);"></i> <a href="tel:+9779767797950">+977 9767797950</a></p>
-                    <p><i class="fab fa-whatsapp" style="color:#25d366; font-size: 1.2rem;"></i> <a href="https://wa.me/9779767797950" target="_blank">Chat on WhatsApp</a></p>
-                    <p><i class="fas fa-clock" style="color:var(--dark-green);"></i> Sun-Fri: 9:30 AM – 6 PM<br>Sat: 9:30 AM – 1 PM</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rangeli Road, Biratnagar</p>
+                    <p><i class="fas fa-phone-alt"></i> +977 9767797950</p>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.0463378519965!2d87.2833182!3d26.4542938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef7446ff360e21%3A0x6406e93910c2423!2sAyna%20The%20Skin%2C%20Hair%20%26%20Laser%20Clinic!5e0!3m2!1sen!2snp!4v1714710000000!5m2!1sen!2snp" loading="lazy"></iframe>
                 </div>
-
                 <div class="contact-form">
                     <h3>Book Appointment</h3>
                     <form id="bookingForm">
                         <input type="text" id="name" placeholder="Full Name" required>
                         <input type="tel" id="phone" placeholder="Phone Number" required>
-                        
                         <select id="service" required>
                             <option value="">Select Service</option>
                             <option value="Hydrafacial">Hydrafacial</option>
@@ -531,68 +382,18 @@
                             <option value="Tattoo Removal">Tattoo Removal</option>
                             <option value="Fillers">Fillers</option>
                             <option value="Thread Lift">Thread Lift</option>
-                            <option value="Other Services">Other Services (Cyst, Skin Tag, etc.)</option>
-                            <option value="General Consultation">General Consultation</option>
+                            <option value="Other Services">Other Services</option>
                         </select>
-
                         <select id="consultationType" required>
-                            <option value="">Select Consultation Type</option>
-                            <option value="Physical">Physical Consultation (In-Clinic)</option>
-                            <option value="Online">Online Consultation (Video/Call)</option>
+                            <option value="">Select Type</option>
+                            <option value="Physical">Physical (In-Clinic)</option>
+                            <option value="Online">Online Consultation</option>
                         </select>
-
                         <input type="date" id="date" required>
-                        <textarea id="message" rows="3" placeholder="Any specific concerns?"></textarea>
-
+                        <textarea id="message" rows="3" placeholder="Concerns?"></textarea>
                         <button type="submit" id="submitBtn" class="btn-premium">Confirm Booking</button>
                     </form>
-                    <p id="successMsg">✅ Appointment Requested Successfully! Our team will contact you soon.</p>
-
-
-                </div>
-            </div>
-
-            <div class="testimonials">
-                <h3>What Our Clients Say</h3>
-                <div class="testimonial-grid">
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"My skin improved in just 2 sessions. Highly recommended! Dr. Baaniya was incredibly thorough."</p>
-                        <span>- Priya K.</span>
-                    </div>
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"Professional service and great results. The laser treatment was painless and effective."</p>
-                        <span>- Ramesh S.</span>
-                    </div>
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"I had a good experience at this derma clinic. The doctor was knowledgeable and took time to properly understand my skin concerns before suggesting treatment. The staff were friendly and the clinic was clean and well-maintained. I appreciated that the recommendations felt honest and not overly commercial."</p>
-                        <span>- Abisha D.</span>
-                    </div>
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"I had a skin test at Ayna – The Skin, Hair, and Laser Clinic, and I must say, I am very satisfied with the results. The products they recommended worked really well for me. The staff was professional, and the consultation was thorough. Overall, a great experience! Highly recommend."</p>
-                        <span>- Laxmi K.</span>
-                    </div>
-                     <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"I had an incredible experience at Ayna Skin, Hair, and Laser Clinic, run by the amazing Dr. Bibisha Baniya. From the moment I entered, the clinic's warm and welcoming environment made me feel at ease. Dr. Bibisha is not only highly skilled but also genuinely caring and attentive.
-
-She took the time to understand my concerns and recommended treatments that were perfectly suited to my needs. The results have been outstanding—I can already see significant improvements in my skin. The clinic is well-equipped with advanced technology, and the staff is professional and supportive.
-
-I highly recommend Ayna Clinic for anyone looking for expert care for their skin, hair, or laser treatments. Dr. Bibisha’s expertise and dedication truly set this clinic apart!"</p>
-                        <span>- Sunil D.</span>
-                    </div>
-                    <div class="testimonial">
-                        <span style="color:#FFD700; font-size:1.2rem;">★★★★★</span>  
-                        <p>"Ayna Clinic is a trusted healthcare destination known for strong commitment to patient care. Patients frequently highlight the welcoming atmosphere and the courteous behavior of the staff. As one satisfied patient,I would highly recommend this practice to anyone.”
-
-The clinic stands out for its friendly environment and high standards of service. The team ensures that every patient feels heard, respected, and well-informed throughout their visit.
-
-Ayna Clinic offers a wide range of treatments, making it a convenient solution for various healthcare and dermatological needs. Their focus on quality care continues to build a strong reputation."</p>
-                        <span>- Raju S.</span>
-                    </div>
+                    <p id="successMsg">✅ Appointment Requested Successfully!</p>
                 </div>
             </div>
         </div>
@@ -602,116 +403,85 @@ Ayna Clinic offers a wide range of treatments, making it a convenient solution f
         <p>© 2026 Ayna Clinic. Professional Care You Can Trust.</p>
     </footer>
 
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
     <script>
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const serviceCountDisplay = document.getElementById('service-count');
+        const totalServices = document.getElementById('main-services-grid').children.length;
+        serviceCountDisplay.innerText = totalServices;
+
+        const observerOptions = { threshold: 1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const updateCounter = () => {
+                        const targetValue = +target.getAttribute('data-target');
+                        const count = +target.innerText;
+                        const increment = targetValue / 100;
+                        if (count < targetValue) {
+                            target.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCounter, 20);
+                        } else { target.innerText = targetValue + "+"; }
+                    };
+                    updateCounter();
+                    observer.unobserve(target);
+                }
+            });
+        }, observerOptions);
+        counters.forEach(c => observer.observe(c));
+
         function toggleFaq(element) {
             const content = element.nextElementSibling;
-            const icon = element.querySelector('i');
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                icon.className = "fas fa-chevron-down";
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                icon.className = "fas fa-chevron-up";
-            }
+            content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
         }
 
         function toggleChat() {
             const chat = document.getElementById('chatbot-window');
-            chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
+            chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
         }
 
         function sendMessage() {
             const input = document.getElementById('chatInput');
             const chatBox = document.getElementById('chatbot-messages');
             if (input.value.trim() === "") return;
-
             const userDiv = document.createElement('div');
             userDiv.className = 'msg user-msg';
             userDiv.innerText = input.value;
             chatBox.appendChild(userDiv);
-
             const userText = input.value.toLowerCase();
             input.value = "";
-            chatBox.scrollTop = chatBox.scrollHeight;
-
             setTimeout(() => {
                 const botDiv = document.createElement('div');
                 botDiv.className = 'msg bot-msg';
-                
-                if (userText.includes("hydra")) {
-                    botDiv.innerText = "Our Hydrafacial treatments cleanse and rejuvenate your skin. Use the form below to book a session!";
-                } else if (userText.includes("laser") || userText.includes("hair removal")) {
-                    botDiv.innerText = "We offer virtually painless, FDA-approved Laser Hair Removal for the face and body.";
-                } else if (userText.includes("service") || userText.includes("treatment")) {
-                    botDiv.innerText = "We offer Hydrafacial, Chemical Peels, Laser Hair Removal, Anti-Aging (HIFU/Botox), Microneedling, CO2 Laser, Hair Treatments, Tattoo Removal, Fillers, Thread Lifts, and minor surgical procedures.";
-                } else if (userText.includes("location") || userText.includes("where") || userText.includes("address")) {
-                    botDiv.innerText = "We are located at Rangeli Road, Biratnagar. Check our 'Find Us' video above!";
-                } else if (userText.includes("doctor") || userText.includes("bibisha") || userText.includes("who")) {
-                    botDiv.innerText = "Dr. Bibisha Baaniya (MBBS, MD, BPKIHS) is our highly qualified, board-certified dermatologist specializing in Skin, Venereal, and Aesthetic diseases. She provides personalized treatments focused on healthy, confident skin.";
-                } else if (userText.includes("feature") || userText.includes("why")) {
-                    botDiv.innerText = "Ayna Clinic features FDA-Approved technology, expert medical staff, personalized patient-first care, an in-house pharmacy, and proven clinical results for all skin and hair types.";
-                } else if (userText.includes("cost") || userText.includes("price") || userText.includes("charge")) {
-                    botDiv.innerText = "Pricing depends on your specific skin or hair needs. Please book a consultation so Dr. Baaniya can assess you properly.";
-                } else if (userText.includes("book") || userText.includes("appointment")) {
-                    botDiv.innerText = "You can book directly using the form on this page, or click the WhatsApp button to chat with our receptionist!";
-                } else if (userText.includes("hi") || userText.includes("hello")) {
-                    botDiv.innerText = "Hi there! How can we assist you with your skin and hair care journey today?";
-                } else {
-                    botDiv.innerHTML = "I am an AI assistant here to help! I couldn't find an exact answer to that, but you can <a href='https://wa.me/9779767797950' target='_blank'>WhatsApp our reception</a> or call +977 9767797950 for immediate assistance.";
-                }
-                
+                if (userText.includes("doctor")) botDiv.innerText = "Dr. Bibisha Baaniya is our expert dermatologist.";
+                else if (userText.includes("pharmacy")) botDiv.innerText = "We have an in-house pharmacy with authentic medicine and skincare.";
+                else botDiv.innerHTML = "How can I help? <a href='https://wa.me/9779767797950'>WhatsApp Us</a>";
                 chatBox.appendChild(botDiv);
                 chatBox.scrollTop = chatBox.scrollHeight;
             }, 600);
         }
 
-        const form = document.getElementById('bookingForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const successMsg = document.getElementById('successMsg');
         const API_URL = "https://ayna-backend-1-kjy2.onrender.com/api/appointments/";
-
-        form.addEventListener('submit', async (e) => {
+        document.getElementById('bookingForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Processing... (Please wait up to 30s)";
-            successMsg.style.display = "none";
-
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "Processing...";
             const formData = {
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
                 service: document.getElementById('service').value,
-                message: `Type: ${document.getElementById('consultationType').value} | Date: ${document.getElementById('date').value} | Note: ${document.getElementById('message').value}`
+                message: `Type: ${document.getElementById('consultationType').value} | Note: ${document.getElementById('message').value}`
             };
-
             try {
                 const response = await fetch(API_URL, {
-                    method: 'POST',
-                    mode: 'cors',
-                    credentials: 'omit',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
+                    method: 'POST', mode: 'cors', credentials: 'omit',
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 });
-                
-                if (response.ok) {
-                    successMsg.style.display = "block";
-                    form.reset();
-                    setTimeout(() => { successMsg.style.display = "none"; }, 7000);
-                } else { 
-                    alert("Submission failed. Try WhatsApp for instant booking."); 
-                }
-            } catch (err) { 
-                console.error("Network Error:", err);
-                alert("Network issue. Please book via WhatsApp."); 
-            } finally { 
-                submitBtn.disabled = false; 
-                submitBtn.innerText = "Confirm Booking"; 
-            }
+                if (response.ok) { document.getElementById('successMsg').style.display = "block"; }
+            } catch (err) { alert("Error connecting to server."); }
+            finally { btn.innerText = "Confirm Booking"; }
         });
     </script>
 </body>
