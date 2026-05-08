@@ -52,10 +52,10 @@
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-inline { width: auto; }
 
-        /* Stats Section Styling */
-        .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: #1a1a1a; color: white; }
-        .stat-item h2 { font-size: 3rem; color: var(--gold-accent); margin-bottom: 5px; }
-        .stat-item p { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+        /* Stats Section Styling - UPDATED COLORS */
+        .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: var(--bg-alt); color: var(--dark-green); border-bottom: 1px solid #e1eed2; }
+        .stat-item h2 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 5px; font-weight: 700; }
+        .stat-item p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: 600; }
 
         /* About & Doctor Flex Layouts */
         .flex-layout { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
@@ -127,6 +127,7 @@
             .sticky-cta a { padding: 12px 20px; font-size: 0.9rem; }
             #chatbot-launcher { bottom: 120px; right: 15px; }
             #chatbot-window { bottom: 190px; right: 15px; width: 290px; }
+            .stats-container { flex-direction: column; gap: 30px; }
         }
     </style>
 </head>
@@ -255,22 +256,6 @@
                 <div class="service-card"><h4>Fillers</h4><ul><li>Dermal Fillers</li></ul></div>
                 <div class="service-card"><h4>Thread Lift</h4><ul><li>PDO Thread</li><li>COG Thread</li></ul></div>
                 <div class="service-card"><h4>Other Services</h4><ul><li>Nail Avulsion</li><li>Skin Tag Removal</li><li>Electrocautery</li><li>Radiocautery</li><li>Cyst Excision</li><li>Split Ear Repair</li></ul></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pharmacy" style="background: var(--bg-premium);">
-        <div class="container">
-            <h2 class="section-title">In-House Pharmacy</h2>
-            <p class="section-subtitle">Authentic Medicines & Skincare</p>
-            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--primary-green);">
-                <i class="fas fa-prescription-bottle-alt fa-3x" style="color: var(--primary-green); margin-bottom: 20px;"></i>
-                <h3 style="color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem;">Complete Care Under One Roof</h3>
-                <p style="font-size: 1.1rem; color: #555;">For your convenience, Ayna Clinic features a fully stocked in-house pharmacy. Get all prescribed clinical medicines, dermatological creams, and authentic skincare products immediately after your consultation.</p>
-                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
-                    <p style="color: var(--dark-green); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Online Delivery Available!</p>
-                    <a href="https://wa.me/9779767797950?text=I%20would%20like%20to%20order%20medicines." target="_blank" class="btn-premium btn-inline" style="background: var(--gold-accent); padding: 10px 25px; font-size: 0.9rem;"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
-                </div>
             </div>
         </div>
     </section>
@@ -422,7 +407,9 @@
                         if (count < targetValue) {
                             target.innerText = Math.ceil(count + increment);
                             setTimeout(updateCounter, 20);
-                        } else { target.innerText = targetValue + "+"; }
+                        } else { 
+                            target.innerText = targetValue + (targetValue >= 10 ? "+" : ""); 
+                        }
                     };
                     updateCounter();
                     observer.unobserve(target);
