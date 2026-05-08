@@ -52,7 +52,7 @@
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-inline { width: auto; }
 
-        /* Stats Section */
+        /* Updated Stats Section Styles */
         .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: var(--bg-alt); color: var(--dark-green); border-bottom: 1px solid #e1eed2; }
         .stat-item h2 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 5px; font-weight: 700; }
         .stat-item p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: 600; }
@@ -87,12 +87,21 @@
         .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.95; transition: 0.3s; }
         .video-wrapper:hover video { opacity: 1; transform: scale(1.02); }
 
-        /* FAQ Styling */
-        .faq-item { border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
-        .faq-header { background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
-        .faq-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        /* Integrated Contact Section */
+        .contact-section { background: var(--bg-premium); }
+        .contact-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1100px; margin: 0 auto; }
+        .contact-info, .contact-form { background: white; padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        .contact-info { border-top: 5px solid var(--gold-accent); }
+        .contact-form { border-top: 5px solid var(--primary-green); }
+        .contact-info h3, .contact-form h3 { color: var(--dark-green); margin-bottom: 25px; font-size: 1.5rem; }
+        .contact-info p { margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 15px; }
+        .contact-info a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .contact-info a:hover { color: var(--primary-green); }
+        .contact-info iframe { width: 100%; height: 250px; border: none; margin-top: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
+        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
 
-        /* STICKY CTA STYLES */
+        /* Dual Sticky CTAs */
         .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
         .sticky-cta a { padding: 15px 25px; border-radius: 50px; color: white; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s; }
         .sticky-cta a:hover { transform: translateY(-5px); }
@@ -120,7 +129,6 @@
             .sticky-cta a { padding: 12px 20px; font-size: 0.9rem; }
             #chatbot-launcher { bottom: 120px; right: 15px; }
             #chatbot-window { bottom: 190px; right: 15px; width: 290px; }
-            .stats-container { flex-direction: column; gap: 30px; }
         }
     </style>
 </head>
@@ -251,10 +259,11 @@
                 <div class="service-card">
                     <h4>Chemical Peel</h4>
                     <ul>
-                        <li>Sesglicopeel</li>
-                        <li>Azelac M peel</li>
+                        <li>Sesglicopeel (with Retinol Seal)</li>
+                        <li>Azelac M peel (with Retinol Seal)</li>
                         <li>Nomelan Fenol peel</li>
                         <li>Hollywood Laser Peel</li>
+                        <li>Party / Lip / Periorbital Peel</li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -262,14 +271,15 @@
                     <ul>
                         <li>Face, Neck, & Underarms</li>
                         <li>Hands, Legs, & Chest</li>
+                        <li>Abdomen & Bikini</li>
                         <li>Full Body Packages</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <h4>Anti-Aging Treatment</h4>
                     <ul>
-                        <li>HIFU</li>
-                        <li>Botox</li>
+                        <li>HIFU (Full Face / Half Face)</li>
+                        <li>Botox (per unit)</li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -290,7 +300,7 @@
                 <div class="service-card">
                     <h4>Tattoo Removal</h4>
                     <ul>
-                        <li>Professional Removal</li>
+                        <li>Tattoo Removal (Small/Medium/Large)</li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -349,11 +359,11 @@
                 <div class="result-card"><img src="1000020552.png" alt="Hair Treatment Results"></div>
                 <div class="result-card"><img src="1000020557.png" alt="Clinical Result"></div>
                 <div class="result-card"><img src="1000020558.png" alt="Clinical Result"></div>
-                <div class="result-card"><img src="GFC Therapy Results.png" alt="Results"></div>
-                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Results"></div>
-                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Results"></div>
-                <div class="result-card"><img src="Erase the Lines 1.png" alt="Results"></div>
-                <div class="result-card"><img src="Erase the Lines 2.png" alt="Results"></div>
+                <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Therapy Results"></div>
+                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Ayna Glow Transformation"></div>
+                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Subtle Change Huge Impact"></div>
+                <div class="result-card"><img src="Erase the Lines 1.png" alt="Erase the Lines 1"></div>
+                <div class="result-card"><img src="Erase the Lines 2.png" alt="Erase the Lines 2"></div>
             </div>
         </div>
     </section>
@@ -377,15 +387,15 @@
             <div class="services-grid">
                 <div class="service-card" style="padding: 15px; text-align: center;">
                     <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015094.mp4" type="video/mp4"></video>
-                    <h4 style="margin-top: 15px;">Hair Mask Guide</h4>
+                    <h4 style="margin-top: 15px;">Shampoo, Conditioner र Hair Mask कसरी लगाउने?</h4>
                 </div>
                 <div class="service-card" style="padding: 15px; text-align: center;">
                     <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015263.mp4" type="video/mp4"></video>
-                    <h4 style="margin-top: 15px;">Hair Loss Causes</h4>
+                    <h4 style="margin-top: 15px;">कपाल झर्ने कारणहरु</h4>
                 </div>
                 <div class="service-card" style="padding: 15px; text-align: center;">
                     <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000017916.mp4" type="video/mp4"></video>
-                    <h4 style="margin-top: 15px;">Skin Analyser Scam?</h4>
+                    <h4 style="margin-top: 15px;">के Skin Analyser Scam हो?</h4>
                 </div>
             </div>
         </div>
@@ -465,12 +475,12 @@
                             <option value="Other Services">Other Services</option>
                         </select>
                         <select id="consultationType" required>
-                            <option value="">Select Type</option>
-                            <option value="Physical">Physical (In-Clinic)</option>
-                            <option value="Online">Online Consultation</option>
+                            <option value="">Select Consultation Type</option>
+                            <option value="Physical">Physical Consultation (In-Clinic)</option>
+                            <option value="Online">Online Consultation (Video/Call)</option>
                         </select>
                         <input type="date" id="date" required>
-                        <textarea id="message" rows="3" placeholder="Concerns?"></textarea>
+                        <textarea id="message" rows="3" placeholder="Any specific concerns?"></textarea>
                         <button type="submit" id="submitBtn" class="btn-premium">Confirm Booking</button>
                     </form>
                     <p id="successMsg">✅ Appointment Requested Successfully!</p>
@@ -551,7 +561,7 @@
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
                 service: document.getElementById('service').value,
-                message: `Type: ${document.getElementById('consultationType').value} | Note: ${document.getElementById('message').value}`
+                message: `Type: ${document.getElementById('consultationType').value} | Date: ${document.getElementById('date').value} | Note: ${document.getElementById('message').value}`
             };
             try {
                 const response = await fetch(API_URL, {
@@ -559,7 +569,10 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 });
-                if (response.ok) { document.getElementById('successMsg').style.display = "block"; }
+                if (response.ok) { 
+                    document.getElementById('successMsg').style.display = "block";
+                    document.getElementById('bookingForm').reset();
+                }
             } catch (err) { alert("Error connecting to server."); }
             finally { btn.innerText = "Confirm Booking"; }
         });
