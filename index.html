@@ -52,7 +52,7 @@
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-inline { width: auto; }
 
-        /* Updated Stats Section Styles */
+        /* Stats Section */
         .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: var(--bg-alt); color: var(--dark-green); border-bottom: 1px solid #e1eed2; }
         .stat-item h2 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 5px; font-weight: 700; }
         .stat-item p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: 600; }
@@ -107,6 +107,11 @@
         .sticky-cta a:hover { transform: translateY(-5px); }
         .cta-call { background: var(--dark-green); }
         .cta-wa { background: #25d366; }
+
+        /* FAQ Styling */
+        .faq-item { border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
+        .faq-header { background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+        .faq-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
 
         /* CHATBOT STYLES */
         #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
@@ -248,7 +253,7 @@
             <h2 class="section-title">Our Medical & Aesthetic Services</h2>
             <p class="section-subtitle">Comprehensive solutions for your skin and hair</p>
             
-            <div class="services-grid">
+            <div class="services-grid" id="main-services-grid">
                 <div class="service-card">
                     <h4>Hydrafacial</h4>
                     <ul>
@@ -570,7 +575,7 @@
                     body: JSON.stringify(formData)
                 });
                 if (response.ok) { 
-                    document.getElementById('successMsg').style.display = "block";
+                    document.getElementById('successMsg').style.display = "block"; 
                     document.getElementById('bookingForm').reset();
                 }
             } catch (err) { alert("Error connecting to server."); }
