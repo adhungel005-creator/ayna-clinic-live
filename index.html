@@ -19,204 +19,228 @@
     <style>
         :root {
             --primary-green: #6DBE45;
-            --dark-green: #4A9A2A;
+            --dark-green: #1a4d2e; /* Deeper green from video */
+            --light-green: #e9f5db;
             --gold-accent: #C89B3C;
-            --text-dark: #222222;
-            --bg-premium: #F9FBF7;
-            --bg-alt: #f4f9f1;
+            --text-dark: #1a1a1a;
+            --bg-cream: #fdfdfb; /* Video background color */
+            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { color: #444; line-height: 1.7; background-color: white; }
+        body { color: #444; line-height: 1.7; background-color: var(--bg-cream); overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
-        /* Header */
-        header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
-        .logo img { height: 60px; }
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; }
+        /* Header - Transparent to White */
+        header { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); z-index: 1000; backdrop-filter: blur(10px); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo img { height: 50px; }
+        .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary-green); }
 
-        /* General Sections */
-        section { padding: 90px 0; }
-        .section-title { text-align: center; color: var(--dark-green); font-size: 2.5rem; margin-bottom: 10px; }
-        .section-subtitle { text-align: center; color: var(--gold-accent); font-weight: 600; letter-spacing: 1px; margin-bottom: 50px; text-transform: uppercase; }
+        /* Sections */
+        section { padding: 100px 0; }
+        .section-title { text-align: center; color: var(--dark-green); font-size: 2.8rem; font-weight: 700; margin-bottom: 15px; }
+        .section-subtitle { text-align: center; color: var(--primary-green); font-weight: 600; letter-spacing: 1px; margin-bottom: 60px; text-transform: uppercase; font-size: 0.9rem; }
 
-        /* Hero */
-        .hero { height: 80vh; display: flex; align-items: center; background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.65)), url('viber_image_2025-01-04_11-43-17-438.jpg') center/cover; margin-top: 60px; }
-        .hero h1 { font-size: 3.8rem; color: var(--dark-green); font-weight: 700; line-height: 1.2; }
+        /* Hero Section - Matching Video Layout */
+        .hero { 
+            min-height: 95vh; 
+            display: flex; 
+            align-items: center; 
+            background: radial-gradient(circle at top right, #f2faeb, transparent), var(--bg-cream);
+            padding-top: 120px;
+        }
+        .hero-flex { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .hero-text { flex: 1.2; min-width: 350px; }
+        .hero-image-area { flex: 1; min-width: 350px; position: relative; display: flex; justify-content: center; }
+        
+        .hero h1 { font-size: 4rem; color: var(--dark-green); font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
+        .hero p { font-size: 1.15rem; color: #555; margin-bottom: 40px; max-width: 550px; }
+        
+        /* Floating Image Style from video */
+        .hero-main-img { width: 100%; max-width: 500px; border-radius: 40px 150px 40px 40px; object-fit: cover; box-shadow: 30px 30px 0px var(--light-green); }
+        .floating-badge { position: absolute; background: white; padding: 15px 25px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--dark-green); }
+        .badge-1 { top: 10%; right: -5%; }
+        .badge-2 { bottom: 15%; left: -5%; }
 
         /* Buttons */
-        .btn-premium { background: var(--primary-green); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; display: inline-block; transition: 0.4s; text-transform: uppercase; width: 100%; text-align: center; }
-        .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .btn-inline { width: auto; }
+        .btn-premium { background: var(--dark-green); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; display: inline-block; transition: 0.4s; font-size: 1rem; }
+        .btn-premium:hover { background: var(--primary-green); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(109, 190, 69, 0.3); }
+        .btn-outline { background: transparent; color: var(--dark-green); border: 2px solid var(--dark-green); margin-left: 15px; }
 
-        /* Updated Stats Section Styles */
-        .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: var(--bg-alt); color: var(--dark-green); border-bottom: 1px solid #e1eed2; }
-        .stat-item h2 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 5px; font-weight: 700; }
-        .stat-item p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: 600; }
+        /* Stats Card */
+        .stats-container { display: flex; justify-content: space-around; background: white; padding: 40px; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.05); margin-top: -60px; position: relative; z-index: 10; }
+        .stat-item h2 { font-size: 2.5rem; color: var(--dark-green); font-weight: 800; }
+        .stat-item p { color: #888; font-size: 0.9rem; font-weight: 600; }
 
-        /* About & Doctor Flex Layouts */
-        .flex-layout { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-        .flex-text { flex: 1.5; min-width: 320px; }
-        .flex-image { flex: 1; min-width: 300px; }
-        .flex-image img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0 var(--gold-accent); }
-        .about-list { list-style: none; margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .about-list li { font-weight: 600; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
-        .about-list i { color: var(--primary-green); }
-
-        /* Services Grid */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .service-card { background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-green); transition: 0.3s; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(109, 190, 69, 0.15); }
-        .service-card h4 { color: var(--dark-green); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;}
-        .service-card ul { list-style: none; font-size: 0.9rem; margin-top: 10px; }
-        .service-card li { margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
-        .service-card li::before { content: "•"; color: var(--gold-accent); font-weight: bold; }
-
-        /* Gallery Grid */
-        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .result-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .result-card img { width: 100%; height: auto; display: block; transition: 0.3s; }
-        .result-card:hover img { transform: scale(1.05); }
-
-        /* Video Showcase Area */
-        .video-showcase { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
-        .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid white; position: relative; background: #000; }
-        .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.95; transition: 0.3s; }
-        .video-wrapper:hover video { opacity: 1; transform: scale(1.02); }
-
-        /* Informational Slider Styles */
-        .slider-wrapper { position: relative; display: flex; align-items: center; }
-        .slider-container { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding-bottom: 20px; width: 100%; scrollbar-width: none; }
-        .slider-container::-webkit-scrollbar { display: none; }
-        .slider-container .service-card { flex: 0 0 calc(33.333% - 17px); scroll-snap-align: start; min-width: 300px; }
-        .slider-btn { background: var(--primary-green); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; position: absolute; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s; display: flex; align-items: center; justify-content: center; }
-        .slider-btn:hover { background: var(--dark-green); transform: scale(1.1); }
-        .slider-btn.prev { left: -20px; }
-        .slider-btn.next { right: -20px; }
-
-        /* Integrated Contact Section */
-        .contact-section { background: var(--bg-premium); }
-        .contact-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1100px; margin: 0 auto; }
-        .contact-info, .contact-form { background: white; padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
-        .contact-info { border-top: 5px solid var(--gold-accent); }
-        .contact-form { border-top: 5px solid var(--primary-green); }
-        .contact-info h3, .contact-form h3 { color: var(--dark-green); margin-bottom: 25px; font-size: 1.5rem; }
-        .contact-info p { margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 15px; }
-        .contact-info a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: 0.3s; }
-        .contact-info a:hover { color: var(--primary-green); }
-        .contact-info iframe { width: 100%; height: 250px; border: none; margin-top: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        /* Layouts */
+        .flex-layout { display: flex; align-items: center; gap: 80px; flex-wrap: wrap; }
+        .flex-image img { width: 100%; border-radius: 30px; }
         
-        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
+        /* Services Cards - Clean Minimalist Style */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: var(--white); padding: 40px 30px; border-radius: 25px; transition: 0.4s; border: 1px solid #f0f0f0; position: relative; }
+        .service-card:hover { border-color: var(--primary-green); transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+        .service-card h4 { font-size: 1.4rem; color: var(--dark-green); margin-bottom: 15px; font-weight: 700; }
+        .service-card li { font-size: 0.95rem; color: #666; margin-bottom: 8px; list-style: none; display: flex; align-items: center; gap: 10px; }
+        .service-card li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--primary-green); font-size: 0.8rem; }
 
-        /* Dual Sticky CTAs */
-        .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
-        .sticky-cta a { padding: 15px 25px; border-radius: 50px; color: white; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s; }
-        .sticky-cta a:hover { transform: translateY(-5px); }
-        .cta-call { background: var(--dark-green); }
+        /* Gallery / Results */
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .result-card { border-radius: 20px; overflow: hidden; height: 350px; }
+        .result-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Booking Form - Modern Input Style */
+        .contact-form { background: var(--dark-green); color: white; padding: 60px; border-radius: 40px; max-width: 600px; width: 100%; }
+        .contact-form h3 { font-size: 2rem; margin-bottom: 30px; color: white; }
+        .contact-form input, .contact-form select, .contact-form textarea { 
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); 
+            color: white; padding: 18px; margin-bottom: 20px; border-radius: 15px; width: 100%;
+        }
+        .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.6); }
+        .contact-form option { color: black; }
+        .contact-form .btn-premium { background: var(--primary-green); width: 100%; }
+
+        /* Chatbot & Sticky */
+        #chatbot-launcher { background: var(--dark-green); bottom: 40px; right: 40px; }
         .cta-wa { background: #25d366; }
+        .cta-call { background: var(--dark-green); }
 
-        /* FAQ Styling */
-        .faq-item { border: 1px solid #ddd; margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
-        .faq-header { background: #fdfdfd; padding: 15px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
-        .faq-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        /* Video Area */
+        .video-wrapper { border-radius: 30px; border: none; }
 
-        /* CHATBOT STYLES */
-        #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
-        #chatbot-launcher:hover { transform: scale(1.1); }
-        #chatbot-window { position: fixed; bottom: 170px; right: 25px; width: 320px; height: 450px; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 2001; border: 1px solid #eee; }
-        #chatbot-header { background: var(--dark-green); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
-        #chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; background: #fdfdfd; }
-        .msg { padding: 10px 15px; border-radius: 15px; max-width: 80%; }
-        .bot-msg { background: #f0f0f0; align-self: flex-start; border-bottom-left-radius: 2px; }
-        .user-msg { background: var(--primary-green); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
-        #chatbot-input-area { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
-        #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; }
-        #chatbot-input-area button { background: none; border: none; color: var(--primary-green); cursor: pointer; font-size: 1.2rem; }
-
-        #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
-        
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
-            .sticky-cta { bottom: 15px; right: 15px; flex-direction: column; gap: 10px; }
-            .sticky-cta a { padding: 12px 20px; font-size: 0.9rem; }
-            #chatbot-launcher { bottom: 120px; right: 15px; }
-            #chatbot-window { bottom: 190px; right: 15px; width: 290px; }
-            .slider-container .service-card { flex: 0 0 100%; }
-            .slider-btn.prev { left: -10px; }
-            .slider-btn.next { right: -10px; }
+            .hero-flex { text-align: center; }
+            .hero-main-img { border-radius: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="chatbot-launcher" onclick="toggleChat()"><i class="fas fa-comment-medical"></i></div>
+    <div id="chatbot-launcher" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></div>
     <div id="chatbot-window">
         <div id="chatbot-header">
-            <span>Ayna AI Assistant</span>
+            <span>Ayna Concierge</span>
             <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer;"></i>
         </div>
-        <div id="chatbot-messages" id="chatMessages">
-            <div class="msg bot-msg">Hello! Welcome to Ayna Clinic. How can I help you today? You can ask about our <b>treatments</b>, <b>pricing</b>, or <b>location</b>!</div>
+        <div id="chatbot-messages">
+            <div class="msg bot-msg">Welcome to Ayna. Experience the future of skincare. How can we assist you today?</div>
         </div>
         <div id="chatbot-input-area">
-            <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key === 'Enter') sendMessage()">
+            <input type="text" id="chatInput" placeholder="Ask about treatments...">
             <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
-    <div class="sticky-cta">
-        <a href="tel:+9779767797950" class="cta-call"><i class="fas fa-phone-alt"></i> Call Now</a>
-        <a href="https://wa.me/9779767797950" class="cta-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
-
     <header>
-        <div style="background: var(--gold-accent); color: white; text-align: center; padding: 8px; font-size: 0.85rem; font-weight: 600; width: 100%;">
-            🎉 Anniversary Special: Flat 15% – 50% OFF on services! <a href="#contact" style="color: white; text-decoration: underline;">Book Now</a>
+        <div style="background: var(--dark-green); color: white; text-align: center; padding: 10px; font-size: 0.85rem; font-weight: 500;">
+            Anniversary Special: <strong>15% – 50% OFF</strong> on Clinical Services. <a href="#contact" style="color: var(--primary-green); margin-left: 10px;">Claim Offer</a>
         </div>
-        
         <nav class="container">
             <div class="logo"><img src="ayna.jpg" alt="Ayna Logo"></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#services">Treatments</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#showcase">Gallery</a></li>
-                <li><a href="#contact">Book Now</a></li>
+                <li><a href="#gallery">Results</a></li>
+                <li><a href="#contact" class="btn-premium" style="padding: 10px 25px; font-size: 0.8rem; border-radius: 8px;">Book Now</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <div class="container">
-            <h1>Transforming Skin & Hair <br>With <span style="color:var(--gold-accent);">Clinical Excellence.</span></h1>
-            <p style="font-size: 1.3rem; margin: 20px 0 35px; max-width: 650px;">Trusted by 5000+ patients in Biratnagar. Book your professional consultation with <strong>Dr. Bibisha Baaniya</strong> today.</p>
-            <a href="#contact" class="btn-premium btn-inline">Book Priority Consultation</a>
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <span style="color: var(--primary-green); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Biratnagar's Premier Aesthetic Clinic</span>
+                <h1>Reveal Your <br>Best Skin with <br><span style="color:var(--primary-green);">Advanced Care</span></h1>
+                <p>AYNA offers transformative skin, hair, and laser treatments tailored to your unique needs — combining cutting-edge technology with the gentle touch of certified aesthetic experts.</p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#contact" class="btn-premium">Book Appointment <i class="fas fa-calendar-alt" style="margin-left: 10px;"></i></a>
+                    <a href="#services" class="btn-premium btn-outline">Explore Treatments</a>
+                </div>
+            </div>
+            <div class="hero-image-area">
+                <img src="viber_image_2025-01-04_11-43-17-438.jpg" class="hero-main-img" alt="Professional Skincare">
+                <div class="floating-badge badge-1"><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> Certified Skin Experts</div>
+                <div class="floating-badge badge-2"><i class="fas fa-bolt" style="color: var(--gold-accent);"></i> Advanced Laser Technology</div>
+            </div>
         </div>
     </section>
 
-    <div class="stats-container">
-        <div class="stat-item">
-            <h2 class="counter" data-target="5000">0</h2>
-            <p>Patients Treated</p>
-        </div>
-        <div class="stat-item">
-            <h2 class="counter" data-target="50">0</h2>
-            <p>Treatment Types</p>
-        </div>
-        <div class="stat-item">
-            <h2 class="counter" data-target="2">0</h2>
-            <p>Years of Excellence</p>
+    <div class="container">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h2 class="counter" data-target="5000">0</h2>
+                <p>Happy Clients</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="10">0</h2>
+                <p>Treatments</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="98">0</h2>
+                <p>Satisfaction Rate</p>
+            </div>
         </div>
     </div>
 
-    <section id="trust" style="background: white; padding: 30px 0; border-bottom: 1px solid #eee;">
-        <div class="container" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.8;">
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-certificate fa-2x"></i> FDA Approved Tech</div>
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-user-md fa-2x"></i> NMC Certified Doctors</div>
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-award fa-2x"></i> Premium Clinical Care</div>
+    <section id="services">
+        <div class="container">
+            <span class="section-subtitle">Our Treatments</span>
+            <h2 class="section-title">Tailored Aesthetic Services <br>for Every Skin Goal</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>Hair Removal Laser</h4>
+                    <ul>
+                        <li>Full Body Packages</li>
+                        <li>Face & Neck</li>
+                        <li>Underarms & Bikini</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Acne Treatment</h4>
+                    <ul>
+                        <li>Medical Grade Peels</li>
+                        <li>Comedone Extraction</li>
+                        <li>Scar Management</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Hydrafacial</h4>
+                    <ul>
+                        <li>Deep Pore Cleansing</li>
+                        <li>Skin Hydration</li>
+                        <li>Instant Glow</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Hair Regrowth Therapy</h4>
+                    <ul>
+                        <li>PRP & iPRF</li>
+                        <li>GFC Treatment</li>
+                        <li>Nutritional Support</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Skin Brightening</h4>
+                    <ul>
+                        <li>Glutathione Therapy</li>
+                        <li>Vitamin C Infusions</li>
+                        <li>Pigmentation Control</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>Anti-Aging Treatment</h4>
+                    <ul>
+                        <li>HIFU Skin Tightening</li>
+                        <li>Botox & Fillers</li>
+                        <li>Thread Lifts</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -224,318 +248,105 @@
         <div class="container">
             <div class="flex-layout">
                 <div class="flex-image">
-                    <img src="ayna.jpg" style="box-shadow: -15px 15px 0 var(--primary-green);" alt="Ayna Clinic Setup">
+                    <img src="ayna.jpg" alt="Ayna Clinic Interior">
                 </div>
                 <div class="flex-text">
-                    <h2 class="section-title" style="text-align: left;">Welcome to Ayna Clinic</h2>
-                    <h3 style="color: var(--gold-accent); margin-bottom: 20px;">Biratnagar's Premier Dermatology Center</h3>
-                    <p>Founded on the principles of medical excellence and aesthetic precision, Ayna Clinic provides comprehensive diagnostic and therapeutic solutions for all skin and hair concerns. We blend state-of-the-art technology with personalized treatment plans.</p>
-                    <p style="margin-top: 15px;">Whether you are seeking clinical dermatology care or advanced cosmetic enhancements, our facility adheres to strict medical protocols to ensure safe, ethical, and world-class results.</p>
-                    <ul class="about-list">
-                        <li><i class="fas fa-shield-alt"></i> FDA-Approved Tech</li>
-                        <li><i class="fas fa-user-md"></i> Expert Medical Staff</li>
-                        <li><i class="fas fa-heartbeat"></i> Patient-First Care</li>
-                        <li><i class="fas fa-star"></i> Proven Results</li>
-                    </ul>
+                    <h2 class="section-title" style="text-align: left;">Where Expertise Meets Excellence</h2>
+                    <p>We combine the science of dermatology with the art of beauty to deliver experiences and outcomes that truly matter to you.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+                        <div>
+                            <h5 style="color: var(--dark-green); font-weight: 700;">Expert Dermatology Care</h5>
+                            <p style="font-size: 0.9rem;">Our certified dermatologists bring years of clinical experience.</p>
+                        </div>
+                        <div>
+                            <h5 style="color: var(--dark-green); font-weight: 700;">Advanced Laser Equipment</h5>
+                            <p style="font-size: 0.9rem;">We use only FDA-approved medical grade technology.</p>
+                        </div>
+                        <div>
+                            <h5 style="color: var(--dark-green); font-weight: 700;">Personalised Treatments</h5>
+                            <p style="font-size: 0.9rem;">Every skin is unique; so is our approach to yours.</p>
+                        </div>
+                        <div>
+                            <h5 style="color: var(--dark-green); font-weight: 700;">Modern Skin Analysis</h5>
+                            <p style="font-size: 0.9rem;">Digital skin analysis for deep diagnostic accuracy.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="doctor" style="background: var(--bg-alt);">
+    <section id="gallery" style="background: var(--light-green);">
         <div class="container">
-            <div class="flex-layout">
-                <div class="flex-text">
-                    <h2 class="section-title" style="text-align: left;">Meet Our Expert</h2>
-                    <h3 style="color: var(--gold-accent); margin-bottom: 20px;">Dr. Bibisha Baaniya</h3>
-                    <p><strong>MBBS, MD (BPKIHS) | NMC No. 17402</strong></p>
-                    <p style="margin-top: 15px;">Dr. Bibisha Baaniya is a board-certified dermatologist specializing in skin, venereal, and aesthetic care. Combining clinical expertise with advanced laser technology, she provides personalized treatments focused on healthy, confident skin.</p>
-                    <p style="margin-top: 15px;">With a patient-centered and holistic approach, Dr. Baaniya creates customized treatment plans designed to deliver safe, effective, and long-lasting results.</p>
-                    <br>
-                    <a href="#contact" class="btn-premium btn-inline" style="background: var(--dark-green);">Consult Dr. Baaniya</a>
-                </div>
-                <div class="flex-image">
-                    <img src="274863845_110892188200818_7880054988556601557_n.jpg" alt="Dr. Bibisha Baaniya">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" style="background: white;">
-        <div class="container">
-            <h2 class="section-title">Our Medical & Aesthetic Services</h2>
-            <p class="section-subtitle">Comprehensive solutions for your skin and hair</p>
-            
-            <div class="services-grid" id="main-services-grid">
-                <div class="service-card">
-                    <h4>Hydrafacial</h4>
-                    <ul>
-                        <li>Basic Hydrafacial</li>
-                        <li>Hydrapeel</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Chemical Peel</h4>
-                    <ul>
-                        <li>Sesglicopeel (with Retinol Seal)</li>
-                        <li>Azelac M peel (with Retinol Seal)</li>
-                        <li>Nomelan Fenol peel</li>
-                        <li>Hollywood Laser Peel</li>
-                        <li>Party / Lip / Periorbital Peel</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Hair Removal Laser</h4>
-                    <ul>
-                        <li>Face, Neck, & Underarms</li>
-                        <li>Hands, Legs, & Chest</li>
-                        <li>Abdomen & Bikini</li>
-                        <li>Full Body Packages</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Anti-Aging Treatment</h4>
-                    <ul>
-                        <li>HIFU (Full Face / Half Face)</li>
-                        <li>Botox (per unit)</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Microneedling & CO2</h4>
-                    <ul>
-                        <li>Basic CO2 Laser</li>
-                        <li>CO2 with Exosome</li>
-                        <li>Microneedling with PRP / Exosome</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Hair Treatment</h4>
-                    <ul>
-                        <li>PRP & iPRF Treatment</li>
-                        <li>GFC Treatment</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Tattoo Removal</h4>
-                    <ul>
-                        <li>Tattoo Removal (Small/Medium/Large)</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Fillers</h4>
-                    <ul>
-                        <li>Dermal Fillers</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Thread Lift</h4>
-                    <ul>
-                        <li>PDO Thread</li>
-                        <li>COG Thread</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h4>Other Services</h4>
-                    <ul>
-                        <li>Nail Avulsion</li>
-                        <li>Skin Tag Removal</li>
-                        <li>Electrocautery</li>
-                        <li>Radiocautery</li>
-                        <li>Cyst Excision</li>
-                        <li>Split Ear Repair</li>
-                        <li>Lontophoresis</li>
-                        <li>Mole Removal</li>
-                        <li>Biopsy</li>
-                        <li>Skin Cancer excision</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pharmacy" style="background: var(--bg-premium);">
-        <div class="container">
-            <h2 class="section-title">In-House Pharmacy</h2>
-            <p class="section-subtitle">Authentic Medicines & Skincare</p>
-            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--primary-green);">
-                <i class="fas fa-prescription-bottle-alt fa-3x" style="color: var(--primary-green); margin-bottom: 20px;"></i>
-                <h3 style="color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem;">Complete Care Under One Roof</h3>
-                <p style="font-size: 1.1rem; color: #555;">For your convenience, Ayna Clinic features a fully stocked in-house pharmacy. Get all prescribed clinical medicines, dermatological creams, and authentic skincare products immediately after your consultation.</p>
-                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
-                    <p style="color: var(--dark-green); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Online Delivery Now Available!</p>
-                    <a href="https://wa.me/9779767797950?text=I%20would%20like%20to%20order%20medicines%20from%20your%20pharmacy." target="_blank" class="btn-premium btn-inline" style="background: var(--gold-accent); padding: 10px 25px; font-size: 0.9rem;"><i class="fab fa-whatsapp"></i> Order Medicines via WhatsApp</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" style="background: var(--bg-alt);">
-        <div class="container">
-            <h2 class="section-title">Real Results</h2>
-            <p class="section-subtitle">Clinical Transformations at Ayna</p>
+            <h2 class="section-title">Real Results, Real Transformations</h2>
             <div class="results-grid">
-                <div class="result-card"><img src="1000020552.png" alt="Hair Treatment Results"></div>
-                <div class="result-card"><img src="1000020557.png" alt="Clinical Result"></div>
-                <div class="result-card"><img src="1000020558.png" alt="Clinical Result"></div>
-                <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Therapy Results"></div>
-                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Ayna Glow Transformation"></div>
-                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Subtle Change Huge Impact"></div>
-                <div class="result-card"><img src="Erase the Lines 1.png" alt="Erase the Lines 1"></div>
-                <div class="result-card"><img src="Erase the Lines 2.png" alt="Erase the Lines 2"></div>
+                <div class="result-card"><img src="1000020552.png" alt="Transformation"></div>
+                <div class="result-card"><img src="1000020557.png" alt="Transformation"></div>
+                <div class="result-card"><img src="1000020558.png" alt="Transformation"></div>
+                <div class="result-card"><img src="GFC Therapy Results.png" alt="Transformation"></div>
             </div>
         </div>
     </section>
 
-    <section id="showcase" style="background: white;">
-        <div class="container">
-            <h2 class="section-title">Clinic In Action</h2>
-            <div class="video-showcase">
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment1.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment2.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="tr13.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt23.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt33.mp4" type="video/mp4"></video></div>
+    <section id="contact">
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <h2 class="section-title" style="text-align: left;">Start Your Skin <br>Transformation Today</h2>
+                <p>Take the first step toward your most confident self. Book a personalised consultation with our experts and discover the treatment plan made just for you.</p>
+                <ul style="list-style: none; margin-bottom: 30px;">
+                    <li><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Free initial skin consultation</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Same-week appointment availability</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Transparent, upfront pricing</li>
+                </ul>
+            </div>
+            <div class="contact-form" id="bookingFormContainer">
+                <h3>Request an Appointment</h3>
+                <form id="bookingForm">
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                    <select id="service" required>
+                        <option value="">Select Treatment</option>
+                        <option value="Hydrafacial">Hydrafacial</option>
+                        <option value="Laser Removal">Laser Removal</option>
+                        <option value="Acne Treatment">Acne Treatment</option>
+                        <option value="Anti-Aging">Anti-Aging</option>
+                    </select>
+                    <input type="date" id="date" required>
+                    <textarea id="message" placeholder="Tell us about your skin concerns..."></textarea>
+                    <button type="submit" id="submitBtn" class="btn-premium">Confirm My Appointment <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></button>
+                </form>
+                <p id="successMsg" style="display:none; color: white; margin-top: 20px; font-weight: 600;">✅ Thank you! We will contact you shortly.</p>
             </div>
         </div>
     </section>
 
-    <section id="informational" style="background: var(--bg-alt);">
-        <div class="container">
-            <h2 class="section-title">Informational Section</h2>
-            <div class="slider-wrapper">
-                <button class="slider-btn prev" onclick="document.getElementById('infoSlider').scrollBy({left: -325, behavior: 'smooth'})"><i class="fas fa-chevron-left"></i></button>
-                <div class="slider-container" id="infoSlider">
-                    <div class="service-card" style="padding: 15px; text-align: center;">
-                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015094.mp4" type="video/mp4"></video>
-                        <h4 style="margin-top: 15px;">Shampoo, Conditioner र Hair Mask कसरी लगाउने?</h4>
-                    </div>
-                    <div class="service-card" style="padding: 15px; text-align: center;">
-                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000015263.mp4" type="video/mp4"></video>
-                        <h4 style="margin-top: 15px;">कपाल झर्ने कारणहरु</h4>
-                    </div>
-                    <div class="service-card" style="padding: 15px; text-align: center;">
-                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000017916.mp4" type="video/mp4"></video>
-                        <h4 style="margin-top: 15px;">के Skin Analyser Scam हो?</h4>
-                    </div>
-                    <div class="service-card" style="padding: 15px; text-align: center;">
-                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="snaptik_7486153610510732562_v3.mp4" type="video/mp4"></video>
-                        <h4 style="margin-top: 15px;">Skin care during preconception, pregnancy, breastfeeding</h4>
-                    </div>
-                    <div class="service-card" style="padding: 15px; text-align: center;">
-                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="snaptik_7413260269767478546_v3 (1).mp4" type="video/mp4"></video>
-                        <h4 style="margin-top: 15px;">Hydrafacial कसले गर्ने, कसले नगर्ने?</h4>
-                    </div>
-                    <div class="service-card" style="padding: 15px; text-align: center;">
-                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="snaptik_7482768706616020231_v3.mp4" type="video/mp4"></video>
-                        <h4 style="margin-top: 15px;">Is acne treatment important?</h4>
-                    </div>
-                    <div class="service-card" style="padding: 15px; text-align: center;">
-                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="snaptik_7488358872390929672_v3.mp4" type="video/mp4"></video>
-                        <h4 style="margin-top: 15px;">Skin care routine of my two years old baby</h4>
-                    </div>
-                </div>
-                <button class="slider-btn next" onclick="document.getElementById('infoSlider').scrollBy({left: 325, behavior: 'smooth'})"><i class="fas fa-chevron-right"></i></button>
+    <footer style="background: white; border-top: 1px solid #eee; padding: 80px 0 40px;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px;">
+            <div>
+                <img src="ayna.jpg" style="height: 50px; margin-bottom: 20px;" alt="Logo">
+                <p style="font-size: 0.9rem;">Biratnagar's premier destination for advanced skin, hair, and laser aesthetic care.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--dark-green); margin-bottom: 20px;">Quick Links</h4>
+                <ul style="list-style: none; font-size: 0.9rem;">
+                    <li><a href="#home" style="text-decoration: none; color: #666;">Home</a></li>
+                    <li><a href="#services" style="text-decoration: none; color: #666;">Treatments</a></li>
+                    <li><a href="#gallery" style="text-decoration: none; color: #666;">Results</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--dark-green); margin-bottom: 20px;">Contact</h4>
+                <p style="font-size: 0.9rem;">Rangeli Road, Biratnagar<br>+977 976-7797950<br>aynaskinclinic@gmail.com</p>
             </div>
         </div>
-    </section>
-
-    <section id="faq" style="background: white;">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq(this)"><span>Does laser hair removal hurt?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">Our FDA-approved laser technology features advanced cooling mechanisms, making the procedure virtually painless.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq(this)"><span>How long is the downtime for a Chemical Peel?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">Mild peels have little downtime, while deeper peels may require 3-5 days of peeling and recovery.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq(this)"><span>Is the consultation fee adjustable?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">The consultation fee is a standard charge for Dr. Baaniya's assessment. It may be adjusted if proceeding with a treatment package.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq(this)"><span>Is laser hair removal permanent?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">It results in long-term hair reduction. Occasional maintenance sessions may be required.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq(this)"><span>Does chemical peel make skin thin?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">No, it actually stimulates collagen production, making the dermis thicker over time.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq(this)"><span>Stuffs to avoid in melasma</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">Avoid direct sun exposure, extreme heat, and harsh exfoliants.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq(this)"><span>Food to avoid in acne</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">Avoid high glycemic index foods, excessive dairy, and processed fast foods.</p></div>
-                </div>
-            </div>
+        <div class="container" style="text-align: center; border-top: 1px solid #eee; padding-top: 30px; font-size: 0.8rem; color: #999;">
+            © 2026 Ayna Aesthetic Clinic. All rights reserved.
         </div>
-    </section>
-
-    <section id="find-us" style="background: var(--bg-alt);">
-        <div class="container">
-            <h2 class="section-title">Find Us</h2>
-            <div style="max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-                <video autoplay loop muted playsinline style="width: 100%; display: block; background: #000;"><source src="way_to_ayna.mp4" type="video/mp4"></video>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section" style="background: white;">
-        <div class="container">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Details</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/YnU5LLj67NngbgSK8" target="_blank">Rangeli Road, Biratnagar</a></p>
-                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+9779767797950">+977 9767797950</a></p>
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/9779767797950" target="_blank">Chat on WhatsApp</a></p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.0463378519965!2d87.2833182!3d26.4542938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef7446ff360e21%3A0x6406e93910c2423!2sAyna%20The%20Skin%2C%20Hair%20%26%20Laser%20Clinic!5e0!3m2!1sen!2snp!4v1714710000000!5m2!1sen!2snp" loading="lazy"></iframe>
-                </div>
-                <div class="contact-form">
-                    <h3>Book Appointment</h3>
-                    <form id="bookingForm">
-                        <input type="text" id="name" placeholder="Full Name" required>
-                        <input type="tel" id="phone" placeholder="Phone Number" required>
-                        <select id="service" required>
-                            <option value="">Select Service</option>
-                            <option value="Hydrafacial">Hydrafacial</option>
-                            <option value="Chemical Peel">Chemical Peel</option>
-                            <option value="Laser Hair Removal">Hair Removal Laser</option>
-                            <option value="Anti-Aging">Anti-Aging Treatment</option>
-                            <option value="Microneedling/CO2">Microneedling & CO2</option>
-                            <option value="Hair Treatment">Hair Treatment</option>
-                            <option value="Tattoo Removal">Tattoo Removal</option>
-                            <option value="Fillers">Fillers</option>
-                            <option value="Thread Lift">Thread Lift</option>
-                            <option value="Other Services">Other Services</option>
-                        </select>
-                        <select id="consultationType" required>
-                            <option value="">Select Consultation Type</option>
-                            <option value="Physical">Physical Consultation (In-Clinic)</option>
-                            <option value="Online">Online Consultation (Video/Call)</option>
-                        </select>
-                        <input type="date" id="date" required>
-                        <textarea id="message" rows="3" placeholder="Any specific concerns?"></textarea>
-                        <button type="submit" id="submitBtn" class="btn-premium">Confirm Booking</button>
-                    </form>
-                    <p id="successMsg">✅ Appointment Requested Successfully!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer style="background:#1a1a1a; color:rgba(255,255,255,0.7); padding:40px 0; text-align:center;">
-        <p>© 2026 Ayna Clinic. Professional Care You Can Trust.</p>
     </footer>
 
     <script>
-        // Counter Animation Logic
+        // Counter Logic
         const counters = document.querySelectorAll('.counter');
-        const observerOptions = { threshold: 1, rootMargin: "0px 0px -50px 0px" };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -543,53 +354,20 @@
                     const updateCounter = () => {
                         const targetValue = +target.getAttribute('data-target');
                         const count = +target.innerText.replace("+", "");
-                        const increment = targetValue / 100;
+                        const inc = targetValue / 100;
                         if (count < targetValue) {
-                            target.innerText = Math.ceil(count + increment);
+                            target.innerText = Math.ceil(count + inc) + "+";
                             setTimeout(updateCounter, 20);
-                        } else { 
-                            target.innerText = targetValue + "+"; 
-                        }
+                        } else { target.innerText = targetValue + "+"; }
                     };
                     updateCounter();
                     observer.unobserve(target);
                 }
             });
-        }, observerOptions);
-
+        }, { threshold: 1 });
         counters.forEach(c => observer.observe(c));
 
-        function toggleFaq(element) {
-            const content = element.nextElementSibling;
-            content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
-        }
-
-        function toggleChat() {
-            const chat = document.getElementById('chatbot-window');
-            chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const chatBox = document.getElementById('chatbot-messages');
-            if (input.value.trim() === "") return;
-            const userDiv = document.createElement('div');
-            userDiv.className = 'msg user-msg';
-            userDiv.innerText = input.value;
-            chatBox.appendChild(userDiv);
-            const userText = input.value.toLowerCase();
-            input.value = "";
-            setTimeout(() => {
-                const botDiv = document.createElement('div');
-                botDiv.className = 'msg bot-msg';
-                if (userText.includes("doctor")) botDiv.innerText = "Dr. Bibisha Baaniya is our expert dermatologist.";
-                else if (userText.includes("pharmacy")) botDiv.innerText = "We have an in-house pharmacy with authentic medicine and skincare.";
-                else botDiv.innerHTML = "How can I help? <a href='https://wa.me/9779767797950'>WhatsApp Us</a>";
-                chatBox.appendChild(botDiv);
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }, 600);
-        }
-
+        // Form Submission
         const API_URL = "https://ayna-backend-1-kjy2.onrender.com/api/appointments/";
         document.getElementById('bookingForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -599,11 +377,11 @@
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
                 service: document.getElementById('service').value,
-                message: `Type: ${document.getElementById('consultationType').value} | Date: ${document.getElementById('date').value} | Note: ${document.getElementById('message').value}`
+                message: `Date: ${document.getElementById('date').value} | Note: ${document.getElementById('message').value}`
             };
             try {
                 const response = await fetch(API_URL, {
-                    method: 'POST', mode: 'cors', credentials: 'omit',
+                    method: 'POST', mode: 'cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 });
@@ -611,9 +389,14 @@
                     document.getElementById('successMsg').style.display = "block"; 
                     document.getElementById('bookingForm').reset();
                 }
-            } catch (err) { alert("Error connecting to server."); }
-            finally { btn.innerText = "Confirm Booking"; }
+            } catch (err) { console.error(err); }
+            finally { btn.innerHTML = "Confirm My Appointment <i class='fas fa-arrow-right' style='margin-left: 10px;'></i>"; }
         });
+
+        function toggleChat() {
+            const chat = document.getElementById('chatbot-window');
+            chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+        }
     </script>
 </body>
 </html>
