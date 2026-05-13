@@ -1140,46 +1140,41 @@
 
 
 
-        function sendMessage() {
+       function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const chatBox = document.getElementById('chatbot-messages');
+    if (!input.value.trim()) return;
 
-            const input = document.getElementById('chatInput');
+    // User Message
+    const userDiv = document.createElement('div');
+    userDiv.className = 'msg user-msg';
+    userDiv.innerText = input.value;
+    chatBox.appendChild(userDiv);
 
-            const chatBox = document.getElementById('chatbot-messages');
+    const userText = input.value.toLowerCase();
+    input.value = '';
 
-            if (input.value.trim() === "") return;
-
-            const userDiv = document.createElement('div');
-
-            userDiv.className = 'msg user-msg';
-
-            userDiv.innerText = input.value;
-
-            chatBox.appendChild(userDiv);
-
-            const userText = input.value.toLowerCase();
-
-            input.value = "";
-
-            setTimeout(() => {
-
-                const botDiv = document.createElement('div');
-
-                botDiv.className = 'msg bot-msg';
-
-                if (userText.includes("doctor")) botDiv.innerText = "Dr. Bibisha Baaniya is our expert dermatologist.";
-
-                else if (userText.includes("pharmacy")) botDiv.innerText = "We have an in-house pharmacy with authentic medicine and skincare.";
-
-                else botDiv.innerHTML = "How can I help? <a href='https://wa.me/9779767797950'>WhatsApp Us</a>";
-
-                chatBox.appendChild(botDiv);
-
-                chatBox.scrollTop = chatBox.scrollHeight;
-
-            }, 600);
-
+    setTimeout(() => {
+        const botDiv = document.createElement('div');
+        botDiv.className = 'msg bot-msg';
+        
+        // Intelligent Responses
+        if (userText.includes('hi') || userText.includes('hello')) {
+            botDiv.innerHTML = "Namaste! 🙏 Welcome to Ayna. Would you like to <b>Book an Appointment</b> or learn about our <b>Services</b>?";
+        } else if (userText.includes('book') || userText.includes('appointment')) {
+            botDiv.innerHTML = "I can help with that! You can use the form below, or just <a href='https://wa.me/9779767797950'>Click here to WhatsApp</a> our reception directly.";
+        } else if (userText.includes('price') || userText.includes('cost')) {
+            botDiv.innerHTML = "Our treatments are personalized. Consultations start at a standard rate, but specific laser or peel prices depend on your skin analysis. Would you like to see our <b>Services</b>?";
+        } else if (userText.includes('location') || userText.includes('where')) {
+            botDiv.innerHTML = "We are located on <b>Rangeli Road, Biratnagar</b>. You can find the map at the bottom of this page!";
+        } else {
+            botDiv.innerHTML = "I'm still learning! For medical advice, it's best to speak with Dr. Baaniya. <a href='https://wa.me/9779767797950'>Message us on WhatsApp</a> for a quick reply.";
         }
 
+        chatBox.appendChild(botDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 600);
+}
 
 
         const API_URL = "https://ayna-backend-1-kjy2.onrender.com/api/appointments/";
