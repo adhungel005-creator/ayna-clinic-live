@@ -633,6 +633,36 @@
             }, 600);
         }
 
+        // WhatsApp Form Submission Logic
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const type = document.getElementById('consultationType').value;
+            const date = document.getElementById('date').value;
+            const message = document.getElementById('message').value || "None";
+
+            // Format the WhatsApp message
+            const whatsappMessage = `*New Appointment Request* %0A%0A` +
+                `*Name:* ${name}%0A` +
+                `*Phone:* ${phone}%0A` +
+                `*Service:* ${service}%0A` +
+                `*Consultation:* ${type}%0A` +
+                `*Date:* ${date}%0A` +
+                `*Message:* ${message}`;
+
+            // Open WhatsApp link
+            const waLink = `https://wa.me/9779767797950?text=${whatsappMessage}`;
+            window.open(waLink, '_blank');
+
+            // Success feedback
+            document.getElementById('successMsg').style.display = "block";
+            document.getElementById('bookingForm').reset();
+        });
+
         // Testimonial Auto-Slider Logic
         let currentSlide = 0;
         const track = document.getElementById('testimonialTrack');
@@ -640,31 +670,6 @@
             currentSlide = (currentSlide + 1) % 5;
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
         }, 4000);
-
-        const API_URL = "https://ayna-backend-1-kjy2.onrender.com/api/appointments/";
-        document.getElementById('bookingForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            btn.innerText = "Processing...";
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                service: document.getElementById('service').value,
-                message: `Type: ${document.getElementById('consultationType').value} | Date: ${document.getElementById('date').value} | Note: ${document.getElementById('message').value}`
-            };
-            try {
-                const response = await fetch(API_URL, {
-                    method: 'POST', mode: 'cors', credentials: 'omit',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                if (response.ok) { 
-                    document.getElementById('successMsg').style.display = "block"; 
-                    document.getElementById('bookingForm').reset();
-                }
-            } catch (err) { alert("Error connecting to server."); }
-            finally { btn.innerText = "Confirm Booking"; }
-        });
     </script>
 </body>
 </html>
