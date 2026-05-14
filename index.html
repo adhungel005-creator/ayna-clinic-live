@@ -52,7 +52,7 @@
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-inline { width: auto; }
 
-        /* Updated Stats Section Styles */
+        /* Stats Section */
         .stats-container { display: flex; justify-content: space-around; text-align: center; padding: 60px 0; background: var(--bg-alt); color: var(--dark-green); border-bottom: 1px solid #e1eed2; }
         .stat-item h2 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 5px; font-weight: 700; }
         .stat-item p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: 600; }
@@ -87,7 +87,7 @@
         .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.95; transition: 0.3s; }
         .video-wrapper:hover video { opacity: 1; transform: scale(1.02); }
 
-        /* Slider Wrapper */
+        /* Informational Slider Styles */
         .slider-wrapper { position: relative; display: flex; align-items: center; }
         .slider-container { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding-bottom: 20px; width: 100%; scrollbar-width: none; }
         .slider-container::-webkit-scrollbar { display: none; }
@@ -97,17 +97,19 @@
         .slider-btn.prev { left: -20px; }
         .slider-btn.next { right: -20px; }
 
-        /* Sliding Testimonial Styles */
+        /* SLIDING TESTIMONIALS CSS */
         .testimonial-slider-wrapper { position: relative; max-width: 1000px; margin: 0 auto; overflow: hidden; }
-        .testimonial-track { display: flex; transition: transform 0.5s ease-in-out; }
-        .testimonial-card { flex: 0 0 100%; background: var(--bg-alt); padding: 40px; border-radius: 20px; text-align: center; border: 1px solid #e1eed2; }
+        .testimonial-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .testimonial-card-slide { flex: 0 0 100%; background: var(--bg-alt); padding: 40px; border-radius: 20px; text-align: center; border: 1px solid #e1eed2; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .stars { color: #FFD700; margin-bottom: 15px; font-size: 1.2rem; }
-        .t-quote { font-size: 1.2rem; color: var(--text-dark); line-height: 1.8; margin-bottom: 25px; font-style: italic; }
+        .t-quote { font-size: 1.2rem; color: var(--text-dark); line-height: 1.6; margin-bottom: 28px; font-style: italic; }
         .t-author { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .t-avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--primary-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.3rem; }
-        .t-author-info strong { display: block; color: var(--text-dark); font-size: 1.1rem; }
+        .t-avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--primary-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
+        .t-author-info strong { display: block; color: var(--text-dark); font-size: 1.1rem; font-weight: 600; }
         .t-author-info span { color: var(--gold-accent); font-size: 0.9rem; font-weight: 600; }
-        .slider-nav { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+        .slider-nav-dots { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+        .dot { width: 12px; height: 12px; background: #ddd; border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: var(--primary-green); transform: scale(1.3); }
 
         /* Integrated Contact Section */
         .contact-section { background: var(--bg-premium); }
@@ -161,6 +163,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div id="chatbot-launcher" onclick="toggleChat()"><i class="fas fa-comment-medical"></i></div>
@@ -280,10 +283,7 @@
             <div class="services-grid" id="main-services-grid">
                 <div class="service-card">
                     <h4>Hydrafacial</h4>
-                    <ul>
-                        <li>Basic Hydrafacial</li>
-                        <li>Hydrapeel</li>
-                    </ul>
+                    <ul><li>Basic Hydrafacial</li><li>Hydrapeel</li></ul>
                 </div>
                 <div class="service-card">
                     <h4>Chemical Peel</h4>
@@ -328,36 +328,22 @@
                 </div>
                 <div class="service-card">
                     <h4>Tattoo Removal</h4>
-                    <ul>
-                        <li>Tattoo Removal (Small/Medium/Large)</li>
-                    </ul>
+                    <ul><li>Tattoo Removal (Small/Medium/Large)</li></ul>
                 </div>
                 <div class="service-card">
                     <h4>Fillers</h4>
-                    <ul>
-                        <li>Dermal Fillers</li>
-                    </ul>
+                    <ul><li>Dermal Fillers</li></ul>
                 </div>
                 <div class="service-card">
                     <h4>Thread Lift</h4>
-                    <ul>
-                        <li>PDO Thread</li>
-                        <li>COG Thread</li>
-                    </ul>
+                    <ul><li>PDO Thread</li><li>COG Thread</li></ul>
                 </div>
                 <div class="service-card">
                     <h4>Other Services</h4>
                     <ul>
-                        <li>Nail Avulsion</li>
-                        <li>Skin Tag Removal</li>
-                        <li>Electrocautery</li>
-                        <li>Radiocautery</li>
-                        <li>Cyst Excision</li>
-                        <li>Split Ear Repair</li>
-                        <li>Lontophoresis</li>
-                        <li>Mole Removal</li>
-                        <li>Biopsy</li>
-                        <li>Skin Cancer excision</li>
+                        <li>Nail Avulsion</li><li>Skin Tag Removal</li><li>Electrocautery</li><li>Radiocautery</li>
+                        <li>Cyst Excision</li><li>Split Ear Repair</li><li>Lontophoresis</li><li>Mole Removal</li>
+                        <li>Biopsy</li><li>Skin Cancer excision</li>
                     </ul>
                 </div>
             </div>
@@ -385,14 +371,14 @@
             <h2 class="section-title">Real Results</h2>
             <p class="section-subtitle">Clinical Transformations at Ayna</p>
             <div class="results-grid">
-                <div class="result-card"><img src="1000020552.png" alt="Hair Treatment Results"></div>
-                <div class="result-card"><img src="1000020557.png" alt="Clinical Result"></div>
-                <div class="result-card"><img src="1000020558.png" alt="Clinical Result"></div>
-                <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Therapy Results"></div>
-                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Ayna Glow Transformation"></div>
-                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Subtle Change Huge Impact"></div>
-                <div class="result-card"><img src="Erase the Lines 1.png" alt="Erase the Lines 1"></div>
-                <div class="result-card"><img src="Erase the Lines 2.png" alt="Erase the Lines 2"></div>
+                <div class="result-card"><img src="1000020552.png" alt="Hair Results"></div>
+                <div class="result-card"><img src="1000020557.png" alt="Result"></div>
+                <div class="result-card"><img src="1000020558.png" alt="Result"></div>
+                <div class="result-card"><img src="GFC Therapy Results.png" alt="GFC Result"></div>
+                <div class="result-card"><img src="Ayna Glow Transformation.png" alt="Glow"></div>
+                <div class="result-card"><img src="Subtle Change Huge Impact.png" alt="Change"></div>
+                <div class="result-card"><img src="Erase the Lines 1.png" alt="Erase"></div>
+                <div class="result-card"><img src="Erase the Lines 2.png" alt="Erase"></div>
             </div>
         </div>
     </section>
@@ -417,7 +403,7 @@
             
             <div class="testimonial-slider-wrapper">
                 <div class="testimonial-track" id="testimonialTrack">
-                    <div class="testimonial-card">
+                    <div class="testimonial-card-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p class="t-quote">"Best place for all skin and hair related issues in Biratnagar. Dr. Bibisha is very professional and empathetic. Highly recommended!"</p>
                         <div class="t-author">
@@ -425,25 +411,25 @@
                             <div class="t-author-info"><strong>Rojan Bhattarai</strong><span>Biratnagar</span></div>
                         </div>
                     </div>
-                    <div class="testimonial-card">
+                    <div class="testimonial-card-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="t-quote">"I am extremely happy with the hair regrowth treatment I received at Ayna. The results are visible within 3 sessions. Thank you team!"</p>
+                        <p class="t-quote">"I am extremely happy with the results. Dr. Bibisha and the team are experts. Abisha Dhungel highly recommends Ayna for clinical precision!"</p>
                         <div class="t-author">
                             <div class="t-avatar">AD</div>
                             <div class="t-author-info"><strong>Abisha Dhungel</strong><span>Verified Patient</span></div>
                         </div>
                     </div>
-                    <div class="testimonial-card">
+                    <div class="testimonial-card-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="t-quote">"Amazing experience! The staff is very friendly and the clinic environment is very clean and hygienic. Results were visible from the first session."</p>
+                        <p class="t-quote">"Amazing experience! staff is friendly and environment is clean. Results were visible from first session."</p>
                         <div class="t-author">
                             <div class="t-avatar">PS</div>
                             <div class="t-author-info"><strong>Pratima Shah</strong><span>Morang</span></div>
                         </div>
                     </div>
-                    <div class="testimonial-card">
+                    <div class="testimonial-card-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="t-quote">"Dr. Bibisha explains the procedure very clearly. I did a carbon laser peel here and the results are mind-blowing. Authentic products only!"</p>
+                        <p class="t-quote">"Dr. Bibisha explains the procedure very clearly. I did carbon laser peel here and results are mind-blowing."</p>
                         <div class="t-author">
                             <div class="t-avatar">AK</div>
                             <div class="t-author-info"><strong>Abhishek Karna</strong><span>Biratnagar</span></div>
@@ -451,10 +437,8 @@
                     </div>
                 </div>
 
-                <div class="slider-nav">
-                    <button class="slider-btn prev" onclick="moveTestimonial(-1)"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-btn next" onclick="moveTestimonial(1)"><i class="fas fa-chevron-right"></i></button>
-                </div>
+                <div class="slider-nav-dots" id="sliderDots">
+                    </div>
             </div>
         </div>
     </section>
@@ -513,23 +497,19 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-header" onclick="toggleFaq(this)"><span>Is the consultation fee adjustable?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">The consultation fee is a standard charge for Dr. Baaniya's assessment. It may be adjusted if proceeding with a treatment package.</p></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">The consultation fee is a standard charge for assessment.</p></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-header" onclick="toggleFaq(this)"><span>Is laser hair removal permanent?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">It results in long-term hair reduction. Occasional maintenance sessions may be required.</p></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">It results in long-term hair reduction.</p></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-header" onclick="toggleFaq(this)"><span>Does chemical peel make skin thin?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">No, it actually stimulates collagen production, making the dermis thicker over time.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq(this)"><span>Stuffs to avoid in melasma</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">Avoid direct sun exposure, extreme heat, and harsh exfoliants.</p></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">No, it actually stimulates collagen production.</p></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-header" onclick="toggleFaq(this)"><span>Food to avoid in acne</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-content"><p style="padding: 15px 0;">Avoid high glycemic index foods, excessive dairy, and processed fast foods.</p></div>
+                    <div class="faq-content"><p style="padding: 15px 0;">Avoid high glycemic index foods and excessive dairy.</p></div>
                 </div>
             </div>
         </div>
@@ -549,10 +529,10 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Contact Details</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/YnU5LLj67NngbgSK8" target="_blank">Rangeli Road, Biratnagar</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.164807498426!2d87.284725375423!3d26.450411676926315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef74415893d567%3A0xc0950346c4664a78!2sAYNA%20-%20The%20Skin%2C%20Hair%20%26%20Laser%20Clinic!5e0!3m2!1sen!2snp!4v1714400000000!5m2!1sen!2snp" target="_blank">Rangeli Road, Biratnagar</a></p>
                     <p><i class="fas fa-phone-alt"></i> <a href="tel:+9779767797950">+977 9767797950</a></p>
                     <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/9779767797950" target="_blank">Chat on WhatsApp</a></p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.0463378519965!2d87.2833182!3d26.4542938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef7446ff360e21%3A0x6406e93910c2423!2sAyna%20The%20Skin%2C%20Hair%20%26%20Laser%20Clinic!5e0!3m2!1sen!2snp!4v1714710000000!5m2!1sen!2snp" loading="lazy"></iframe>
+                    <iframe src="https://maps.app.goo.gl/B9Z6mE89YvGZf6a88" loading="lazy"></iframe>
                 </div>
                 <div class="contact-form">
                     <h3>Book Appointment</h3>
@@ -592,23 +572,41 @@
     </footer>
 
     <script>
-        // Testimonial Slider Logic
-        let currentTestimonial = 0;
+        // SLIDING TESTIMONIALS LOGIC
+        let currentSlide = 0;
         const track = document.getElementById('testimonialTrack');
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        
-        function moveTestimonial(direction) {
-            currentTestimonial += direction;
-            if (currentTestimonial < 0) currentTestimonial = testimonials.length - 1;
-            if (currentTestimonial >= testimonials.length) currentTestimonial = 0;
-            track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+        const slides = document.querySelectorAll('.testimonial-card-slide');
+        const dotsContainer = document.getElementById('sliderDots');
+
+        // Create dots dynamically
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = `dot ${i === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => jumpToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
         }
 
-        // Counter Animation Logic
-        const counters = document.querySelectorAll('.counter');
-        const observerOptions = { threshold: 1, rootMargin: "0px 0px -50px 0px" };
+        function jumpToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
 
-        const observer = new IntersectionObserver((entries) => {
+        // Auto slide
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }, 5000);
+
+        // ORIGINAL LOGIC BELOW
+        const counters = document.querySelectorAll('.counter');
+        const obs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const target = entry.target;
@@ -619,17 +617,14 @@
                         if (count < targetValue) {
                             target.innerText = Math.ceil(count + increment);
                             setTimeout(updateCounter, 20);
-                        } else { 
-                            target.innerText = targetValue + "+"; 
-                        }
+                        } else { target.innerText = targetValue + "+"; }
                     };
                     updateCounter();
-                    observer.unobserve(target);
+                    obs.unobserve(target);
                 }
             });
-        }, observerOptions);
-
-        counters.forEach(c => observer.observe(c));
+        }, { threshold: 1 });
+        counters.forEach(c => obs.observe(c));
 
         function toggleFaq(element) {
             const content = element.nextElementSibling;
@@ -641,35 +636,26 @@
             chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
         }
 
-       function sendMessage() {
+        function sendMessage() {
             const input = document.getElementById('chatInput');
             const chatBox = document.getElementById('chatbot-messages');
             if (!input.value.trim()) return;
-
             const userDiv = document.createElement('div');
             userDiv.className = 'msg user-msg';
             userDiv.innerText = input.value;
             chatBox.appendChild(userDiv);
-
             const userText = input.value.toLowerCase();
             input.value = '';
-
             setTimeout(() => {
                 const botDiv = document.createElement('div');
                 botDiv.className = 'msg bot-msg';
-                
                 if (userText.includes('hi') || userText.includes('hello')) {
-                    botDiv.innerHTML = "Namaste! 🙏 Welcome to Ayna. Would you like to <b>Book an Appointment</b> or learn about our <b>Services</b>?";
+                    botDiv.innerHTML = "Namaste! 🙏 Welcome to Ayna. Would you like to <b>Book an Appointment</b>?";
                 } else if (userText.includes('book') || userText.includes('appointment')) {
-                    botDiv.innerHTML = "I can help with that! You can use the form below, or just <a href='https://wa.me/9779767797950'>Click here to WhatsApp</a> our reception directly.";
-                } else if (userText.includes('price') || userText.includes('cost')) {
-                    botDiv.innerHTML = "Our treatments are personalized. Consultations start at a standard rate, but specific laser or peel prices depend on your skin analysis. Would you like to see our <b>Services</b>?";
-                } else if (userText.includes('location') || userText.includes('where')) {
-                    botDiv.innerHTML = "We are located on <b>Rangeli Road, Biratnagar</b>. You can find the map at the bottom of this page!";
+                    botDiv.innerHTML = "Use the form below or <a href='https://wa.me/9779767797950'>WhatsApp Us</a>.";
                 } else {
-                    botDiv.innerHTML = "I'm still learning! For medical advice, it's best to speak with Dr. Baaniya. <a href='https://wa.me/9779767797950'>Message us on WhatsApp</a> for a quick reply.";
+                    botDiv.innerHTML = "For medical advice, message us on <a href='https://wa.me/9779767797950'>WhatsApp</a>.";
                 }
-
                 chatBox.appendChild(botDiv);
                 chatBox.scrollTop = chatBox.scrollHeight;
             }, 600);
@@ -684,21 +670,21 @@
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
                 service: document.getElementById('service').value,
-                message: `Type: ${document.getElementById('consultationType').value} | Date: ${document.getElementById('date').value} | Note: ${document.getElementById('message').value}`
+                message: `Date: ${document.getElementById('date').value}`
             };
             try {
                 const response = await fetch(API_URL, {
-                    method: 'POST', mode: 'cors', credentials: 'omit',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 });
                 if (response.ok) { 
                     document.getElementById('successMsg').style.display = "block"; 
                     document.getElementById('bookingForm').reset();
                 }
-            } catch (err) { alert("Error connecting to server."); }
+            } catch (err) { alert("Error."); }
             finally { btn.innerText = "Confirm Booking"; }
         });
     </script>
+
 </body>
 </html>
