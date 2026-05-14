@@ -87,7 +87,7 @@
         .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.95; transition: 0.3s; }
         .video-wrapper:hover video { opacity: 1; transform: scale(1.02); }
 
-        /* Informational Slider Styles */
+        /* Slider Wrapper */
         .slider-wrapper { position: relative; display: flex; align-items: center; }
         .slider-container { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding-bottom: 20px; width: 100%; scrollbar-width: none; }
         .slider-container::-webkit-scrollbar { display: none; }
@@ -97,14 +97,17 @@
         .slider-btn.prev { left: -20px; }
         .slider-btn.next { right: -20px; }
 
-        /* Testimonials Restored Section */
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 60px; }
-        .testimonial-card { background: var(--bg-alt); padding: 40px; border-radius: 20px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e1eed2; }
-        .t-quote { font-size: 1.1rem; color: var(--text-dark); line-height: 1.6; margin-bottom: 28px; font-style: italic; }
-        .t-author { display: flex; align-items: center; gap: 14px; }
-        .t-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--primary-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; }
-        .t-author-info strong { display: block; color: var(--text-dark); font-size: 1rem; font-weight: 600; }
-        .t-author-info span { color: var(--gold-accent); font-size: 0.85rem; font-weight: 600; }
+        /* Sliding Testimonial Styles */
+        .testimonial-slider-wrapper { position: relative; max-width: 1000px; margin: 0 auto; overflow: hidden; }
+        .testimonial-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .testimonial-card { flex: 0 0 100%; background: var(--bg-alt); padding: 40px; border-radius: 20px; text-align: center; border: 1px solid #e1eed2; }
+        .stars { color: #FFD700; margin-bottom: 15px; font-size: 1.2rem; }
+        .t-quote { font-size: 1.2rem; color: var(--text-dark); line-height: 1.8; margin-bottom: 25px; font-style: italic; }
+        .t-author { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .t-avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--primary-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.3rem; }
+        .t-author-info strong { display: block; color: var(--text-dark); font-size: 1.1rem; }
+        .t-author-info span { color: var(--gold-accent); font-size: 0.9rem; font-weight: 600; }
+        .slider-nav { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
 
         /* Integrated Contact Section */
         .contact-section { background: var(--bg-premium); }
@@ -122,6 +125,7 @@
         /* Dual Sticky CTAs */
         .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
         .sticky-cta a { padding: 15px 25px; border-radius: 50px; color: white; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s; }
+        .sticky-cta a:hover { transform: translateY(-5px); }
         .cta-call { background: var(--dark-green); }
         .cta-wa { background: #25d366; }
 
@@ -132,6 +136,7 @@
 
         /* CHATBOT STYLES */
         #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
+        #chatbot-launcher:hover { transform: scale(1.1); }
         #chatbot-window { position: fixed; bottom: 170px; right: 25px; width: 320px; height: 450px; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 2001; border: 1px solid #eee; }
         #chatbot-header { background: var(--dark-green); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
         #chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; background: #fdfdfd; }
@@ -147,6 +152,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
             .sticky-cta { bottom: 15px; right: 15px; flex-direction: column; gap: 10px; }
+            .sticky-cta a { padding: 12px 20px; font-size: 0.9rem; }
             #chatbot-launcher { bottom: 120px; right: 15px; }
             #chatbot-window { bottom: 190px; right: 15px; width: 290px; }
             .slider-container .service-card { flex: 0 0 100%; }
@@ -408,27 +414,46 @@
         <div class="container">
             <h2 class="section-title">Real Patient Stories</h2>
             <p class="section-subtitle">Verified Reviews from Google Maps</p>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="t-quote">"Definitely the best clinic for derma related problems. Dr. Bibisha was clear with her procedures and her treatment plan and I got the best results. Kudos to her and her staff."</p>
-                    <div class="t-author">
-                        <div class="t-avatar">RB</div>
-                        <div class="t-author-info"><strong>Abisha Dhungel</strong><span>Biratnagar</span></div>
+            
+            <div class="testimonial-slider-wrapper">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="t-quote">"Best place for all skin and hair related issues in Biratnagar. Dr. Bibisha is very professional and empathetic. Highly recommended!"</p>
+                        <div class="t-author">
+                            <div class="t-avatar">RB</div>
+                            <div class="t-author-info"><strong>Rojan Bhattarai</strong><span>Biratnagar</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="t-quote">"I am extremely happy with the hair regrowth treatment I received at Ayna. The results are visible within 3 sessions. Thank you team!"</p>
+                        <div class="t-author">
+                            <div class="t-avatar">AD</div>
+                            <div class="t-author-info"><strong>Abisha Dhungel</strong><span>Verified Patient</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="t-quote">"Amazing experience! The staff is very friendly and the clinic environment is very clean and hygienic. Results were visible from the first session."</p>
+                        <div class="t-author">
+                            <div class="t-avatar">PS</div>
+                            <div class="t-author-info"><strong>Pratima Shah</strong><span>Morang</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="t-quote">"Dr. Bibisha explains the procedure very clearly. I did a carbon laser peel here and the results are mind-blowing. Authentic products only!"</p>
+                        <div class="t-author">
+                            <div class="t-avatar">AK</div>
+                            <div class="t-author-info"><strong>Abhishek Karna</strong><span>Biratnagar</span></div>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="t-quote">"Amazing experience! The staff is very friendly and the clinic environment is very clean and hygienic. Results were visible from the first session."</p>
-                    <div class="t-author">
-                        <div class="t-avatar">PS</div>
-                        <div class="t-author-info"><strong>Pratima Shah</strong><span>Morang</span></div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="t-quote">"Dr. Bibisha explains the procedure very clearly. I did a carbon laser peel here and the results are mind-blowing. Authentic products only!"</p>
-                    <div class="t-author">
-                        <div class="t-avatar">AK</div>
-                        <div class="t-author-info"><strong>Abhishek Karna</strong><span>Biratnagar</span></div>
-                    </div>
+
+                <div class="slider-nav">
+                    <button class="slider-btn prev" onclick="moveTestimonial(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next" onclick="moveTestimonial(1)"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
@@ -567,6 +592,18 @@
     </footer>
 
     <script>
+        // Testimonial Slider Logic
+        let currentTestimonial = 0;
+        const track = document.getElementById('testimonialTrack');
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        
+        function moveTestimonial(direction) {
+            currentTestimonial += direction;
+            if (currentTestimonial < 0) currentTestimonial = testimonials.length - 1;
+            if (currentTestimonial >= testimonials.length) currentTestimonial = 0;
+            track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+        }
+
         // Counter Animation Logic
         const counters = document.querySelectorAll('.counter');
         const observerOptions = { threshold: 1, rootMargin: "0px 0px -50px 0px" };
