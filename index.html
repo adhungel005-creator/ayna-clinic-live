@@ -97,6 +97,14 @@
         .slider-btn.prev { left: -20px; }
         .slider-btn.next { right: -20px; }
 
+        /* Sliding Testimonials Styles */
+        .testimonial-slider { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; padding: 20px; }
+        .testimonial-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .testimonial-slide { min-width: 100%; box-sizing: border-box; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
+        .testimonial-slide i.fa-star { color: #FFD700; margin-bottom: 10px; }
+        .testimonial-slide p { font-style: italic; font-size: 1.1rem; margin-bottom: 20px; }
+        .testimonial-slide h4 { color: var(--dark-green); font-weight: 700; }
+
         /* Integrated Contact Section */
         .contact-section { background: var(--bg-premium); }
         .contact-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1100px; margin: 0 auto; }
@@ -399,6 +407,41 @@
         </div>
     </section>
 
+    <section id="testimonials" style="background: #fff;">
+        <div class="container">
+            <h2 class="section-title">Patient Testimonials</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-slide">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"I had an amazing experience at Ayna Clinic. Dr. Bibisha is very professional and the treatments really show results. Best skin clinic in Biratnagar!"</p>
+                        <h4>Abisha Dhungel</h4>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"The Hydrafacial here is next level. My skin has never felt cleaner or more radiant. Highly recommend the medical-grade skincare too."</p>
+                        <h4>Priya Sharma</h4>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"Expert dermatology care! I was struggling with acne for years, and Dr. Bibisha's customized plan cleared it up in just months."</p>
+                        <h4>Rohan Karki</h4>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"Safe and hygienic clinical environment. The laser hair removal is virtually painless compared to other places. 5 stars!"</p>
+                        <h4>Sita Thapa</h4>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"Complete care for hair thinning. The GFC therapy worked wonders for me. Authentic medicines available right at the clinic."</p>
+                        <h4>Bibek Shrestha</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="informational" style="background: var(--bg-alt);">
         <div class="container">
             <h2 class="section-title">Informational Section</h2>
@@ -589,6 +632,14 @@
                 chatBox.scrollTop = chatBox.scrollHeight;
             }, 600);
         }
+
+        // Testimonial Auto-Slider Logic
+        let currentSlide = 0;
+        const track = document.getElementById('testimonialTrack');
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 5;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }, 4000);
 
         const API_URL = "https://ayna-backend-1-kjy2.onrender.com/api/appointments/";
         document.getElementById('bookingForm').addEventListener('submit', async (e) => {
