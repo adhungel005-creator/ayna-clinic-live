@@ -27,12 +27,11 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        
-        body { color: #444; line-height: 1.7; background-color: #eef0f3; }
+        body { color: #444; line-height: 1.7; background-color: white; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
         /* Header */
-        header { position: fixed; top: 0; width: 100%; background: #eef0f3; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
         .logo img { height: 60px; }
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
@@ -45,14 +44,12 @@
         .section-subtitle { text-align: center; color: var(--gold-accent); font-weight: 600; letter-spacing: 1px; margin-bottom: 50px; text-transform: uppercase; }
 
         /* Hero */
-        .hero { height: 80vh; display: flex; align-items: center; background: linear-gradient(rgba(238,240,243,0.75), rgba(238,240,243,0.65)), url('viber_image_2025-01-04_11-43-17-438.jpg') center/cover; margin-top: 60px; }
+        .hero { height: 80vh; display: flex; align-items: center; background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.65)), url('viber_image_2025-01-04_11-43-17-438.jpg') center/cover; margin-top: 60px; }
         .hero h1 { font-size: 3.8rem; color: var(--dark-green); font-weight: 700; line-height: 1.2; }
 
         /* Buttons */
         .btn-premium { background: var(--primary-green); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; display: inline-block; transition: 0.4s; text-transform: uppercase; width: 100%; text-align: center; }
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .btn-nav-play { background: rgba(74, 154, 42, 0.9); color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.78rem; border: none; display: inline-flex; align-items: center; gap: 6px; transition: 0.3s; cursor: pointer; position: absolute; z-index: 5; box-shadow: 0 4px 12px rgba(0,0,0,0.2); text-transform: uppercase; letter-spacing: 0.5px; }
-        .btn-nav-play:hover { background: var(--primary-green); transform: scale(1.05); }
         .btn-inline { width: auto; }
 
         /* Updated Stats Section Styles */
@@ -71,7 +68,7 @@
 
         /* Services Grid */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .service-card { background: #eef0f3; padding: 30px 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-green); transition: 0.3s; }
+        .service-card { background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-green); transition: 0.3s; }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(109, 190, 69, 0.15); }
         .service-card h4 { color: var(--dark-green); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;}
         .service-card ul { list-style: none; font-size: 0.9rem; margin-top: 10px; }
@@ -80,36 +77,33 @@
 
         /* Gallery Grid */
         .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .result-card { background: #eef0f3; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .result-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .result-card img { width: 100%; height: auto; display: block; transition: 0.3s; }
         .result-card:hover img { transform: scale(1.05); }
 
         /* Video Showcase Area */
         .video-showcase { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
-        .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid white; position: relative; background: #000; display: flex; align-items: center; justify-content: center; }
-        .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.85; transition: 0.3s; }
-        .video-wrapper:hover video { opacity: 1; }
+        .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid white; position: relative; background: #000; }
+        .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.95; transition: 0.3s; }
+        .video-wrapper:hover video { opacity: 1; transform: scale(1.02); }
 
         /* Informational Slider Styles */
         .slider-wrapper { position: relative; display: flex; align-items: center; }
         .slider-container { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding-bottom: 20px; width: 100%; scrollbar-width: none; }
         .slider-container::-webkit-scrollbar { display: none; }
-        .slider-container .service-card { flex: 0 0 calc(33.333% - 17px); scroll-snap-align: start; min-width: 300px; background: #eef0f3; }
+        .slider-container .service-card { flex: 0 0 calc(33.333% - 17px); scroll-snap-align: start; min-width: 300px; }
         .slider-btn { background: var(--primary-green); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; position: absolute; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .slider-btn:hover { background: var(--dark-green); transform: scale(1.1); }
         .slider-btn.prev { left: -20px; }
         .slider-btn.next { right: -20px; }
 
-        /* Testimonial Alignment Structures */
-        .testimonial-slider { display: block; width: 100%; max-width: 850px; margin: 0 auto; overflow: hidden; }
-        .testimonial-track { display: flex; width: 100%; transition: transform 0.5s ease-in-out; }
-        .testimonial-slide { min-width: 100%; max-width: 100%; box-sizing: border-box; padding: 45px 35px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); text-align: center; border: 1px solid #e2ebd5; margin: 0; }
-        .testimonial-slide i.fa-star { color: #FFD700; margin-bottom: 12px; }
-        .testimonial-slide p { font-style: italic; font-size: 1.15rem; color: #333; margin-bottom: 20px; padding: 0 10px; }
-        .testimonial-slide h4 { color: var(--dark-green); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; }
-        .slider-nav-dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
-        .dot { width: 10px; height: 10px; background: #bbb; border-radius: 50%; cursor: pointer; transition: 0.3s; }
-        .dot.active { background: var(--primary-green); transform: scale(1.2); }
+        /* Sliding Testimonials Styles */
+        .testimonial-slider { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; padding: 20px; }
+        .testimonial-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .testimonial-slide { min-width: 100%; box-sizing: border-box; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
+        .testimonial-slide i.fa-star { color: #FFD700; margin-bottom: 10px; }
+        .testimonial-slide p { font-style: italic; font-size: 1.1rem; margin-bottom: 20px; }
+        .testimonial-slide h4 { color: var(--dark-green); font-weight: 700; }
 
         /* Integrated Contact Section */
         .contact-section { background: var(--bg-premium); }
@@ -123,7 +117,7 @@
         .contact-info a:hover { color: var(--primary-green); }
         .contact-info iframe { width: 100%; height: 250px; border: none; margin-top: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
-        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; background: white; }
+        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
 
         /* Dual Sticky CTAs */
         .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
@@ -144,10 +138,10 @@
         #chatbot-header { background: var(--dark-green); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
         #chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; background: #fdfdfd; }
         .msg { padding: 10px 15px; border-radius: 15px; max-width: 80%; }
-        .bot-msg { background: #e0e0e0; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .bot-msg { background: #f0f0f0; align-self: flex-start; border-bottom-left-radius: 2px; }
         .user-msg { background: var(--primary-green); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
         #chatbot-input-area { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
-        #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; background: white; }
+        #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; }
         #chatbot-input-area button { background: none; border: none; color: var(--primary-green); cursor: pointer; font-size: 1.2rem; }
 
         #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
@@ -226,7 +220,7 @@
         </div>
     </div>
 
-    <section id="trust" style="background: #eef0f3; padding: 30px 0; border-bottom: 1px solid #eee;">
+    <section id="trust" style="background: white; padding: 30px 0; border-bottom: 1px solid #eee;">
         <div class="container" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.8;">
             <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-certificate fa-2x"></i> FDA Approved Tech</div>
             <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-user-md fa-2x"></i> NMC Certified Doctors</div>
@@ -234,7 +228,7 @@
         </div>
     </section>
 
-    <section id="about" style="background: #eef0f3;">
+    <section id="about" style="background: white;">
         <div class="container">
             <div class="flex-layout">
                 <div class="flex-image">
@@ -275,7 +269,7 @@
         </div>
     </section>
 
-    <section id="services" style="background: #eef0f3;">
+    <section id="services" style="background: white;">
         <div class="container">
             <h2 class="section-title">Our Medical & Aesthetic Services</h2>
             <p class="section-subtitle">Comprehensive solutions for your skin and hair</p>
@@ -400,35 +394,20 @@
         </div>
     </section>
 
-    <section id="showcase" style="background: #eef0f3;">
+    <section id="showcase" style="background: white;">
         <div class="container">
             <h2 class="section-title">Clinic In Action</h2>
             <div class="video-showcase">
-                <div class="video-wrapper">
-                    <button class="btn-nav-play" onclick="window.open('treatment1.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
-                    <video loop muted playsinline><source src="treatment1.mp4" type="video/mp4"></video>
-                </div>
-                <div class="video-wrapper">
-                    <button class="btn-nav-play" onclick="window.open('treatment2.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
-                    <video loop muted playsinline><source src="treatment2.mp4" type="video/mp4"></video>
-                </div>
-                <div class="video-wrapper">
-                    <button class="btn-nav-play" onclick="window.open('tr13.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
-                    <video loop muted playsinline><source src="tr13.mp4" type="video/mp4"></video>
-                </div>
-                <div class="video-wrapper">
-                    <button class="btn-nav-play" onclick="window.open('trt23.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
-                    <video loop muted playsinline><source src="trt23.mp4" type="video/mp4"></video>
-                </div>
-                <div class="video-wrapper">
-                    <button class="btn-nav-play" onclick="window.open('trt33.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
-                    <video loop muted playsinline><source src="trt33.mp4" type="video/mp4"></video>
-                </div>
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment1.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment2.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="tr13.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt23.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt33.mp4" type="video/mp4"></video></div>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" style="background: #eef0f3;">
+    <section id="testimonials" style="background: #fff;">
         <div class="container">
             <h2 class="section-title">Patient Testimonials</h2>
             <div class="testimonial-slider">
@@ -436,56 +415,30 @@
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"I had an amazing experience at Ayna Clinic. Dr. Bibisha is very professional and the treatments really show results. Best skin clinic in Biratnagar!"</p>
-                        <div class="t-author">
-                            <div class="t-avatar">AD</div>
-                            <div class="t-author-info">
-                                <strong>Abisha Dhungel</strong>
-                            </div>
-                        </div>
+                        <h4>Abisha Dhungel</h4>
                     </div>
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"The Hydrafacial here is next level. My skin has never felt cleaner or more radiant. Highly recommend the medical-grade skincare too."</p>
-                        <div class="t-author">
-                            <div class="t-avatar">PS</div>
-                            <div class="t-author-info">
-                                <strong>Priya Sharma</strong>
-                            </div>
-                        </div>
+                        <h4>Priya Sharma</h4>
                     </div>
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"Expert dermatology care! I was struggling with acne for years, and Dr. Bibisha's customized plan cleared it up in just months."</p>
-                        <div class="t-author">
-                            <div class="t-avatar">RK</div>
-                            <div class="t-author-info">
-                                <strong>Rohan Karki</strong>
-                            </div>
-                        </div>
+                        <h4>Rohan Karki</h4>
                     </div>
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"Safe and hygienic clinical environment. The laser hair removal is virtually painless compared to other places. 5 stars!"</p>
-                        <div class="t-author">
-                            <div class="t-avatar">ST</div>
-                            <div class="t-author-info">
-                                <strong>Sita Thapa</strong>
-                            </div>
-                        </div>
+                        <h4>Sita Thapa</h4>
                     </div>
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"Complete care for hair thinning. The GFC therapy worked wonders for me. Authentic medicines available right at the clinic."</p>
-                        <div class="t-author">
-                            <div class="t-avatar">BS</div>
-                            <div class="t-author-info">
-                                <strong>Bibek Shrestha</strong>
-                            </div>
-                        </div>
+                        <h4>Bibek Shrestha</h4>
                     </div>
                 </div>
             </div>
-            <div class="slider-nav-dots" id="sliderDots"></div>
         </div>
     </section>
 
@@ -529,7 +482,7 @@
         </div>
     </section>
 
-    <section id="faq" style="background: #eef0f3;">
+    <section id="faq" style="background: white;">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
             <div style="max-width: 800px; margin: 0 auto;">
@@ -574,7 +527,7 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section" style="background: #eef0f3;">
+    <section id="contact" class="contact-section" style="background: white;">
         <div class="container">
             <div class="contact-container">
                 <div class="contact-info">
@@ -684,6 +637,7 @@
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Get form values
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const service = document.getElementById('service').value;
@@ -691,6 +645,7 @@
             const date = document.getElementById('date').value;
             const message = document.getElementById('message').value || "None";
 
+            // Format the WhatsApp message
             const whatsappMessage = `*New Appointment Request* %0A%0A` +
                 `*Name:* ${name}%0A` +
                 `*Phone:* ${phone}%0A` +
@@ -699,9 +654,11 @@
                 `*Date:* ${date}%0A` +
                 `*Message:* ${message}`;
 
+            // Open WhatsApp link
             const waLink = `https://wa.me/9779767797950?text=${whatsappMessage}`;
             window.open(waLink, '_blank');
 
+            // Success feedback
             document.getElementById('successMsg').style.display = "block";
             document.getElementById('bookingForm').reset();
         });
@@ -709,31 +666,9 @@
         // Testimonial Auto-Slider Logic
         let currentSlide = 0;
         const track = document.getElementById('testimonialTrack');
-        const dotsContainer = document.getElementById('sliderDots');
-        const slides = document.querySelectorAll('.testimonial-slide');
-
-        // Dynamically initialize navigational dots layout map
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = `dot ${index === 0 ? 'active' : ''}`;
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                updateSliderPosition();
-            });
-            dotsContainer.appendChild(dot);
-        });
-
-        function updateSliderPosition() {
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            const dots = dotsContainer.querySelectorAll('.dot');
-            dots.forEach((dot, idx) => {
-                dot.classList.toggle('active', idx === currentSlide);
-            });
-        }
-
         setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSliderPosition();
+            currentSlide = (currentSlide + 1) % 5;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
         }, 4000);
     </script>
 </body>
