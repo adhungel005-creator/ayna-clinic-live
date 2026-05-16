@@ -27,11 +27,13 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { color: #444; line-height: 1.7; background-color: white; }
+        
+        /* Changed to a distinctive luxury clinical silver-grey so it is clearly visible across all devices */
+        body { color: #444; line-height: 1.7; background-color: #eef0f3; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
         /* Header */
-        header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        header { position: fixed; top: 0; width: 100%; background: #eef0f3; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
         .logo img { height: 60px; }
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
@@ -44,7 +46,7 @@
         .section-subtitle { text-align: center; color: var(--gold-accent); font-weight: 600; letter-spacing: 1px; margin-bottom: 50px; text-transform: uppercase; }
 
         /* Hero */
-        .hero { height: 80vh; display: flex; align-items: center; background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.65)), url('viber_image_2025-01-04_11-43-17-438.jpg') center/cover; margin-top: 60px; }
+        .hero { height: 80vh; display: flex; align-items: center; background: linear-gradient(rgba(238,240,243,0.75), rgba(238,240,243,0.65)), url('viber_image_2025-01-04_11-43-17-438.jpg') center/cover; margin-top: 60px; }
         .hero h1 { font-size: 3.8rem; color: var(--dark-green); font-weight: 700; line-height: 1.2; }
 
         /* Buttons */
@@ -68,7 +70,7 @@
 
         /* Services Grid */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .service-card { background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-green); transition: 0.3s; }
+        .service-card { background: #eef0f3; padding: 30px 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-green); transition: 0.3s; }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(109, 190, 69, 0.15); }
         .service-card h4 { color: var(--dark-green); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;}
         .service-card ul { list-style: none; font-size: 0.9rem; margin-top: 10px; }
@@ -77,21 +79,21 @@
 
         /* Gallery Grid */
         .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .result-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .result-card { background: #eef0f3; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .result-card img { width: 100%; height: auto; display: block; transition: 0.3s; }
         .result-card:hover img { transform: scale(1.05); }
 
-        /* Video Showcase Area */
+        /* Video Showcase Area - Smooth backdrop filter blur with visible vignette contrast */
         .video-showcase { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
-        .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid white; position: relative; background: #000; }
-        .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.95; transition: 0.3s; }
-        .video-wrapper:hover video { opacity: 1; transform: scale(1.02); }
+        .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid rgba(255, 255, 255, 0.7); position: relative; background: #000; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
+        .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.5; filter: blur(4px); -webkit-filter: blur(4px); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .video-wrapper:hover video { opacity: 0.98; filter: blur(0px); -webkit-filter: blur(0px); transform: scale(1.03); }
 
         /* Informational Slider Styles */
         .slider-wrapper { position: relative; display: flex; align-items: center; }
         .slider-container { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding-bottom: 20px; width: 100%; scrollbar-width: none; }
         .slider-container::-webkit-scrollbar { display: none; }
-        .slider-container .service-card { flex: 0 0 calc(33.333% - 17px); scroll-snap-align: start; min-width: 300px; }
+        .slider-container .service-card { flex: 0 0 calc(33.333% - 17px); scroll-snap-align: start; min-width: 300px; background: #eef0f3; }
         .slider-btn { background: var(--primary-green); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; position: absolute; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .slider-btn:hover { background: var(--dark-green); transform: scale(1.1); }
         .slider-btn.prev { left: -20px; }
@@ -100,7 +102,7 @@
         /* Sliding Testimonials Styles */
         .testimonial-slider { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; padding: 20px; }
         .testimonial-track { display: flex; transition: transform 0.5s ease-in-out; }
-        .testimonial-slide { min-width: 100%; box-sizing: border-box; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
+        .testimonial-slide { min-width: 100%; box-sizing: border-box; padding: 40px; background: #eef0f3; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
         .testimonial-slide i.fa-star { color: #FFD700; margin-bottom: 10px; }
         .testimonial-slide p { font-style: italic; font-size: 1.1rem; margin-bottom: 20px; }
         .testimonial-slide h4 { color: var(--dark-green); font-weight: 700; }
@@ -108,7 +110,7 @@
         /* Integrated Contact Section */
         .contact-section { background: var(--bg-premium); }
         .contact-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1100px; margin: 0 auto; }
-        .contact-info, .contact-form { background: white; padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        .contact-info, .contact-form { background: #eef0f3; padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
         .contact-info { border-top: 5px solid var(--gold-accent); }
         .contact-form { border-top: 5px solid var(--primary-green); }
         .contact-info h3, .contact-form h3 { color: var(--dark-green); margin-bottom: 25px; font-size: 1.5rem; }
@@ -117,7 +119,7 @@
         .contact-info a:hover { color: var(--primary-green); }
         .contact-info iframe { width: 100%; height: 250px; border: none; margin-top: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
-        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
+        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; background: #eef0f3; }
 
         /* Dual Sticky CTAs */
         .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
@@ -134,14 +136,14 @@
         /* CHATBOT STYLES */
         #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
         #chatbot-launcher:hover { transform: scale(1.1); }
-        #chatbot-window { position: fixed; bottom: 170px; right: 25px; width: 320px; height: 450px; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 2001; border: 1px solid #eee; }
+        #chatbot-window { position: fixed; bottom: 170px; right: 25px; width: 320px; height: 450px; background: #eef0f3; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 2001; border: 1px solid #eee; }
         #chatbot-header { background: var(--dark-green); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
         #chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; background: #fdfdfd; }
         .msg { padding: 10px 15px; border-radius: 15px; max-width: 80%; }
-        .bot-msg { background: #f0f0f0; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .bot-msg { background: #e0e0e0; align-self: flex-start; border-bottom-left-radius: 2px; }
         .user-msg { background: var(--primary-green); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
         #chatbot-input-area { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
-        #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; }
+        #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; background: #eef0f3; }
         #chatbot-input-area button { background: none; border: none; color: var(--primary-green); cursor: pointer; font-size: 1.2rem; }
 
         #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
@@ -220,7 +222,7 @@
         </div>
     </div>
 
-    <section id="trust" style="background: white; padding: 30px 0; border-bottom: 1px solid #eee;">
+    <section id="trust" style="background: #eef0f3; padding: 30px 0; border-bottom: 1px solid #eee;">
         <div class="container" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.8;">
             <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-certificate fa-2x"></i> FDA Approved Tech</div>
             <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem;"><i class="fas fa-user-md fa-2x"></i> NMC Certified Doctors</div>
@@ -228,7 +230,7 @@
         </div>
     </section>
 
-    <section id="about" style="background: white;">
+    <section id="about" style="background: #eef0f3;">
         <div class="container">
             <div class="flex-layout">
                 <div class="flex-image">
@@ -269,7 +271,7 @@
         </div>
     </section>
 
-    <section id="services" style="background: white;">
+    <section id="services" style="background: #eef0f3;">
         <div class="container">
             <h2 class="section-title">Our Medical & Aesthetic Services</h2>
             <p class="section-subtitle">Comprehensive solutions for your skin and hair</p>
@@ -365,7 +367,7 @@
         <div class="container">
             <h2 class="section-title">In-House Pharmacy</h2>
             <p class="section-subtitle">Authentic Medicines & Skincare</p>
-            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--primary-green);">
+            <div style="max-width: 800px; margin: 0 auto; background: #eef0f3; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--primary-green);">
                 <i class="fas fa-prescription-bottle-alt fa-3x" style="color: var(--primary-green); margin-bottom: 20px;"></i>
                 <h3 style="color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem;">Complete Care Under One Roof</h3>
                 <p style="font-size: 1.1rem; color: #555;">For your convenience, Ayna Clinic features a fully stocked in-house pharmacy. Get all prescribed clinical medicines, dermatological creams, and authentic skincare products immediately after your consultation.</p>
@@ -394,7 +396,7 @@
         </div>
     </section>
 
-    <section id="showcase" style="background: white;">
+    <section id="showcase" style="background: #eef0f3;">
         <div class="container">
             <h2 class="section-title">Clinic In Action</h2>
             <div class="video-showcase">
@@ -407,7 +409,7 @@
         </div>
     </section>
 
-    <section id="testimonials" style="background: #fff;">
+    <section id="testimonials" style="background: #eef0f3;">
         <div class="container">
             <h2 class="section-title">Patient Testimonials</h2>
             <div class="testimonial-slider">
@@ -482,7 +484,13 @@
         </div>
     </section>
 
-    <section id="faq" style="background: white;">
+    <style>
+        /* Small diagnostic fix to make sure the tracking container layout behaves perfectly */
+        .testimonial-slider { display: block; width: 100%; max-width: 800px; margin: 0 auto; overflow: hidden; }
+        .testimonial-track { display: flex; width: 500%; transition: transform 0.5s ease-in-out; }
+    </style>
+
+    <section id="faq" style="background: #eef0f3;">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
             <div style="max-width: 800px; margin: 0 auto;">
@@ -527,7 +535,7 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section" style="background: white;">
+    <section id="contact" class="contact-section" style="background: #eef0f3;">
         <div class="container">
             <div class="contact-container">
                 <div class="contact-info">
@@ -637,7 +645,6 @@
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form values
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const service = document.getElementById('service').value;
@@ -645,7 +652,6 @@
             const date = document.getElementById('date').value;
             const message = document.getElementById('message').value || "None";
 
-            // Format the WhatsApp message
             const whatsappMessage = `*New Appointment Request* %0A%0A` +
                 `*Name:* ${name}%0A` +
                 `*Phone:* ${phone}%0A` +
@@ -654,11 +660,9 @@
                 `*Date:* ${date}%0A` +
                 `*Message:* ${message}`;
 
-            // Open WhatsApp link
             const waLink = `https://wa.me/9779767797950?text=${whatsappMessage}`;
             window.open(waLink, '_blank');
 
-            // Success feedback
             document.getElementById('successMsg').style.display = "block";
             document.getElementById('bookingForm').reset();
         });
@@ -668,7 +672,7 @@
         const track = document.getElementById('testimonialTrack');
         setInterval(() => {
             currentSlide = (currentSlide + 1) % 5;
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            track.style.transform = `translateX(-${currentSlide * 20}%)`; // Adjusted to match the 5 slide track container architecture
         }, 4000);
     </script>
 </body>
