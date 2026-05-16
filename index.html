@@ -28,7 +28,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         
-        /* Changed to a distinctive luxury clinical silver-grey so it is clearly visible across all devices */
         body { color: #444; line-height: 1.7; background-color: #eef0f3; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
@@ -52,6 +51,8 @@
         /* Buttons */
         .btn-premium { background: var(--primary-green); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; display: inline-block; transition: 0.4s; text-transform: uppercase; width: 100%; text-align: center; }
         .btn-premium:hover { background: var(--dark-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-nav-play { background: rgba(74, 154, 42, 0.9); color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.78rem; border: none; display: inline-flex; align-items: center; gap: 6px; transition: 0.3s; cursor: pointer; position: absolute; z-index: 5; box-shadow: 0 4px 12px rgba(0,0,0,0.2); text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-nav-play:hover { background: var(--primary-green); transform: scale(1.05); }
         .btn-inline { width: auto; }
 
         /* Updated Stats Section Styles */
@@ -83,11 +84,11 @@
         .result-card img { width: 100%; height: auto; display: block; transition: 0.3s; }
         .result-card:hover img { transform: scale(1.05); }
 
-        /* Video Showcase Area - Smooth backdrop filter blur with visible vignette contrast */
+        /* Video Showcase Area - Interactive User Interface Interface instead of static styling blur filters */
         .video-showcase { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
-        .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid rgba(255, 255, 255, 0.7); position: relative; background: #000; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
-        .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.5; filter: blur(4px); -webkit-filter: blur(4px); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        .video-wrapper:hover video { opacity: 0.98; filter: blur(0px); -webkit-filter: blur(0px); transform: scale(1.03); }
+        .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid white; position: relative; background: #000; display: flex; align-items: center; justify-content: center; }
+        .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.85; transition: 0.3s; }
+        .video-wrapper:hover video { opacity: 1; }
 
         /* Informational Slider Styles */
         .slider-wrapper { position: relative; display: flex; align-items: center; }
@@ -99,18 +100,18 @@
         .slider-btn.prev { left: -20px; }
         .slider-btn.next { right: -20px; }
 
-        /* Sliding Testimonials Styles */
-        .testimonial-slider { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; padding: 20px; }
-        .testimonial-track { display: flex; transition: transform 0.5s ease-in-out; }
-        .testimonial-slide { min-width: 100%; box-sizing: border-box; padding: 40px; background: #eef0f3; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
-        .testimonial-slide i.fa-star { color: #FFD700; margin-bottom: 10px; }
-        .testimonial-slide p { font-style: italic; font-size: 1.1rem; margin-bottom: 20px; }
-        .testimonial-slide h4 { color: var(--dark-green); font-weight: 700; }
+        /* Testimonial Alignment Structural Realignment Box Model Definition Rules */
+        .testimonial-slider { display: block; width: 100%; max-width: 850px; margin: 0 auto; overflow: hidden; }
+        .testimonial-track { display: flex; width: 100%; transition: transform 0.5s ease-in-out; }
+        .testimonial-slide { min-width: 100%; max-width: 100%; box-sizing: border-box; padding: 45px 35px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); text-align: center; border: 1px solid #e2ebd5; margin: 0; }
+        .testimonial-slide i.fa-star { color: #FFD700; margin-bottom: 12px; }
+        .testimonial-slide p { font-style: italic; font-size: 1.15rem; color: #333; margin-bottom: 20px; padding: 0 10px; }
+        .testimonial-slide h4 { color: var(--dark-green); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; }
 
         /* Integrated Contact Section */
         .contact-section { background: var(--bg-premium); }
         .contact-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1100px; margin: 0 auto; }
-        .contact-info, .contact-form { background: #eef0f3; padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        .contact-info, .contact-form { background: white; padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
         .contact-info { border-top: 5px solid var(--gold-accent); }
         .contact-form { border-top: 5px solid var(--primary-green); }
         .contact-info h3, .contact-form h3 { color: var(--dark-green); margin-bottom: 25px; font-size: 1.5rem; }
@@ -119,7 +120,7 @@
         .contact-info a:hover { color: var(--primary-green); }
         .contact-info iframe { width: 100%; height: 250px; border: none; margin-top: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
-        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; background: #eef0f3; }
+        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; background: white; }
 
         /* Dual Sticky CTAs */
         .sticky-cta { position: fixed; bottom: 25px; right: 25px; display: flex; gap: 15px; z-index: 2000; }
@@ -136,14 +137,14 @@
         /* CHATBOT STYLES */
         #chatbot-launcher { position: fixed; bottom: 100px; right: 25px; width: 60px; height: 60px; background: var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; cursor: pointer; z-index: 2001; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
         #chatbot-launcher:hover { transform: scale(1.1); }
-        #chatbot-window { position: fixed; bottom: 170px; right: 25px; width: 320px; height: 450px; background: #eef0f3; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 2001; border: 1px solid #eee; }
+        #chatbot-window { position: fixed; bottom: 170px; right: 25px; width: 320px; height: 450px; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 2001; border: 1px solid #eee; }
         #chatbot-header { background: var(--dark-green); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
         #chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; background: #fdfdfd; }
         .msg { padding: 10px 15px; border-radius: 15px; max-width: 80%; }
         .bot-msg { background: #e0e0e0; align-self: flex-start; border-bottom-left-radius: 2px; }
         .user-msg { background: var(--primary-green); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
         #chatbot-input-area { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
-        #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; background: #eef0f3; }
+        #chatbot-input-area input { flex: 1; border: none; padding: 8px; outline: none; background: white; }
         #chatbot-input-area button { background: none; border: none; color: var(--primary-green); cursor: pointer; font-size: 1.2rem; }
 
         #successMsg { display: none; background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 10px; text-align: center; margin-top: 15px; font-weight: 600; border: 1px solid #c8e6c9; }
@@ -367,7 +368,7 @@
         <div class="container">
             <h2 class="section-title">In-House Pharmacy</h2>
             <p class="section-subtitle">Authentic Medicines & Skincare</p>
-            <div style="max-width: 800px; margin: 0 auto; background: #eef0f3; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--primary-green);">
+            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--primary-green);">
                 <i class="fas fa-prescription-bottle-alt fa-3x" style="color: var(--primary-green); margin-bottom: 20px;"></i>
                 <h3 style="color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem;">Complete Care Under One Roof</h3>
                 <p style="font-size: 1.1rem; color: #555;">For your convenience, Ayna Clinic features a fully stocked in-house pharmacy. Get all prescribed clinical medicines, dermatological creams, and authentic skincare products immediately after your consultation.</p>
@@ -400,11 +401,26 @@
         <div class="container">
             <h2 class="section-title">Clinic In Action</h2>
             <div class="video-showcase">
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment1.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="treatment2.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="tr13.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt23.mp4" type="video/mp4"></video></div>
-                <div class="video-wrapper"><video autoplay loop muted playsinline><source src="trt33.mp4" type="video/mp4"></video></div>
+                <div class="video-wrapper">
+                    <button class="btn-nav-play" onclick="window.open('treatment1.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
+                    <video loop muted playsinline><source src="treatment1.mp4" type="video/mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <button class="btn-nav-play" onclick="window.open('treatment2.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
+                    <video loop muted playsinline><source src="treatment2.mp4" type="video/mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <button class="btn-nav-play" onclick="window.open('tr13.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
+                    <video loop muted playsinline><source src="tr13.mp4" type="video/mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <button class="btn-nav-play" onclick="window.open('trt23.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
+                    <video loop muted playsinline><source src="trt23.mp4" type="video/mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <button class="btn-nav-play" onclick="window.open('trt33.mp4', '_blank')"><i class="fas fa-play"></i> Watch Video</button>
+                    <video loop muted playsinline><source src="trt33.mp4" type="video/mp4"></video>
+                </div>
             </div>
         </div>
     </section>
@@ -417,30 +433,61 @@
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"I had an amazing experience at Ayna Clinic. Dr. Bibisha is very professional and the treatments really show results. Best skin clinic in Biratnagar!"</p>
-                        <h4>Abisha Dhungel</h4>
+                        <div class="t-author">
+                            <div class="t-avatar">AD</div>
+                            <div class="t-author-info">
+                                <strong>Abisha Dhungel</strong>
+                                <span>Verified Patient</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"The Hydrafacial here is next level. My skin has never felt cleaner or more radiant. Highly recommend the medical-grade skincare too."</p>
-                        <h4>Priya Sharma</h4>
+                        <div class="t-author">
+                            <div class="t-avatar">PS</div>
+                            <div class="t-author-info">
+                                <strong>Priya Sharma</strong>
+                                <span>Biratnagar</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"Expert dermatology care! I was struggling with acne for years, and Dr. Bibisha's customized plan cleared it up in just months."</p>
-                        <h4>Rohan Karki</h4>
+                        <div class="t-author">
+                            <div class="t-avatar">RK</div>
+                            <div class="t-author-info">
+                                <strong>Rohan Karki</strong>
+                                <span>Biratnagar</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"Safe and hygienic clinical environment. The laser hair removal is virtually painless compared to other places. 5 stars!"</p>
-                        <h4>Sita Thapa</h4>
+                        <div class="t-author">
+                            <div class="t-avatar">ST</div>
+                            <div class="t-author-info">
+                                <strong>Sita Thapa</strong>
+                                <span>Morang</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="testimonial-slide">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p>"Complete care for hair thinning. The GFC therapy worked wonders for me. Authentic medicines available right at the clinic."</p>
-                        <h4>Bibek Shrestha</h4>
+                        <div class="t-author">
+                            <div class="t-avatar">BS</div>
+                            <div class="t-author-info">
+                                <strong>Bibek Shrestha</strong>
+                                <span>Biratnagar</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="slider-nav-dots" id="sliderDots"></div>
         </div>
     </section>
 
@@ -459,7 +506,7 @@
                         <h4 style="margin-top: 15px;">कपाल झर्ने कारणहरु</h4>
                     </div>
                     <div class="service-card" style="padding: 15px; text-align: center;">
-                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000017916.mp4" type="video/mp4"></video>
+                        <video controls playsinline style="width: 100%; border-radius: 10px; background: #000;"><source src="1000017716.mp4" type="video/mp4"></video>
                         <h4 style="margin-top: 15px;">के Skin Analyser Scam हो?</h4>
                     </div>
                     <div class="service-card" style="padding: 15px; text-align: center;">
@@ -483,12 +530,6 @@
             </div>
         </div>
     </section>
-
-    <style>
-        /* Small diagnostic fix to make sure the tracking container layout behaves perfectly */
-        .testimonial-slider { display: block; width: 100%; max-width: 800px; margin: 0 auto; overflow: hidden; }
-        .testimonial-track { display: flex; width: 500%; transition: transform 0.5s ease-in-out; }
-    </style>
 
     <section id="faq" style="background: #eef0f3;">
         <div class="container">
@@ -667,12 +708,34 @@
             document.getElementById('bookingForm').reset();
         });
 
-        // Testimonial Auto-Slider Logic
+        // Testimonial Auto-Slider Logic - Enhanced slide configuration framework calculations
         let currentSlide = 0;
         const track = document.getElementById('testimonialTrack');
+        const dotsContainer = document.getElementById('sliderDots');
+        const slides = document.querySelectorAll('.testimonial-slide');
+
+        // Dynamically initialize navigational dots layout map array tracking properties
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `dot ${index === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSliderPosition();
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        function updateSliderPosition() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            const dots = dotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentSlide);
+            });
+        }
+
         setInterval(() => {
-            currentSlide = (currentSlide + 1) % 5;
-            track.style.transform = `translateX(-${currentSlide * 20}%)`; // Adjusted to match the 5 slide track container architecture
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSliderPosition();
         }, 4000);
     </script>
 </body>
