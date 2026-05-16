@@ -84,7 +84,7 @@
         .result-card img { width: 100%; height: auto; display: block; transition: 0.3s; }
         .result-card:hover img { transform: scale(1.05); }
 
-        /* Video Showcase Area - Interactive User Interface Interface instead of static styling blur filters */
+        /* Video Showcase Area */
         .video-showcase { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
         .video-wrapper { width: 100%; max-width: 320px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 6px solid white; position: relative; background: #000; display: flex; align-items: center; justify-content: center; }
         .video-wrapper video { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.85; transition: 0.3s; }
@@ -100,13 +100,16 @@
         .slider-btn.prev { left: -20px; }
         .slider-btn.next { right: -20px; }
 
-        /* Testimonial Alignment Structural Realignment Box Model Definition Rules */
+        /* Testimonial Alignment Structures */
         .testimonial-slider { display: block; width: 100%; max-width: 850px; margin: 0 auto; overflow: hidden; }
         .testimonial-track { display: flex; width: 100%; transition: transform 0.5s ease-in-out; }
         .testimonial-slide { min-width: 100%; max-width: 100%; box-sizing: border-box; padding: 45px 35px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); text-align: center; border: 1px solid #e2ebd5; margin: 0; }
         .testimonial-slide i.fa-star { color: #FFD700; margin-bottom: 12px; }
         .testimonial-slide p { font-style: italic; font-size: 1.15rem; color: #333; margin-bottom: 20px; padding: 0 10px; }
         .testimonial-slide h4 { color: var(--dark-green); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; }
+        .slider-nav-dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+        .dot { width: 10px; height: 10px; background: #bbb; border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: var(--primary-green); transform: scale(1.2); }
 
         /* Integrated Contact Section */
         .contact-section { background: var(--bg-premium); }
@@ -708,13 +711,13 @@
             document.getElementById('bookingForm').reset();
         });
 
-        // Testimonial Auto-Slider Logic - Enhanced slide configuration framework calculations
+        // Testimonial Auto-Slider Logic
         let currentSlide = 0;
         const track = document.getElementById('testimonialTrack');
         const dotsContainer = document.getElementById('sliderDots');
         const slides = document.querySelectorAll('.testimonial-slide');
 
-        // Dynamically initialize navigational dots layout map array tracking properties
+        // Dynamically initialize navigational dots layout map
         slides.forEach((_, index) => {
             const dot = document.createElement('div');
             dot.className = `dot ${index === 0 ? 'active' : ''}`;
