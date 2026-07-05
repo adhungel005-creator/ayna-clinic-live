@@ -60,7 +60,7 @@ export default function Header() {
               <li><a href="#about" onClick={closeMobileMenu}><i className="fas fa-info-circle"></i> About Us</a></li>
               <li><a href="#services" onClick={closeMobileMenu}><i className="fas fa-spa"></i> Services</a></li>
               <li><a href="#gallery" onClick={closeMobileMenu}><i className="fas fa-images"></i> Gallery</a></li>
-              <li><a href="#contact" onClick={closeMobileMenu} className="btn-priority" style={{color: 'white'}}><i className="fas fa-calendar-check"></i> Book Appointment</a></li>
+              <li><a href="#contact" onClick={closeMobileMenu} className="btn-priority" style={{color: 'black'}}><i className="fas fa-calendar-check"></i> Book Appointment</a></li>
             </ul>
             <div className="side-menu-footer">
               <p style={{fontSize: '0.85rem', color: '#666', margin: 0}}>Call Us: <strong>+977 9767797950</strong></p>
