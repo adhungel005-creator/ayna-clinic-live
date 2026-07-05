@@ -11,7 +11,7 @@ export default function About() {
           <div className="flex-text">
             <h3>Welcome to Ayna Clinic</h3>
             <h2 style={{ fontSize: '2.2rem', marginBottom: '20px', lineHeight: 1.25 }}>
-              Biratnagar's Premier Dermatology Center
+              Biratnagar's Premium Dermatology Center
             </h2>
             <p>
               Founded on the principles of medical excellence and aesthetic precision, Ayna Clinic provides comprehensive diagnostic and therapeutic solutions for all skin and hair concerns. We blend state-of-the-art technology with personalized treatment plans.
