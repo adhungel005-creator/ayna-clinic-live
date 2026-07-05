@@ -6,8 +6,8 @@ export default function Hero() {
       <div className="container">
         <div className="hero-grid">
           <div className="hero-text reveal-on-scroll">
-            <h1>Biratnagar's Premier <br /><span>Dermatology Center.</span></h1>
-            <p>Experience premium skin, hair, and laser care. Trusted by 5000+ patients. Book your professional consultation with <strong>Dr. Bibisha Baaniya</strong> today.</p>
+            <h1>Flawless Skin & Hair Starts At <br />Biratnagar's <span>Premium Dermatology Center.</span></h1>
+            <p>Experience world-class skin, hair, and laser care. Trusted by 5000+ patients. Book your professional consultation with <strong>Dr. Bibisha Baaniya</strong> today.</p>
             <a href="#contact" className="btn-premium btn-inline">Book Priority Consultation</a>
           </div>
           <div className="hero-image-wrapper reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>
