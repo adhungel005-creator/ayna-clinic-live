@@ -88,6 +88,9 @@ PHARMACY:
 • We have a fully-stocked in-house pharmacy.
 • We offer online home delivery for medicines via WhatsApp.
 
+WEBSITE DEVELOPMENT:
+• If anyone asks who created, built, or developed this website, you must reply that it was developed by Abisha Dhungel.
+
 Whenever a user asks about booking, contact, or medicines, you can recommend they reach out via WhatsApp at +977 9767797950.`;
 
 
@@ -95,19 +98,19 @@ export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputVal, setInputVal] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const [chatHistory, setChatHistory] = useState([
     { role: 'system', content: systemPrompt }
   ]);
 
   const [messages, setMessages] = useState([
-    { 
-      sender: 'bot', 
-      text: marked.parse('Hello! Welcome to Ayna Clinic. How can I help you today? You can ask about our **treatments**, **pricing**, or **location**!'), 
-      isHtml: true 
+    {
+      sender: 'bot',
+      text: 'Hello! Welcome to Ayna Clinic. How can I help you today? You can ask about our **treatments**, **pricing**, or **location**!',
+      isHtml: true
     }
   ]);
-  
+
   const messagesEndRef = useRef(null);
 
   const toggleChat = () => {
@@ -116,10 +119,10 @@ export default function Chatbot() {
 
   const handleSend = async () => {
     if (inputVal.trim() === '') return;
-    
+
     const userText = inputVal.trim();
     const userMsg = { sender: 'user', text: userText };
-    
+
     setMessages(prev => [...prev, userMsg]);
     setInputVal('');
     setIsLoading(true);
@@ -148,12 +151,12 @@ export default function Chatbot() {
 
       const data = await response.json();
       const botResponseText = data.choices[0].message.content;
-      
+
       const htmlResponse = marked.parse(botResponseText);
 
       setMessages(prev => [...prev, { sender: 'bot', text: htmlResponse, isHtml: true }]);
       setChatHistory(prev => [...prev, { role: 'assistant', content: botResponseText }]);
-      
+
     } catch (error) {
       console.error("Error communicating with AI:", error);
       setMessages(prev => [...prev, { sender: 'bot', text: "I'm sorry, I am having trouble connecting right now. Please call us directly.", isHtml: false }]);
@@ -173,36 +176,27 @@ export default function Chatbot() {
       <div id="chatbot-launcher" onClick={toggleChat} className={isOpen ? 'chat-open' : ''}>
         <i className={isOpen ? 'fas fa-times' : 'fas fa-comment-dots'}></i>
       </div>
-      
+
       <div id="chatbot-window" className={isOpen ? 'open' : ''}>
-        <div id="chatbot-header" style={{ padding: '16px 20px', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{ position: 'relative', width: '40px', height: '40px', borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#5B9E3A', fontSize: '1.2rem', boxShadow: '0 2px 5px rgba(0,0,0,0.1)' }}>
-              <i className="fas fa-robot"></i>
-              <div style={{ position: 'absolute', bottom: '0', right: '0', width: '12px', height: '12px', background: '#25d366', border: '2px solid #5B9E3A', borderRadius: '50%' }}></div>
-            </div>
-            <div>
-              <span style={{ display: 'block', fontSize: '1.1rem', fontWeight: '800', lineHeight: '1.2' }}>Ayna Assistant</span>
-              <span style={{ display: 'block', fontSize: '0.8rem', fontWeight: '500', opacity: 0.9 }}>Online Support</span>
-            </div>
-          </div>
-          <button className="close-btn" onClick={toggleChat} style={{ fontSize: '1.4rem' }}>
+        <div id="chatbot-header">
+          <span>Ayna AI Assistant</span>
+          <button className="close-btn" onClick={toggleChat}>
             <i className="fas fa-times"></i>
           </button>
         </div>
-        
+
         <div id="chatbot-messages">
           {messages.map((msg, index) => (
-             <div 
-               key={index} 
-               className={`msg ${msg.sender === 'user' ? 'user-msg' : 'bot-msg'}`}
-             >
-               {msg.isHtml ? (
-                 <div dangerouslySetInnerHTML={{ __html: msg.text }} className="markdown-body" />
-               ) : (
-                 <div>{msg.text}</div>
-               )}
-             </div>
+            <div
+              key={index}
+              className={`msg ${msg.sender === 'user' ? 'user-msg' : 'bot-msg'}`}
+            >
+              {msg.isHtml ? (
+                <div dangerouslySetInnerHTML={{ __html: msg.text }} className="markdown-body" />
+              ) : (
+                <div>{msg.text}</div>
+              )}
+            </div>
           ))}
           {isLoading && (
             <div className="msg bot-msg typing-msg">
@@ -213,11 +207,11 @@ export default function Chatbot() {
           )}
           <div ref={messagesEndRef} />
         </div>
-        
+
         <div id="chatbot-input-area">
-          <input 
-            type="text" 
-            placeholder="Type a message..." 
+          <input
+            type="text"
+            placeholder="Type a message..."
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             onKeyPress={(e) => {
