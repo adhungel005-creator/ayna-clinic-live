@@ -12,7 +12,6 @@ import Showcase from './components/Showcase';
 import Testimonials from './components/Testimonials';
 import Informational from './components/Informational';
 import FAQ from './components/FAQ';
-import FindUs from './components/FindUs';
 import Contact from './components/Contact';
 import Chatbot from './components/Chatbot';
 import Footer from './components/Footer';
@@ -67,7 +66,6 @@ export default function App() {
         <Testimonials />
         <Informational />
         <FAQ />
-        <FindUs />
         <Contact />
       </main>
       <Chatbot />
