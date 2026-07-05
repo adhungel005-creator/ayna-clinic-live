@@ -1,0 +1,490 @@
+/* EmployeeSignIn.css */
+
+.emp-login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-premium) 0%, var(--bg-alt) 100%);
+  position: relative;
+  padding: 20px;
+}
+
+.emp-back-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: none;
+  border: none;
+  color: var(--text-body);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.emp-back-btn:hover {
+  color: var(--dark-green);
+  transform: translateX(-5px);
+}
+
+.emp-login-card {
+  background: var(--bg-card);
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--glass-border);
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.emp-login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.emp-login-logo {
+  height: 60px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.emp-login-header h2 {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.emp-login-header p {
+  color: var(--text-body);
+  font-size: 0.95rem;
+}
+
+.emp-form-group {
+  margin-bottom: 20px;
+}
+
+.emp-form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.emp-form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #E5E9E4;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--text-dark);
+  transition: var(--transition);
+  background-color: #FAFBFA;
+}
+
+.emp-form-group input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 4px rgba(109, 190, 69, 0.1);
+  background-color: var(--bg-card);
+}
+
+.emp-form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.emp-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  cursor: pointer;
+}
+
+.emp-forgot-pw {
+  font-size: 0.9rem;
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.emp-forgot-pw:hover {
+  color: var(--dark-green);
+}
+
+.emp-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(109, 190, 69, 0.25);
+}
+
+.emp-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(109, 190, 69, 0.35);
+}
+
+.emp-error-msg {
+  background-color: #FEEFEF;
+  color: #D92D20;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  border: 1px solid #FECDCA;
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Dashboard Styles */
+.emp-portal-container {
+  min-height: 100vh;
+  background-color: var(--bg-alt);
+}
+
+.emp-header {
+  background-color: var(--bg-card);
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.emp-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.emp-logo img {
+  height: 40px;
+  border-radius: 8px;
+}
+
+.emp-logo span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.emp-logout-btn {
+  padding: 10px 20px;
+  background: none;
+  border: 1px solid #E5E9E4;
+  border-radius: 8px;
+  color: var(--text-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.emp-logout-btn:hover {
+  background-color: #FEEFEF;
+  color: #D92D20;
+  border-color: #FECDCA;
+}
+
+.emp-main {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.emp-dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.emp-greeting {
+  margin-bottom: 10px;
+}
+
+.emp-greeting h2 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.emp-time-card {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.emp-time-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary-green), var(--gold-accent));
+}
+
+.emp-current-time h3 {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  font-family: monospace;
+  letter-spacing: -2px;
+  margin-bottom: 8px;
+}
+
+.emp-current-time p {
+  font-size: 1.1rem;
+  color: var(--text-body);
+  margin-bottom: 30px;
+}
+
+.emp-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #F1F3F5;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+  transition: var(--transition);
+}
+
+.emp-status.active {
+  background-color: #EBFBEE;
+  color: var(--dark-green);
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ADB5BD;
+}
+
+.emp-status.active .status-indicator {
+  background-color: var(--primary-green);
+  box-shadow: 0 0 10px var(--primary-green);
+  animation: pulse 2s infinite;
+}
+
+.emp-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-clock-in, .btn-clock-out {
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+}
+
+.btn-clock-in {
+  background-color: var(--primary-green);
+  color: white;
+  box-shadow: 0 8px 20px rgba(109, 190, 69, 0.25);
+}
+
+.btn-clock-in:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(109, 190, 69, 0.35);
+  background-color: var(--dark-green);
+}
+
+.btn-clock-in:disabled {
+  background-color: #E5E9E4;
+  color: #ADB5BD;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-clock-out {
+  background-color: #FFFFFF;
+  color: #D92D20;
+  border: 1px solid #FECDCA;
+}
+
+.btn-clock-out:hover:not(:disabled) {
+  background-color: #FEEFEF;
+  transform: translateY(-2px);
+}
+
+.btn-clock-out:disabled {
+  background-color: #F8F9FA;
+  color: #DEE2E6;
+  border-color: #E9ECEF;
+  cursor: not-allowed;
+}
+
+.emp-logs-card {
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.emp-logs-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.emp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.emp-table th, .emp-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #F1F3F5;
+}
+
+.emp-table th {
+  font-weight: 600;
+  color: var(--text-body);
+  background-color: #F8F9FA;
+  border-bottom: 2px solid #E9ECEF;
+}
+
+.emp-table td {
+  color: var(--text-dark);
+}
+
+.log-type {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.type-in {
+  background-color: #EBFBEE;
+  color: var(--dark-green);
+}
+
+.type-out {
+  background-color: #FFF5F5;
+  color: #E03131;
+}
+
+.no-logs {
+  text-align: center;
+  color: var(--text-body);
+  padding: 40px 0;
+  font-style: italic;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(109, 190, 69, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(109, 190, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(109, 190, 69, 0); }
+}
+
+@media (max-width: 768px) {
+  .emp-main {
+    padding: 20px;
+  }
+  
+  .emp-current-time h3 {
+    font-size: 3rem;
+  }
+  
+  .emp-actions {
+    flex-direction: column;
+  }
+  
+  .emp-header {
+    padding: 16px 20px;
+  }
+}
+
+.emp-scrum-banner {
+  background: linear-gradient(135deg, #FFF3CD, #FFE69C);
+  color: #856404;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  display: inline-block;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 6px rgba(133, 100, 4, 0.05);
+  border: 1px solid #FFEEBA;
+}
+
+.emp-scrum-banner i {
+  margin-right: 8px;
+}
+
+.badge-late {
+  background-color: #FFF5F5;
+  color: #E03131;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid #FFC9C9;
+}
+
+.badge-ontime {
+  background-color: #EBFBEE;
+  color: #2B8A3E;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid #B2F2BB;
+}
