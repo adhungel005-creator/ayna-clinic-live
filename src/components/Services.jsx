@@ -78,7 +78,7 @@ export default function Services() {
         
         <div className="services-grid" id="main-services-grid">
           {servicesData.map((service, index) => (
-            <div className="service-card" key={index}>
+            <div className="service-card reveal-scale" data-stagger key={index}>
               <h4>{service.title}</h4>
               <ul>
                 {service.items.map((item, idx) => (

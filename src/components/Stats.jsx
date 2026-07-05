@@ -49,15 +49,15 @@ export default function Stats() {
   return (
     <div className="container reveal-on-scroll">
       <div className="stats-container">
-        <div className="stat-item">
+        <div className="stat-item reveal-scale" data-stagger>
           <StatCounter targetValue="5000" />
           <p>Patients Treated</p>
         </div>
-        <div className="stat-item">
+        <div className="stat-item reveal-scale" data-stagger>
           <StatCounter targetValue="50" />
           <p>Treatment Types</p>
         </div>
-        <div className="stat-item">
+        <div className="stat-item reveal-scale" data-stagger>
           <StatCounter targetValue="2" />
           <p>Years of Excellence</p>
         </div>

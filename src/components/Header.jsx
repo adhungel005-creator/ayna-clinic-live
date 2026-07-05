@@ -38,7 +38,9 @@ export default function Header() {
       <div className="container">
         <nav className="hamburger-nav-container">
           <div className="logo">
-            <img src="/assets/images/ayna.jpg" alt="Ayna Logo" className="side-logo" />
+            <a href="#home">
+              <img src="/assets/images/ayna.jpg" alt="Ayna Logo" className="side-logo" />
+            </a>
           </div>
           
           <button className="hamburger-toggle-btn" onClick={toggleMobileMenu} aria-label="Toggle menu">
@@ -50,7 +52,9 @@ export default function Header() {
           
           <div className={`side-menu ${isMobileMenuOpen ? 'open' : ''}`}>
             <div className="side-menu-header">
-              <img src="/assets/images/ayna.jpg" alt="Ayna Logo" className="side-logo" />
+              <a href="#home" onClick={closeMobileMenu}>
+                <img src="/assets/images/ayna.jpg" alt="Ayna Logo" className="side-logo" />
+              </a>
               <button className="close-menu-btn" onClick={closeMobileMenu}>
                 <i className="fas fa-times"></i>
               </button>

@@ -33,10 +33,17 @@ export default function App() {
   useEffect(() => {
     if (isEmployeePortal) return;
     
-    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale');
     const revealObserver = new IntersectionObserver((entries) => {
+      let delayCounter = 0;
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          // If the element requests staggering, apply a CSS custom property
+          if (entry.target.hasAttribute('data-stagger')) {
+            const delay = delayCounter * 0.15; // 150ms stagger
+            entry.target.style.setProperty('--reveal-delay', `${delay}s`);
+            delayCounter++;
+          }
           entry.target.classList.add('revealed');
           revealObserver.unobserve(entry.target);
         }

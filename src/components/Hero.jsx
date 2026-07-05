@@ -5,12 +5,14 @@ export default function Hero() {
     <section id="home" className="hero">
       <div className="container">
         <div className="hero-grid">
-          <div className="hero-text reveal-on-scroll">
-            <h1>Flawless Skin & Hair Starts At <br />Biratnagar's <span>Premium Dermatology Center.</span></h1>
-            <p>Experience world-class skin, hair, and laser care. Trusted by 5000+ patients. Book your professional consultation with <strong>Dr. Bibisha Baaniya</strong> today.</p>
-            <a href="#contact" className="btn-premium btn-inline">Book Priority Consultation</a>
+          <div className="hero-text">
+            <h1 className="reveal-left" data-stagger>Flawless Skin & Hair Starts At <br />Biratnagar's <span>Premium Dermatology Center.</span></h1>
+            <p className="reveal-left" data-stagger>Experience world-class skin, hair, and laser care. Trusted by 5000+ patients. Book your professional consultation with <strong>Dr. Bibisha Baaniya</strong> today.</p>
+            <div className="reveal-left" data-stagger>
+              <a href="#contact" className="btn-premium btn-inline">Book Priority Consultation</a>
+            </div>
           </div>
-          <div className="hero-image-wrapper reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>
+          <div className="hero-image-wrapper reveal-scale">
             <img src="/assets/images/hero-bg.jpg" className="hero-main-img" alt="Ayna Clinic Hero Image" />
             <div className="floating-badge badge-1">
               <i className="fas fa-heartbeat"></i>
