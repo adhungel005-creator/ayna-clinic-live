@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="reveal-on-scroll" style={{ backgroundColor: 'white' }}>
+    <section id="contact-section" className="reveal-on-scroll" style={{ backgroundColor: 'white' }}>
       <div className="container">
         <div className="contact-container">
           <div className="contact-info">
