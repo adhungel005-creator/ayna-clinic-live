@@ -14,7 +14,7 @@ import Informational from './components/Informational';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import BookingModal from './components/BookingModal';
-import Chatbot from './components/Chatbot';
+
 import Footer from './components/Footer';
 import EmployeeSignIn from './components/EmployeeSignIn';
 import './App.css';
@@ -76,7 +76,7 @@ export default function App() {
         <FAQ />
         <Contact />
       </main>
-      <Chatbot />
+
       <BookingModal />
       <Footer />
     </>
