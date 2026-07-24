@@ -146,23 +146,7 @@ export default function Chatbot() {
       </div>
 
       {isOpen && (
-        <div 
-          className="chatbot-window"
-          style={{
-            position: 'fixed',
-            bottom: '90px',
-            right: '20px',
-            width: '350px',
-            height: '500px',
-            backgroundColor: '#fff',
-            borderRadius: '12px',
-            boxShadow: '0 5px 15px rgba(0,0,0,0.15)',
-            display: 'flex',
-            flexDirection: 'column',
-            zIndex: 9998,
-            overflow: 'hidden'
-          }}
-        >
+        <div className="chatbot-window">
           <div className="chatbot-header" style={{
             backgroundColor: 'var(--color-primary, #b76e79)',
             color: 'white',

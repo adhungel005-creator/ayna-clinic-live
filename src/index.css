@@ -1734,3 +1734,31 @@ footer p {
     background: transparent;
     box-shadow: none;
 }
+
+/* Chatbot Responsive Styles */
+.chatbot-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    z-index: 9998;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+    .chatbot-window {
+        width: 100vw !important;
+        height: 100dvh !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        border-radius: 0 !important;
+        max-height: 100dvh !important;
+    }
+}
