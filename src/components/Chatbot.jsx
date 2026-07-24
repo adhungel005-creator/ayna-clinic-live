@@ -79,21 +79,13 @@ export default function Chatbot() {
         userMessage
       ];
 
-      const apiKey = import.meta.env.VITE_GROQ_API_KEY;
-      if (!apiKey) {
-        throw new Error('API Key missing. Please check .env file.');
-      }
-
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          model: 'llama-3.3-70b-versatile',
-          messages: apiMessages,
-          temperature: 0.6
+          messages: apiMessages
         })
       });
 
