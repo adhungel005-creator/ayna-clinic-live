@@ -12,6 +12,7 @@ import Showcase from './components/Showcase';
 import Testimonials from './components/Testimonials';
 import Informational from './components/Informational';
 import FAQ from './components/FAQ';
+import Quiz from './components/Quiz';
 import Contact from './components/Contact';
 import BookingModal from './components/BookingModal';
 import Chatbot from './components/Chatbot';
@@ -74,6 +75,7 @@ export default function App() {
         <Showcase />
         <Testimonials />
         <Informational />
+        <Quiz />
         <FAQ />
         <Contact />
       </main>
