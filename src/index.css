@@ -17,6 +17,22 @@
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+[data-theme="dark"] {
+    --primary-green: #58A033;
+    --dark-green: #37751E;
+    --gold-accent: #D4B05F;
+    --text-dark: #F0F4F0;
+    --text-body: #A9B3A7;
+    --bg-premium: #0F1610;
+    --bg-alt: #162017;
+    --bg-card: #1A261B;
+    --glass-bg: rgba(26, 38, 27, 0.85);
+    --glass-border: rgba(109, 190, 69, 0.15);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
 /* Base Styles */
 * {
     margin: 0;
@@ -25,7 +41,15 @@
     font-family: 'Inter', sans-serif;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
 html {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
     scroll-behavior: smooth;
     background-color: var(--bg-premium);
 }

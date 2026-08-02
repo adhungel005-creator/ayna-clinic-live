@@ -4,6 +4,16 @@ import { trackEvent } from '../utils/analytics';
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     let ticking = false;
@@ -44,10 +54,19 @@ export default function Header() {
             </a>
           </div>
           
-          <button className="hamburger-toggle-btn" onClick={toggleMobileMenu} aria-label="Toggle menu">
-            <span>Menu</span>
-            <i className="fas fa-bars"></i>
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <button 
+              onClick={toggleTheme} 
+              style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.2rem', color: 'var(--text-dark)' }}
+              aria-label="Toggle Dark Mode"
+            >
+              {theme === 'light' ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>}
+            </button>
+            <button className="hamburger-toggle-btn" onClick={toggleMobileMenu} aria-label="Toggle menu">
+              <span>Menu</span>
+              <i className="fas fa-bars"></i>
+            </button>
+          </div>
           
           <div className={`nav-overlay ${isMobileMenuOpen ? 'open' : ''}`} onClick={closeMobileMenu}></div>
           

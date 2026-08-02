@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { trackEvent } from '../utils/analytics';
+import CalendarPicker from './CalendarPicker';
+import { format } from 'date-fns';
 
 export default function BookingModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,7 +58,7 @@ export default function BookingModal() {
       `*Phone:* ${phone}%0A` +
       `*Service:* ${service}%0A` +
       `*Consultation:* ${consultationType}%0A` +
-      `*Date:* ${date}%0A` +
+      `*Date:* ${date ? format(date, 'yyyy-MM-dd') : 'Not selected'}%0A` +
       `*Message:* ${message || "None"}`;
 
     const waLink = `https://wa.me/9779767797950?text=${formattedMessage}`;
@@ -74,7 +76,7 @@ export default function BookingModal() {
     setPhone('');
     setService('');
     setConsultationType('');
-    setDate('');
+    setDate(null);
     setMessage('');
   };
 
@@ -129,11 +131,9 @@ export default function BookingModal() {
               <option value="Physical">Physical Consultation (In-Clinic)</option>
               <option value="Online">Online Consultation (Video/Call)</option>
             </select>
-            <input 
-              type="date" 
-              required 
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
+            <CalendarPicker 
+              selectedDate={date} 
+              onDateSelect={setDate} 
             />
             <textarea 
               rows="3" 

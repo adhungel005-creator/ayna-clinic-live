@@ -14,6 +14,8 @@ import Informational from './components/Informational';
 import FAQ from './components/FAQ';
 import Quiz from './components/Quiz';
 import Contact from './components/Contact';
+import CostEstimator from './components/CostEstimator';
+import VirtualAnalysis from './components/VirtualAnalysis';
 import BookingModal from './components/BookingModal';
 import Chatbot from './components/Chatbot';
 
@@ -72,11 +74,13 @@ export default function App() {
         <Services />
         <Pharmacy />
         <Results />
+        <CostEstimator />
+        <VirtualAnalysis />
         <Showcase />
         <Testimonials />
         <Informational />
-        <Quiz />
         <FAQ />
+        <Quiz />
         <Contact />
       </main>
 
