@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { trackEvent } from '../utils/analytics';
 
 export default function BookingModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +61,8 @@ export default function BookingModal() {
 
     const waLink = `https://wa.me/9779767797950?text=${formattedMessage}`;
     window.open(waLink, '_blank');
+
+    trackEvent('submit_booking', 'Modal', 'Popup Booking Form');
 
     setShowSuccess(true);
     setTimeout(() => {

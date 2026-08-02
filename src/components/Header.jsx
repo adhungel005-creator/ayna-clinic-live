@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { trackEvent } from '../utils/analytics';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,7 +33,7 @@ export default function Header() {
     <header className={isScrolled ? 'scrolled' : ''}>
       <div className="promo-bar">
         🎉 Tuesday Special: General OPD Fees Only Rs.100! 
-        <a href="#contact" style={{ color: 'white', textDecoration: 'underline', marginLeft: '5px' }}>Book Now</a>
+        <a href="#contact" onClick={() => trackEvent('click_book', 'Navigation', 'Header Promo Book')} style={{ color: 'white', textDecoration: 'underline', marginLeft: '5px' }}>Book Now</a>
       </div>
       
       <div className="container">
@@ -64,7 +65,7 @@ export default function Header() {
               <li><a href="#about" onClick={closeMobileMenu}><i className="fas fa-info-circle"></i> About Us</a></li>
               <li><a href="#services" onClick={closeMobileMenu}><i className="fas fa-spa"></i> Services</a></li>
               <li><a href="#gallery" onClick={closeMobileMenu}><i className="fas fa-images"></i> Gallery</a></li>
-              <li><a href="#contact" onClick={closeMobileMenu} className="btn-priority" style={{color: 'black'}}><i className="fas fa-calendar-check"></i> Book Appointment</a></li>
+              <li><a href="#contact" onClick={(e) => { closeMobileMenu(); trackEvent('click_book', 'Navigation', 'Mobile Menu Book'); }} className="btn-priority" style={{color: 'black'}}><i className="fas fa-calendar-check"></i> Book Appointment</a></li>
             </ul>
             <div className="side-menu-footer">
               <p style={{fontSize: '0.85rem', color: '#666', margin: 0}}>Call Us: <strong>+977 9767797950</strong></p>

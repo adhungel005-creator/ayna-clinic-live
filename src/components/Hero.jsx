@@ -1,4 +1,5 @@
 import React from 'react';
+import { trackEvent } from '../utils/analytics';
 
 export default function Hero() {
   return (
@@ -9,7 +10,7 @@ export default function Hero() {
             <h1 className="reveal-left" data-stagger>Flawless Skin & Hair Starts At <br />Biratnagar's <span>Premium Dermatology Center.</span></h1>
             <p className="reveal-left" data-stagger>Experience world-class skin, hair, and laser care. Trusted by 5000+ patients. Book your professional consultation with <strong>Dr. Bibisha Baaniya</strong> today.</p>
             <div className="reveal-left" data-stagger>
-              <a href="#contact" className="btn-premium btn-inline">Book Priority Consultation</a>
+              <a href="#contact" onClick={() => trackEvent('click_book', 'Hero', 'Main CTA')} className="btn-premium btn-inline">Book Priority Consultation</a>
             </div>
           </div>
           <div className="hero-image-wrapper reveal-scale">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { trackEvent } from '../utils/analytics';
 
 export default function Pharmacy() {
   return (
@@ -18,6 +19,7 @@ export default function Pharmacy() {
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-premium btn-inline"
+            onClick={() => trackEvent('click_whatsapp', 'Pharmacy', 'Order Medicines')}
           >
             <i className="fab fa-whatsapp" style={{ marginRight: '8px' }}></i> Order Medicines via WhatsApp
           </a>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackEvent } from '../utils/analytics';
 
 export default function Contact() {
   const [name, setName] = useState('');
@@ -11,6 +12,7 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    trackEvent('submit_booking', 'Contact Page', 'Booking Form');
     
     const formattedMessage = `*New Appointment Request* %0A%0A` +
       `*Name:* ${name}%0A` +
@@ -50,7 +52,7 @@ export default function Contact() {
             </p>
             <p>
               <i className="fab fa-whatsapp"></i> 
-              <a href="https://wa.me/9779767797950" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/9779767797950" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('click_whatsapp', 'Contact Page', 'WhatsApp Chat')}>
                 Chat on WhatsApp
               </a>
             </p>

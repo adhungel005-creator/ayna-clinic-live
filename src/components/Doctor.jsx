@@ -1,4 +1,5 @@
 import React from 'react';
+import { trackEvent } from '../utils/analytics';
 
 export default function Doctor() {
   return (
@@ -18,7 +19,7 @@ export default function Doctor() {
               With a patient-centered and holistic approach, Dr. Baaniya creates customized treatment plans designed to deliver safe, effective, and long-lasting results.
             </p>
             <div style={{ marginTop: '30px' }}>
-              <a href="#contact" className="btn-premium btn-inline">Consult Dr. Baaniya</a>
+              <a href="#contact" onClick={() => trackEvent('click_book', 'Doctor Profile', 'Consult Button')} className="btn-premium btn-inline">Consult Dr. Baaniya</a>
             </div>
           </div>
           <div className="flex-image doctor-img-frame">
